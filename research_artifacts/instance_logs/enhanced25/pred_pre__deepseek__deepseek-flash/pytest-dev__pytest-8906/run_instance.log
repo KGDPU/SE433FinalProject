@@ -1,0 +1,41 @@
+2026-11-20 12:14:32,945 - WARNING - Starting evaluation at 1795198472.9457624
+2026-11-20 12:14:33,169 - INFO - Creating container for pytest-dev__pytest-8906...
+2026-11-20 12:14:33,444 - INFO - Container for pytest-dev__pytest-8906 created: 3e42828cb3a09540c41ccd152f3c7dd73bbb107f8b7c0e3a99a5984cb9331b33
+2026-11-20 12:14:33,701 - INFO - Container for pytest-dev__pytest-8906 started: 3e42828cb3a09540c41ccd152f3c7dd73bbb107f8b7c0e3a99a5984cb9331b33
+2026-11-20 12:14:37,032 - INFO - Git diff before:
+
+2026-11-20 12:14:37,035 - INFO - Eval script for pytest-dev__pytest-8906 written to eval.sh, now applying to container...
+2026-11-20 12:14:52,189 - INFO - Test output for pytest-dev__pytest-8906 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/pytest-dev__pytest-8906/test_output.txt
+2026-11-20 12:14:52,256 - INFO - Git diff after:
+diff --git a/testing/test_skipping.py b/testing/test_skipping.py
+index 53bf953a8..01d43aa2a 100644
+--- a/testing/test_skipping.py
++++ b/testing/test_skipping.py
+@@ -1329,7 +1329,7 @@ def test_xfail_item(pytester: Pytester) -> None:
+ 
+ 
+ def test_module_level_skip_error(pytester: Pytester) -> None:
+-    """Verify that using pytest.skip at module level causes a collection error."""
++    """Using pytest.skip at module level points users to allow_module_level."""
+     pytester.makepyfile(
+         """
+         import pytest
+@@ -1340,8 +1340,13 @@ def test_module_level_skip_error(pytester: Pytester) -> None:
+     """
+     )
+     result = pytester.runpytest()
+-    result.stdout.fnmatch_lines(
+-        ["*Using pytest.skip outside of a test is not allowed*"]
++    stdout = result.stdout.str()
++    assert (
++        "Using pytest.skip outside of a test will skip the entire module" in stdout
++    )
++    assert "If that's your intention, pass `allow_module_level=True`" in stdout
++    assert (
++        "use the @pytest.mark.skip or @pytest.mark.skipif decorators" in stdout
+     )
+2026-11-20 12:14:52,256 - INFO - Git diff changed after running eval script
+2026-11-20 12:14:52,257 - INFO - Attempting to stop container exec.eval.x86_64.f4028624418b912e4444d5.f450bac883b12330e0396e.139575350046032...
+2026-11-20 12:15:08,034 - INFO - Attempting to remove container exec.eval.x86_64.f4028624418b912e4444d5.f450bac883b12330e0396e.139575350046032...
+2026-11-20 12:15:08,136 - INFO - Container exec.eval.x86_64.f4028624418b912e4444d5.f450bac883b12330e0396e.139575350046032 removed.
+2026-11-20 12:15:08,138 - WARNING - End of eval at 1795198508.1380916

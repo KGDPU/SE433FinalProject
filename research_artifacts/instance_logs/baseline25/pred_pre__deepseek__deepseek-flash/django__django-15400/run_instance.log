@@ -1,0 +1,127 @@
+2026-11-19 01:32:10,457 - WARNING - Starting evaluation at 1795073530.4573379
+2026-11-19 01:37:52,393 - ERROR - Error in evaluating model for django__django-15400: exec.env.x86_64.6b24dca158642bd6288384:latest: ('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+Check (image_build_logs/base/exec.env.x86_64.6b24dca158642bd6288384__latest/build_image.log) for more information.
+2026-11-19 01:37:54,476 - INFO - Traceback (most recent call last):
+  File "/usr/lib/python3.14/http/client.py", line 584, in _get_chunk_left
+    chunk_left = self._read_next_chunk_size()
+  File "/usr/lib/python3.14/http/client.py", line 551, in _read_next_chunk_size
+    return int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/http/client.py", line 602, in _read_chunked
+    while (chunk_left := self._get_chunk_left()) is not None:
+                         ~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/client.py", line 586, in _get_chunk_left
+    raise IncompleteRead(b'')
+http.client.IncompleteRead: IncompleteRead(0 bytes read)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/urllib3/response.py", line 903, in _error_catcher
+    yield
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1028, in _raw_read
+    data = self._fp_read(amt, read1=read1) if not fp_closed else b""
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1011, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+           ~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.14/http/client.py", line 478, in read
+    return self._read_chunked(amt)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib/python3.14/http/client.py", line 614, in _read_chunked
+    raise IncompleteRead(b''.join(value)) from exc
+http.client.IncompleteRead: IncompleteRead(0 bytes read)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/docker_build.py", line 172, in build_image
+    for line in response:
+                ^^^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/docker_build.py", line 93, in docker_build_api
+    for chunk in response:
+                 ^^^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/docker/api/client.py", line 360, in _stream_helper
+    yield from json_stream(self._stream_helper(response, False))
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/docker/utils/json_stream.py", line 60, in split_buffer
+    for data in stream_as_text(stream):
+                ~~~~~~~~~~~~~~^^^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/docker/utils/json_stream.py", line 16, in stream_as_text
+    for data in stream:
+                ^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/docker/api/client.py", line 365, in _stream_helper
+    data = reader.read(1)
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1112, in read
+    data = self._raw_read(amt)
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/urllib3/response.py", line 1027, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/.venv/lib/python3.14/site-packages/urllib3/response.py", line 930, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/run_evaluation.py", line 223, in run_eval_exec_spec
+    container = start_container(exec_spec, client, logger, build_mode=build_mode)
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/docker_build.py", line 756, in start_container
+    container = build_container(exec_spec, client, logger, exec_spec.rm_image, exec_spec.force_rebuild, build_mode)
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/docker_build.py", line 724, in build_container
+    build_instance_image_from_exec_spec(exec_spec, force_rebuild, build_mode)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/docker_build.py", line 574, in build_instance_image_from_exec_spec
+    build_env_image_from_exec_spec(exec_spec, force_rebuild, build_mode=build_mode)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/docker_build.py", line 331, in build_env_image_from_exec_spec
+    build_image(
+    ~~~~~~~~~~~^
+        image_name=image_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        build_mode=build_mode,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/c/Users/karol_imw5cyn/Downloads/swt-bench-master/swt-bench-master/src/docker_build.py", line 180, in build_image
+    raise BuildImageError(image_name, str(e), logger) from e
+src.docker_build.BuildImageError: exec.env.x86_64.6b24dca158642bd6288384:latest: ('Connection broken: IncompleteRead(0 bytes read)', IncompleteRead(0 bytes read))
+Check (image_build_logs/base/exec.env.x86_64.6b24dca158642bd6288384__latest/build_image.log) for more information.
+
+2026-11-19 01:37:58,875 - WARNING - End of eval at 1795073878.875317
+2026-11-19 03:31:00,246 - WARNING - Starting evaluation at 1795080660.246634
+2026-11-19 03:41:12,980 - INFO - Creating container for django__django-15400...
+2026-11-19 03:41:13,304 - INFO - Container for django__django-15400 created: 3bda78bde40552a33a0fb52c141ca410e1d6e4f26c19713e1010ced55ed2e72a
+2026-11-19 03:41:13,609 - INFO - Container for django__django-15400 started: 3bda78bde40552a33a0fb52c141ca410e1d6e4f26c19713e1010ced55ed2e72a
+2026-11-19 03:41:14,506 - INFO - Git diff before:
+
+2026-11-19 03:41:14,521 - INFO - Eval script for django__django-15400 written to eval.sh, now applying to container...
+2026-11-19 03:41:20,773 - INFO - Test output for django__django-15400 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/django__django-15400/test_output.txt
+2026-11-19 03:41:20,900 - INFO - Git diff after:
+diff --git a/tests/utils_tests/test_lazyobject.py b/tests/utils_tests/test_lazyobject.py
+index 9ccae595f4..ad4db600ab 100644
+--- a/tests/utils_tests/test_lazyobject.py
++++ b/tests/utils_tests/test_lazyobject.py
+@@ -317,6 +317,10 @@ class SimpleLazyObjectTestCase(LazyObjectTestCase):
+         self.assertIsInstance(obj._wrapped, int)
+         self.assertEqual(repr(obj), "<SimpleLazyObject: 42>")
+ 
++    def test_radd(self):
++        obj1 = self.lazy_wrap(1)
++        self.assertEqual(1 + obj1, 2)
++
+     def test_trace(self):
+         # See ticket #19456
+         old_trace_func = sys.gettrace()
+2026-11-19 03:41:20,902 - INFO - Git diff changed after running eval script
+2026-11-19 03:41:20,904 - INFO - Attempting to stop container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.125222694407712...
+2026-11-19 03:41:36,620 - INFO - Attempting to remove container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.125222694407712...
+2026-11-19 03:41:36,708 - INFO - Container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.125222694407712 removed.
+2026-11-19 03:41:36,711 - WARNING - End of eval at 1795081296.710283

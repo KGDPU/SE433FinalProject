@@ -1,0 +1,556 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git diff HEAD f35ad6411f86a15dd78db39c29d1e5291f66f9b5
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch master
+nothing to commit, working tree clean
++ git show
+commit f35ad6411f86a15dd78db39c29d1e5291f66f9b5
+Merge: 0ab10c3fbd 3b1d1a9a11
+Author: Kalevi Suominen <jksuom@gmail.com>
+Date:   Mon Mar 5 09:50:44 2018 +0200
+
+    Merge pull request #14383 from normalhuman/distribution_infinity
+    
+    Remove automatic distribution of infinite factors
+
++ git diff f35ad6411f86a15dd78db39c29d1e5291f66f9b5
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e .
+Obtaining file:///testbed
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: mpmath>=0.19 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from sympy==1.1.2.dev0) (1.3.0)
+Building wheels for collected packages: sympy
+  Building editable for sympy (pyproject.toml): started
+  Building editable for sympy (pyproject.toml): finished with status 'done'
+  Created wheel for sympy: filename=sympy-1.1.2.dev0-0.editable-py3-none-any.whl size=17323 sha256=6741b53657fb452a9be32d8333d6fb163976a143c80473e85459071cca69fe43
+  Stored in directory: /tmp/pip-ephem-wheel-cache-vykrvxdo/wheels/7d/66/67/70d1ee2124ccf21d601c352e25cdca10f611f7c8b3f9ffb9e4
+Successfully built sympy
+Installing collected packages: sympy
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.1.2.dev0
+    Uninstalling sympy-1.1.2.dev0:
+      Successfully uninstalled sympy-1.1.2.dev0
+Successfully installed sympy-1.1.2.dev0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git apply -v -
+Checking patch sympy/polys/polyoptions.py...
+Applied patch sympy/polys/polyoptions.py cleanly.
++ git apply -v -
+Checking patch sympy/polys/tests/test_polyoptions.py...
+warning: sympy/polys/tests/test_polyoptions.py has type 100644, expected 100755
+Checking patch sympy/polys/tests/test_polytools.py...
+warning: sympy/polys/tests/test_polytools.py has type 100644, expected 100755
+Applied patch sympy/polys/tests/test_polyoptions.py cleanly.
+Applied patch sympy/polys/tests/test_polytools.py cleanly.
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(sympy/polys/polyoptions\.py)' bin/test -C --verbose sympy/polys/tests/test_polyoptions.py sympy/polys/tests/test_polytools.p
+/testbed/sympy/core/basic.py:3: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Mapping, defaultdict
+/testbed/sympy/core/expr.py:12: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import defaultdict, Iterable
+/testbed/sympy/core/containers.py:271: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  class OrderedSet(collections.MutableSet):
+/testbed/sympy/plotting/plot.py:28: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Callable
+/testbed/sympy/core/basic.py:3: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Mapping, defaultdict
+/testbed/sympy/core/expr.py:12: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import defaultdict, Iterable
+/testbed/sympy/core/containers.py:271: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  class OrderedSet(collections.MutableSet):
+/testbed/sympy/plotting/plot.py:28: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Callable
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(sympy/polys/polyoptions\\.py)']
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python3  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        69639856
+hash randomization: on (PYTHONHASHSEED=440167193)
+
+sympy/polys/tests/test_polyoptions.py[46] 
+test_Options_clone ok
+test_Expand_preprocess ok
+test_Expand_postprocess ok
+test_Gens_preprocess ok
+test_Gens_postprocess ok
+test_Wrt_preprocess ok
+test_Wrt_postprocess ok
+test_Sort_preprocess ok
+test_Sort_postprocess ok
+test_Order_preprocess ok
+test_Order_postprocess ok
+test_Field_preprocess ok
+test_Field_postprocess ok
+test_Greedy_preprocess ok
+test_Greedy_postprocess ok
+test_Domain_preprocess ok
+test_Domain_postprocess ok
+test_Split_preprocess ok
+test_Split_postprocess ok
+test_Gaussian_preprocess ok
+test_Gaussian_postprocess ok
+test_Extension_preprocess ok
+test_Extension_postprocess ok
+test_Modulus_preprocess ok
+test_Modulus_postprocess ok
+test_Symmetric_preprocess ok
+test_Symmetric_postprocess ok
+test_Strict_preprocess ok
+test_Strict_postprocess ok
+test_Auto_preprocess ok
+test_Auto_postprocess ok
+test_Frac_preprocess ok
+test_Frac_postprocess ok
+test_Formal_preprocess ok
+test_Formal_postprocess ok
+test_Polys_preprocess ok
+test_Polys_postprocess ok
+test_Include_preprocess ok
+test_Include_postprocess ok
+test_All_preprocess ok
+test_All_postprocess ok
+test_Gen_postprocess ok
+test_Symbols_preprocess ok
+test_Symbols_postprocess ok
+test_Method_preprocess ok
+test_Method_postprocess ok                                                  [OK]
+
+sympy/polys/tests/test_polytools.py[141] 
+test_Poly_from_dict ok
+test_Poly_from_list ok
+test_Poly_from_poly ok
+test_Poly_from_expr ok
+test_Poly__new__ ok
+test_Poly__args ok
+test_Poly__gens ok
+test_Poly_zero ok
+test_Poly_one ok
+test_Poly__unify ok
+test_Poly_free_symbols ok
+test_PurePoly_free_symbols ok
+test_Poly__eq__ ok
+test_PurePoly__eq__ ok
+test_PurePoly_Poly ok
+test_Poly_get_domain ok
+test_Poly_set_domain ok
+test_Poly_get_modulus ok
+test_Poly_set_modulus ok
+test_Poly_add_ground ok
+test_Poly_sub_ground ok
+test_Poly_mul_ground ok
+test_Poly_quo_ground ok
+test_Poly_exquo_ground ok
+test_Poly_abs ok
+test_Poly_neg ok
+test_Poly_add ok
+test_Poly_sub ok
+test_Poly_mul ok
+test_Poly_sqr ok
+test_Poly_pow ok
+test_Poly_divmod ok
+test_Poly_eq_ne ok
+test_Poly_nonzero ok
+test_Poly_properties ok
+test_Poly_is_irreducible ok
+test_Poly_subs ok
+test_Poly_replace ok
+test_Poly_reorder ok
+test_Poly_ltrim ok
+test_Poly_has_only_gens ok
+test_Poly_to_ring ok
+test_Poly_to_field ok
+test_Poly_to_exact ok
+test_Poly_retract ok
+test_Poly_slice ok
+test_Poly_coeffs ok
+test_Poly_monoms ok
+test_Poly_terms ok
+test_Poly_all_coeffs ok
+test_Poly_all_monoms ok
+test_Poly_all_terms ok
+test_Poly_termwise ok
+test_Poly_length ok
+test_Poly_as_dict ok
+test_Poly_as_expr ok
+test_Poly_lift ok
+test_Poly_deflate ok
+test_Poly_inject ok
+test_Poly_eject ok
+test_Poly_exclude ok
+test_Poly__gen_to_level ok
+test_Poly_degree ok
+test_Poly_degree_list ok
+test_Poly_total_degree ok
+test_Poly_homogenize ok
+test_Poly_homogeneous_order ok
+test_Poly_LC ok
+test_Poly_TC ok
+test_Poly_EC ok
+test_Poly_coeff ok
+test_Poly_nth ok
+test_Poly_LM ok
+test_Poly_LM_custom_order ok
+test_Poly_EM ok
+test_Poly_LT ok
+test_Poly_ET ok
+test_Poly_max_norm ok
+test_Poly_l1_norm ok
+test_Poly_clear_denoms ok
+test_Poly_rat_clear_denoms ok
+test_Poly_integrate ok
+test_Poly_diff ok
+test_issue_9585 ok
+test_Poly_eval ok
+test_Poly___call__ ok
+test_parallel_poly_from_expr ok
+test_pdiv ok
+test_div ok
+test_gcdex ok
+test_revert ok
+test_subresultants ok
+test_resultant ok
+test_discriminant ok
+test_dispersion ok
+test_gcd_list ok
+test_lcm_list ok
+test_gcd ok
+test_gcd_numbers_vs_polys ok
+test_terms_gcd ok
+test_trunc ok
+test_monic ok
+test_content ok
+test_primitive ok
+test_compose ok
+test_shift ok
+test_transform ok
+test_sturm ok
+test_gff ok
+test_norm ok
+test_sqf_norm ok
+test_sqf ok
+test_factor ok
+test_factor_large ok
+test_factor_noeval f
+test_intervals ok
+test_refine_root ok
+test_count_roots ok
+test_Poly_root ok
+test_real_roots ok
+test_all_roots ok
+test_nroots ok
+test_ground_roots ok
+test_nth_power_roots_poly ok
+test_torational_factor_list ok
+test_cancel ok
+test_reduced ok
+test_groebner ok
+test_fglm ok
+test_is_zero_dimensional ok
+test_GroebnerBasis ok
+test_poly ok
+test_keep_coeff ok
+test_poly_matching_consistency f
+test_issue_5786 f
+test_noncommutative ok
+test_to_rational_coeffs ok
+test_factor_terms ok
+test_issue_11198 ok
+test_Poly_precision ok
+test_issue_12400 ok                                                         [OK]
+
+
+________________________________ slowest tests _________________________________
+test_factor - Took 10.888 seconds
+======= tests finished: 184 passed, 3 expected to fail, in 44.81 seconds =======
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(sympy/polys/polyoptions\\.py)']
++ cat coverage.cover
+{"/testbed/sympy/polys/polyoptions.py": {"3": 1, "5": 1, "7": 1, "8": 1, "9": 1, "10": 1, "11": 1, "13": 1, "15": 1, "17": 2, "43": 2, "49": 2, "60": 2, "75": 2, "76": 1, "256": 2, "269": 2, "298": 2, "325": 2, "347": 2, "364": 2, "373": 2, "382": 2, "395": 2, "500": 2, "515": 2, "531": 2, "564": 2, "590": 2, "599": 2, "609": 2, "626": 2, "636": 2, "646": 2, "652": 2, "662": 2, "672": 2, "689": 2, "699": 2, "716": 2, "729": 1, "740": 1, "771": 1, "779": 1, "20": 1, "22": 1, "24": 1, "25": 1, "27": 1, "28": 1, "30": 1, "31": 1, "34": 1, "35": 1, "38": 1, "39": 1, "32": 12283, "36": 0, "40": 61772, "46": 1, "52": 1, "53": 1, "54": 486, "55": 473, "57": 13, "63": 1, "64": 25, "65": 25, "71": 25, "72": 25, "66": 38513, "67": 38513, "68": 24754, "69": 24754, "124": 1, "125": 1, "127": 1, "183": 1, "184": 1, "204": 1, "216": 1, "222": 1, "223": 1, "235": 1, "236": 1, "245": 1, "246": 1, "128": 3265, "130": 3265, "131": 0, "132": 0, "133": 3265, "134": 1435, "135": 1435, "137": 3265, "139": 3265, "154": 3265, "156": 3264, "157": 0, "158": 0, "160": 0, "161": 0, "163": 0, "164": 0, "165": 0, "167": 3264, "169": 5934, "170": 2682, "172": 2693, "173": 12, "174": 1, "176": 6728, "177": 4058, "178": 11, "180": 84507, "181": 81258, "140": 9297, "141": 2769, "142": 2769, "143": 0, "144": 0, "146": 2769, "147": 107, "148": 107, "149": 0, "151": 2769, "152": 2706, "186": 1, "187": 1, "189": 26, "190": 25, "192": 30, "193": 5, "195": 25, "196": 0, "198": 1, "199": 1, "200": 0, "201": 0, "202": 0, "206": 2722, "208": 5483, "209": 2761, "211": 5448, "212": 2726, "214": 2722, "217": 1665, "218": 1665, "220": 0, "224": 0, "226": 0, "227": 0, "228": 0, "230": 0, "231": 0, "233": 0, "237": 0, "239": 0, "240": 0, "241": 0, "243": 0, "247": 0, "249": 0, "250": 0, "251": 0, "253": 0, "259": 1, "261": 1, "262": 1, "264": 1, "265": 1, "266": 3948, "272": 1, "274": 1, "275": 1, "277": 1, "278": 1, "281": 1, "282": 1, "279": 1577, "283": 1602, "284": 46, "285": 1556, "286": 148, "288": 1602, "289": 15, "290": 1587, "291": 2, "292": 5354, "293": 1, "295": 1599, "301": 1, "303": 1, "304": 1, "306": 1, "308": 1, "309": 1, "310": 27, "311": 10, "312": 17, "313": 15, "314": 15, "315": 1, "316": 14, "317": 2, "318": 42, "319": 2, "320": 1, "322": 1, "328": 1, "330": 1, "331": 1, "333": 1, "334": 1, "337": 1, "338": 1, "335": 1365, "339": 12, "340": 38, "341": 4, "342": 2, "344": 2, "350": 1, "352": 1, "353": 1, "355": 1, "356": 1, "359": 1, "360": 1, "357": 38, "361": 815, "367": 1, "369": 1, "370": 1, "376": 1, "378": 1, "379": 1, "385": 1, "387": 1, "388": 1, "391": 1, "392": 1, "389": 390, "398": 1, "400": 1, "401": 1, "403": 1, "405": 1, "406": 1, "407": 1, "408": 1, "409": 1, "410": 1, "412": 1, "413": 1, "489": 1, "490": 1, "414": 1391, "415": 1208, "416": 183, "417": 0, "418": 183, "419": 183, "420": 25, "422": 158, "423": 69, "425": 89, "426": 12, "428": 77, "430": 77, "431": 5, "433": 5, "434": 5, "436": 0, "438": 72, "440": 72, "441": 0, "443": 0, "444": 0, "446": 0, "448": 72, "450": 72, "451": 3, "453": 69, "455": 69, "456": 33, "458": 33, "460": 33, "461": 18, "462": 15, "463": 6, "464": 9, "465": 5, "467": 4, "469": 36, "471": 36, "472": 29, "474": 29, "476": 29, "477": 24, "479": 5, "481": 7, "483": 7, "484": 4, "485": 4, "487": 3, "491": 3386, "492": 131, "493": 8, "494": 4, "495": 5043, "496": 1792, "497": 2, "503": 1, "505": 1, "506": 1, "509": 1, "510": 1, "511": 3250, "512": 1, "518": 1, "520": 1, "521": 1, "524": 1, "525": 1, "526": 3253, "527": 5, "528": 5, "534": 1, "536": 1, "537": 1, "540": 1, "541": 1, "557": 1, "558": 1, "542": 39, "543": 5, "544": 34, "545": 2, "547": 32, "548": 25, "550": 7, "551": 1, "553": 6, "555": 32, "559": 3259, "560": 64, "561": 32, "567": 1, "569": 1, "570": 1, "572": 1, "573": 1, "582": 1, "583": 1, "574": 55, "576": 55, "577": 53, "579": 4, "580": 2, "584": 3251, "585": 45, "586": 45, "587": 45, "593": 1, "595": 1, "596": 1, "602": 1, "604": 1, "605": 1, "606": 0, "612": 1, "614": 1, "616": 1, "617": 1, "620": 1, "621": 1, "618": 68, "622": 3250, "623": 700, "629": 1, "631": 1, "632": 1, "633": 36, "639": 1, "641": 1, "642": 1, "643": 0, "649": 1, "655": 1, "657": 1, "658": 1, "659": 0, "665": 1, "667": 1, "668": 1, "669": 0, "675": 1, "677": 1, "678": 1, "681": 1, "682": 1, "679": 0, "683": 0, "684": 0, "686": 0, "692": 1, "694": 1, "695": 1, "696": 5049, "702": 1, "704": 1, "705": 1, "708": 1, "709": 1, "706": 0, "710": 1, "711": 0, "713": 1, "719": 1, "721": 1, "722": 1, "723": 4, "724": 3, "726": 1, "731": 6560, "732": 3680, "734": 6560, "735": 3216, "737": 3344, "760": 814, "762": 1083, "763": 270, "764": 270, "765": 2, "766": 1, "767": 1, "768": 0, "773": 0, "774": 0, "775": 0, "777": 0}}
+{"/testbed/sympy/polys/polyoptions.py": {"3": 1, "5": 1, "7": 1, "8": 1, "9": 1, "10": 1, "11": 1, "13": 1, "15": 1, "17": 2, "43": 2, "49": 2, "60": 2, "75": 2, "76": 1, "256": 2, "269": 2, "298": 2, "325": 2, "347": 2, "364": 2, "373": 2, "382": 2, "395": 2, "500": 2, "515": 2, "531": 2, "564": 2, "590": 2, "599": 2, "609": 2, "626": 2, "636": 2, "646": 2, "652": 2, "662": 2, "672": 2, "689": 2, "699": 2, "716": 2, "729": 1, "740": 1, "771": 1, "779": 1, "20": 1, "22": 1, "24": 1, "25": 1, "27": 1, "28": 1, "30": 1, "31": 1, "34": 1, "35": 1, "38": 1, "39": 1, "32": 0, "36": 0, "40": 0, "46": 1, "52": 1, "53": 1, "54": 0, "55": 0, "57": 0, "63": 1, "64": 25, "65": 25, "71": 25, "72": 25, "66": 0, "67": 0, "68": 0, "69": 0, "124": 1, "125": 1, "127": 1, "183": 1, "184": 1, "204": 1, "216": 1, "222": 1, "223": 1, "235": 1, "236": 1, "245": 1, "246": 1, "128": 0, "130": 0, "131": 0, "132": 0, "133": 0, "134": 0, "135": 0, "137": 0, "139": 0, "154": 0, "156": 0, "157": 0, "158": 0, "160": 0, "161": 0, "163": 0, "164": 0, "165": 0, "167": 0, "169": 0, "170": 0, "172": 0, "173": 0, "174": 0, "176": 0, "177": 0, "178": 0, "180": 0, "181": 0, "140": 0, "141": 0, "142": 0, "143": 0, "144": 0, "146": 0, "147": 0, "148": 0, "149": 0, "151": 0, "152": 0, "186": 1, "187": 1, "189": 26, "190": 25, "192": 30, "193": 5, "195": 25, "196": 0, "198": 1, "199": 1, "200": 0, "201": 0, "202": 0, "206": 0, "208": 0, "209": 0, "211": 0, "212": 0, "214": 0, "217": 0, "218": 0, "220": 0, "224": 0, "226": 0, "227": 0, "228": 0, "230": 0, "231": 0, "233": 0, "237": 0, "239": 0, "240": 0, "241": 0, "243": 0, "247": 0, "249": 0, "250": 0, "251": 0, "253": 0, "259": 1, "261": 1, "262": 1, "264": 1, "265": 1, "266": 0, "272": 1, "274": 1, "275": 1, "277": 1, "278": 1, "281": 1, "282": 1, "279": 0, "283": 0, "284": 0, "285": 0, "286": 0, "288": 0, "289": 0, "290": 0, "291": 0, "292": 0, "293": 0, "295": 0, "301": 1, "303": 1, "304": 1, "306": 1, "308": 1, "309": 1, "310": 0, "311": 0, "312": 0, "313": 0, "314": 0, "315": 0, "316": 0, "317": 0, "318": 0, "319": 0, "320": 0, "322": 0, "328": 1, "330": 1, "331": 1, "333": 1, "334": 1, "337": 1, "338": 1, "335": 0, "339": 0, "340": 0, "341": 0, "342": 0, "344": 0, "350": 1, "352": 1, "353": 1, "355": 1, "356": 1, "359": 1, "360": 1, "357": 0, "361": 0, "367": 1, "369": 1, "370": 1, "376": 1, "378": 1, "379": 1, "385": 1, "387": 1, "388": 1, "391": 1, "392": 1, "389": 0, "398": 1, "400": 1, "401": 1, "403": 1, "405": 1, "406": 1, "407": 1, "408": 1, "409": 1, "410": 1, "412": 1, "413": 1, "489": 1, "490": 1, "414": 0, "415": 0, "416": 0, "417": 0, "418": 0, "419": 0, "420": 0, "422": 0, "423": 0, "425": 0, "426": 0, "428": 0, "430": 0, "431": 0, "433": 0, "434": 0, "436": 0, "438": 0, "440": 0, "441": 0, "443": 0, "444": 0, "446": 0, "448": 0, "450": 0, "451": 0, "453": 0, "455": 0, "456": 0, "458": 0, "460": 0, "461": 0, "462": 0, "463": 0, "464": 0, "465": 0, "467": 0, "469": 0, "471": 0, "472": 0, "474": 0, "476": 0, "477": 0, "479": 0, "481": 0, "483": 0, "484": 0, "485": 0, "487": 0, "491": 0, "492": 0, "493": 0, "494": 0, "495": 0, "496": 0, "497": 0, "503": 1, "505": 1, "506": 1, "509": 1, "510": 1, "511": 0, "512": 0, "518": 1, "520": 1, "521": 1, "524": 1, "525": 1, "526": 0, "527": 0, "528": 0, "534": 1, "536": 1, "537": 1, "540": 1, "541": 1, "557": 1, "558": 1, "542": 0, "543": 0, "544": 0, "545": 0, "547": 0, "548": 0, "550": 0, "551": 0, "553": 0, "555": 0, "559": 0, "560": 0, "561": 0, "567": 1, "569": 1, "570": 1, "572": 1, "573": 1, "582": 1, "583": 1, "574": 0, "576": 0, "577": 0, "579": 0, "580": 0, "584": 0, "585": 0, "586": 0, "587": 0, "593": 1, "595": 1, "596": 1, "602": 1, "604": 1, "605": 1, "606": 0, "612": 1, "614": 1, "616": 1, "617": 1, "620": 1, "621": 1, "618": 0, "622": 0, "623": 0, "629": 1, "631": 1, "632": 1, "633": 0, "639": 1, "641": 1, "642": 1, "643": 0, "649": 1, "655": 1, "657": 1, "658": 1, "659": 0, "665": 1, "667": 1, "668": 1, "669": 0, "675": 1, "677": 1, "678": 1, "681": 1, "682": 1, "679": 0, "683": 0, "684": 0, "686": 0, "692": 1, "694": 1, "695": 1, "696": 0, "702": 1, "704": 1, "705": 1, "708": 1, "709": 1, "706": 0, "710": 0, "711": 0, "713": 0, "719": 1, "721": 1, "722": 1, "723": 0, "724": 0, "726": 0, "731": 0, "732": 0, "734": 0, "735": 0, "737": 0, "760": 0, "762": 0, "763": 0, "764": 0, "765": 0, "766": 0, "767": 0, "768": 0, "773": 0, "774": 0, "775": 0, "777": 0}}
++ git checkout f35ad6411f86a15dd78db39c29d1e5291f66f9b5
+Note: switching to 'f35ad6411f86a15dd78db39c29d1e5291f66f9b5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at f35ad6411f Merge pull request #14383 from normalhuman/distribution_infinity
+M	sympy/polys/polyoptions.py
+M	sympy/polys/tests/test_polyoptions.py
+M	sympy/polys/tests/test_polytools.py
++ git apply /root/pre_state.patch
+error: unrecognized input

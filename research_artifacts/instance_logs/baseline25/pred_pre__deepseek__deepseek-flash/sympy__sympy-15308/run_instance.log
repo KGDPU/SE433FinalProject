@@ -1,0 +1,32 @@
+2026-11-19 05:30:26,028 - WARNING - Starting evaluation at 1795087826.0282328
+2026-11-19 05:32:22,815 - INFO - Creating container for sympy__sympy-15308...
+2026-11-19 05:32:23,165 - INFO - Container for sympy__sympy-15308 created: d96021831f95adeec01aaa64caeb8c63db541bae475941aea86a6ac6defe1a55
+2026-11-19 05:32:23,505 - INFO - Container for sympy__sympy-15308 started: d96021831f95adeec01aaa64caeb8c63db541bae475941aea86a6ac6defe1a55
+2026-11-19 05:32:24,347 - INFO - Git diff before:
+
+2026-11-19 05:32:24,356 - INFO - Eval script for sympy__sympy-15308 written to eval.sh, now applying to container...
+2026-11-19 05:32:48,369 - INFO - Test output for sympy__sympy-15308 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/sympy__sympy-15308/test_output.txt
+2026-11-19 05:32:48,498 - INFO - Git diff after:
+diff --git a/sympy/printing/tests/test_latex.py b/sympy/printing/tests/test_latex.py
+index 9f644f15ee..5fae58e05d 100644
+--- a/sympy/printing/tests/test_latex.py
++++ b/sympy/printing/tests/test_latex.py
+@@ -1395,6 +1395,13 @@ def test_Tr():
+     assert latex(t) == r'\mbox{Tr}\left(A B\right)'
+ 
+ 
++def test_Trace():
++    from sympy.matrices import MatrixSymbol, Trace
++    A = MatrixSymbol("A", 3, 3)
++    assert latex(Trace(A)) == r"\operatorname{tr}\left(A\right)"
++    assert latex(Trace(A**2)) == r"\operatorname{tr}\left(A^{2}\right)"
++
++
+ def test_Adjoint():
+     from sympy.matrices import MatrixSymbol, Adjoint, Inverse, Transpose
+     X = MatrixSymbol('X', 2, 2)
+2026-11-19 05:32:48,500 - INFO - Git diff changed after running eval script
+2026-11-19 05:32:48,501 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.125222676430928...
+2026-11-19 05:33:03,941 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.125222676430928...
+2026-11-19 05:33:04,048 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.125222676430928 removed.
+2026-11-19 05:33:04,050 - WARNING - End of eval at 1795087984.0509086

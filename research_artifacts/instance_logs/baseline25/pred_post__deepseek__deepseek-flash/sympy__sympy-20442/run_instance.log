@@ -1,0 +1,54 @@
+2026-11-19 05:45:48,040 - WARNING - Starting evaluation at 1795088748.04037
+2026-11-19 05:45:48,249 - INFO - Creating container for sympy__sympy-20442...
+2026-11-19 05:45:48,475 - INFO - Container for sympy__sympy-20442 created: 73dcee87251394e63c2925862f761c52db10e08ef8f761f5d5c2d5754a705426
+2026-11-19 05:45:48,734 - INFO - Container for sympy__sympy-20442 started: 73dcee87251394e63c2925862f761c52db10e08ef8f761f5d5c2d5754a705426
+2026-11-19 05:45:49,125 - INFO - Git diff before:
+
+2026-11-19 05:45:49,129 - INFO - Eval script for sympy__sympy-20442 written to eval.sh, now applying to container...
+2026-11-19 05:45:57,397 - INFO - Test output for sympy__sympy-20442 written to run_instance_swt_logs/baseline25/pred_post__deepseek__deepseek-flash/sympy__sympy-20442/test_output.txt
+2026-11-19 05:45:57,463 - INFO - Git diff after:
+diff --git a/sympy/physics/units/tests/test_util.py b/sympy/physics/units/tests/test_util.py
+index ed2f7df27e..966ef93792 100644
+--- a/sympy/physics/units/tests/test_util.py
++++ b/sympy/physics/units/tests/test_util.py
+@@ -65,6 +65,12 @@ def test_convert_to_quantities():
+     assert convert_to(pi, degree) == 180*degree
+ 
+ 
++def test_convert_to_orthogonal_units():
++    # An incompatible target unit must not be combined with the original
++    # expression to produce an unphysical fractional power.
++    assert convert_to(joule*second, joule) == joule*second
++
++
+ def test_convert_to_tuples_of_quantities():
+     assert convert_to(speed_of_light, [meter, second]) == 299792458 * meter / second
+     assert convert_to(speed_of_light, (meter, second)) == 299792458 * meter / second
+diff --git a/sympy/physics/units/util.py b/sympy/physics/units/util.py
+index b03ed4cd88..150dc05111 100644
+--- a/sympy/physics/units/util.py
++++ b/sympy/physics/units/util.py
+@@ -4,6 +4,7 @@
+ 
+ from sympy import Add, Mul, Pow, Tuple, sympify
+ from sympy.core.compatibility import reduce, Iterable, ordered
++from sympy.matrices.common import NonInvertibleMatrixError
+ from sympy.physics.units.dimensions import Dimension
+ from sympy.physics.units.prefixes import Prefix
+ from sympy.physics.units.quantities import Quantity
+@@ -30,7 +31,11 @@ def _get_conversion_matrix_for_expr(expr, target_units, unit_system):
+     camat = Matrix([[dimension_system.get_dimensional_dependencies(i, mark_dimensionless=True).get(j, 0) for i in target_dims] for j in canon_dim_units])
+     exprmat = Matrix([dim_dependencies.get(k, 0) for k in canon_dim_units])
+ 
+-    res_exponents = camat.solve_least_squares(exprmat, method=None)
++    try:
++        res_exponents = camat.solve(exprmat)
++    except NonInvertibleMatrixError:
++        return None
++
+     return res_exponents
+2026-11-19 05:45:57,463 - INFO - Git diff changed after running eval script
+2026-11-19 05:45:57,464 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.125222676434048...
+2026-11-19 05:46:13,375 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.125222676434048...
+2026-11-19 05:46:13,442 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.125222676434048 removed.
+2026-11-19 05:46:13,443 - WARNING - End of eval at 1795088773.4435358

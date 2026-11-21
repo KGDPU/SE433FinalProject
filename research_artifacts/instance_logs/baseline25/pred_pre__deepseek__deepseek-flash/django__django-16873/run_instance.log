@@ -1,0 +1,41 @@
+2026-11-19 03:56:44,128 - WARNING - Starting evaluation at 1795082204.1284716
+2026-11-19 04:07:41,962 - INFO - Creating container for django__django-16873...
+2026-11-19 04:07:42,187 - INFO - Container for django__django-16873 created: 48a0fab6a073f763e86a48d886e96b718d1438debd04372341e9c1513eb260b3
+2026-11-19 04:07:42,433 - INFO - Container for django__django-16873 started: 48a0fab6a073f763e86a48d886e96b718d1438debd04372341e9c1513eb260b3
+2026-11-19 04:07:43,370 - INFO - Git diff before:
+
+2026-11-19 04:07:43,376 - INFO - Eval script for django__django-16873 written to eval.sh, now applying to container...
+2026-11-19 04:07:49,209 - INFO - Test output for django__django-16873 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/django__django-16873/test_output.txt
+2026-11-19 04:07:49,296 - INFO - Git diff after:
+diff --git a/tests/template_tests/filter_tests/test_join.py b/tests/template_tests/filter_tests/test_join.py
+index 08f68537ee..1be4908eac 100644
+--- a/tests/template_tests/filter_tests/test_join.py
++++ b/tests/template_tests/filter_tests/test_join.py
+@@ -55,6 +55,13 @@ class JoinTests(SimpleTestCase):
+         )
+         self.assertEqual(output, "alpha & beta &amp; me")
+ 
++    @setup({"join09": "{% autoescape off %}{{ a|join:var }}{% endautoescape %}"})
++    def test_join09(self):
++        output = self.engine.render_to_string(
++            "join09", {"a": ["alpha", "beta & me"], "var": " & "}
++        )
++        self.assertEqual(output, "alpha & beta & me")
++
+ 
+ class FunctionTests(SimpleTestCase):
+     def test_list(self):
+@@ -69,7 +76,7 @@ class FunctionTests(SimpleTestCase):
+     def test_autoescape_off(self):
+         self.assertEqual(
+             join(["<a>", "<img>", "</a>"], "<br>", autoescape=False),
+-            "<a>&lt;br&gt;<img>&lt;br&gt;</a>",
++            "<a><br><img><br></a>",
+         )
+ 
+     def test_noniterable_arg(self):
+2026-11-19 04:07:49,297 - INFO - Git diff changed after running eval script
+2026-11-19 04:07:49,298 - INFO - Attempting to stop container exec.eval.x86_64.9097b18874f4d0ac315ef2.3e2d627590422584c3cfa2.125222694570576...
+2026-11-19 04:08:05,084 - INFO - Attempting to remove container exec.eval.x86_64.9097b18874f4d0ac315ef2.3e2d627590422584c3cfa2.125222694570576...
+2026-11-19 04:08:05,175 - INFO - Container exec.eval.x86_64.9097b18874f4d0ac315ef2.3e2d627590422584c3cfa2.125222694570576 removed.
+2026-11-19 04:08:05,177 - WARNING - End of eval at 1795082885.17762

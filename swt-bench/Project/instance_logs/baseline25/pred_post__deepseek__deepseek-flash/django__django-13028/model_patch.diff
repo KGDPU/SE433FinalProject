@@ -1,0 +1,53 @@
+diff --git a/tests/lookup/models.py b/tests/lookup/models.py
+index 6a0afaacde..ece667058c 100755
+--- a/tests/lookup/models.py
++++ b/tests/lookup/models.py
+@@ -107,3 +107,13 @@ class Freebie(models.Model):
+         to_fields=['id', 'product'],
+         on_delete=models.CASCADE,
+     )
++
++
++class ProductMetaDataType(models.Model):
++    label = models.CharField(max_length=255, unique=True)
++    filterable = models.BooleanField(default=False)
++
++
++class ProductMetaData(models.Model):
++    value = models.TextField()
++    metadata_type = models.ForeignKey(ProductMetaDataType, models.CASCADE)
+diff --git a/tests/lookup/tests.py b/tests/lookup/tests.py
+index 9ed91a6ee0..4a4b01ac48 100755
+--- a/tests/lookup/tests.py
++++ b/tests/lookup/tests.py
+@@ -12,7 +12,8 @@ from django.test.utils import isolate_apps
+ from django.utils.deprecation import RemovedInDjango40Warning
+ 
+ from .models import (
+-    Article, Author, Freebie, Game, IsNullWithNoneAsRHS, Player, Season, Tag,
++    Article, Author, Freebie, Game, IsNullWithNoneAsRHS, Player, ProductMetaData,
++    ProductMetaDataType, Season, Tag,
+ )
+ 
+ 
+@@ -1029,3 +1030,20 @@ class LookupTests(TestCase):
+             with self.subTest(qs=qs):
+                 with self.assertWarnsMessage(RemovedInDjango40Warning, msg):
+                     qs.exists()
++
++    def test_filter_by_model_instance_with_filterable_field(self):
++        metadata_type = ProductMetaDataType.objects.create(
++            label='brand',
++            filterable=False,
++        )
++        metadata = ProductMetaData.objects.create(
++            value='Dark Vador',
++            metadata_type=metadata_type,
++        )
++        self.assertSequenceEqual(
++            ProductMetaData.objects.filter(
++                value='Dark Vador',
++                metadata_type=metadata_type,
++            ),
++            [metadata],
++        )

@@ -1,0 +1,113 @@
+2026-11-20 12:23:57,651 - WARNING - Starting evaluation at 1795199037.6511624
+2026-11-20 12:23:57,856 - INFO - Creating container for sympy__sympy-20639...
+2026-11-20 12:23:58,114 - INFO - Container for sympy__sympy-20639 created: 8746c0d9bd70c22c1fb124cd3dcc09d15a304610107a786268428f517ce9470e
+2026-11-20 12:23:58,337 - INFO - Container for sympy__sympy-20639 started: 8746c0d9bd70c22c1fb124cd3dcc09d15a304610107a786268428f517ce9470e
+2026-11-20 12:23:58,712 - INFO - Git diff before:
+
+2026-11-20 12:23:58,716 - INFO - Eval script for sympy__sympy-20639 written to eval.sh, now applying to container...
+2026-11-20 12:24:17,077 - INFO - Test output for sympy__sympy-20639 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/sympy__sympy-20639/test_output.txt
+2026-11-20 12:24:17,145 - INFO - Git diff after:
+diff --git a/sympy/printing/pretty/pretty.py b/sympy/printing/pretty/pretty.py
+index df7452ee87..fbe9edb632 100644
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -1902,12 +1902,12 @@ def _print_Mul(self, product):
+             return prettyForm.__mul__(*a)/prettyForm.__mul__(*b)
+ 
+     # A helper function for _print_Pow to print x**(1/n)
+-    def _print_nth_root(self, base, expt):
++    def _print_nth_root(self, base, root):
+         bpretty = self._print(base)
+ 
+         # In very simple cases, use a single-char root sign
+         if (self._settings['use_unicode_sqrt_char'] and self._use_unicode
+-            and expt is S.Half and bpretty.height() == 1
++            and root == 2 and bpretty.height() == 1
+             and (bpretty.width() == 1
+                  or (base.is_Integer and base.is_nonnegative))):
+             return prettyForm(*bpretty.left('\N{SQUARE ROOT}'))
+@@ -1915,14 +1915,13 @@ def _print_nth_root(self, base, expt):
+         # Construct root sign, start with the \/ shape
+         _zZ = xobj('/', 1)
+         rootsign = xobj('\\', 1) + _zZ
+-        # Make exponent number to put above it
+-        if isinstance(expt, Rational):
+-            exp = str(expt.q)
+-            if exp == '2':
+-                exp = ''
+-        else:
+-            exp = str(expt.args[0])
+-        exp = exp.ljust(2)
++        # Constructing the number to put on root
++        rpretty = self._print(root)
++        # roots look bad if they are not a single line
++        if rpretty.height() != 1:
++            return self._print(base)**self._print(1/root)
++        # If power is half, no number should appear on top of root sign
++        exp = '' if root == 2 else str(rpretty).ljust(2)
+         if len(exp) > 2:
+             rootsign = ' '*(len(exp) - 2) + rootsign
+         # Stack the exponent
+@@ -1954,8 +1953,9 @@ def _print_Pow(self, power):
+             if e is S.NegativeOne:
+                 return prettyForm("1")/self._print(b)
+             n, d = fraction(e)
+-            if n is S.One and d.is_Atom and not e.is_Integer and self._settings['root_notation']:
+-                return self._print_nth_root(b, e)
++            if n is S.One and d.is_Atom and not e.is_Integer and (e.is_Rational or d.is_Symbol) \
++                    and self._settings['root_notation']:
++                return self._print_nth_root(b, d)
+             if e.is_Rational and e < 0:
+                 return prettyForm("1")/self._print(Pow(b, -e, evaluate=False))
+ 
+diff --git a/sympy/printing/pretty/tests/test_pretty.py b/sympy/printing/pretty/tests/test_pretty.py
+index d33795d155..c1aef892e4 100644
+--- a/sympy/printing/pretty/tests/test_pretty.py
++++ b/sympy/printing/pretty/tests/test_pretty.py
+@@ -3,7 +3,7 @@
+     Add, And, Basic, Derivative, Dict, Eq, Equivalent, FF,
+     FiniteSet, Function, Ge, Gt, I, Implies, Integral, SingularityFunction,
+     Lambda, Le, Limit, Lt, Matrix, Mul, Nand, Ne, Nor, Not, O, Or,
+-    Pow, Product, QQ, RR, Rational, Ray, rootof, RootSum, S,
++    E, Pow, Product, QQ, RR, Rational, Ray, rootof, RootSum, S,
+     Segment, Subs, Sum, Symbol, Tuple, Trace, Xor, ZZ, conjugate,
+     groebner, oo, pi, symbols, ilex, grlex, Range, Contains,
+     SeqPer, SeqFormula, SeqAdd, SeqMul, fourier_series, fps, ITE,
+@@ -7250,3 +7250,32 @@ def test_diffgeom():
+     assert pretty(rect) == "rect"
+     b = BaseScalarField(rect, 0)
+     assert pretty(b) == "x"
++
++
++def test_pretty_pow_inverse_exp():
++    # Test that an exponent of exp(-1) is not mistaken for a root of
++    # degree -1.  Root notation is acceptable for a reciprocal exponent,
++    # but then the degree must be E rather than the argument of exp.
++    expressions = [
++        pi**(1/E),
++        x**(1/E),
++        (x + 1)**(1/E),
++        (x**2 + 1)**(1/E),
++        2**(1/E),
++    ]
++    for expr in expressions:
++        for use_unicode in (False, True):
++            result = xpretty(expr, use_unicode=use_unicode, wrap_line=False)
++            if '\\/' in result or '╲╱' in result:
++                assert '-1' not in result
++                assert 'E' in result or 'ℯ' in result
++            else:
++                assert result == xpretty(
++                    expr, use_unicode=use_unicode, wrap_line=False,
++                    root_notation=False)
++
++    # Reciprocal integer exponents should still use root notation.
++    assert xpretty(x**Rational(1, 3), use_unicode=False,
++                   wrap_line=False) == '3 ___\n\\/ x '
++    assert xpretty(x**Rational(1, 2), use_unicode=True,
++                   wrap_line=False) == '√x'
+2026-11-20 12:24:17,146 - INFO - Git diff changed after running eval script
+2026-11-20 12:24:17,146 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.139575350201712...
+2026-11-20 12:24:33,147 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.139575350201712...
+2026-11-20 12:24:33,228 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.139575350201712 removed.
+2026-11-20 12:24:33,230 - WARNING - End of eval at 1795199073.2301118

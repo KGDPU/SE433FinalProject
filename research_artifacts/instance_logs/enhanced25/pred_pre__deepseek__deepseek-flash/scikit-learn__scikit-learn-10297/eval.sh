@@ -1,0 +1,79 @@
+#!/bin/bash
+set -uxo pipefail
+source /opt/miniconda3/bin/activate
+conda activate testbed
+cd /testbed
+git diff HEAD b90661d6a46aa3619d3eec94d5281f5888add501 >> /root/pre_state.patch
+git config --global --add safe.directory /testbed
+cd /testbed
+git status
+git show
+git diff b90661d6a46aa3619d3eec94d5281f5888add501
+source /opt/miniconda3/bin/activate
+conda activate testbed
+python -m pip install -v --no-use-pep517 --no-build-isolation -e .
+git apply -v - <<'EOF_114329324912'
+diff --git a/sklearn/linear_model/tests/test_ridge.py b/sklearn/linear_model/tests/test_ridge.py
+index ee44da5d5..c22de144d 100755
+--- a/sklearn/linear_model/tests/test_ridge.py
++++ b/sklearn/linear_model/tests/test_ridge.py
+@@ -598,6 +598,53 @@ def test_ridgecv_store_cv_values():
+     assert_equal(r.cv_values_.shape, (n_samples, n_responses, n_alphas))
+ 
+ 
++def test_ridgeclassifiercv_store_cv_values():
++    # Test RidgeClassifierCV's store_cv_values attribute.
++    rng = np.random.RandomState(42)
++
++    n_samples = 8
++    n_features = 5
++    x = rng.randn(n_samples, n_features)
++    y = rng.randint(0, 2, n_samples)
++    alphas = [1e-1, 1e0, 1e1]
++    n_alphas = len(alphas)
++
++    r = RidgeClassifierCV(alphas=alphas, store_cv_values=True)
++    r.fit(x, y)
++
++    # RidgeClassifierCV internally binarizes the target, so binary
++    # classification stores one response per alpha.
++    assert_equal(r.cv_values_.shape, (n_samples, 1, n_alphas))
++
++    # The stored values should be the same as those obtained by fitting
++    # RidgeCV to the binarized target.
++    Y = np.where(y == 1, 1, -1).reshape(-1, 1)
++    ridge_cv = RidgeCV(alphas=alphas, store_cv_values=True).fit(x, Y)
++    assert_array_almost_equal(r.cv_values_, ridge_cv.cv_values_)
++
++    # Multi-class targets use one response per class.
++    y = np.array([0, 1, 2, 0, 1, 2, 0, 1])
++    r.fit(x, y)
++    assert_equal(r.cv_values_.shape, (n_samples, 3, n_alphas))
++
++    Y = np.eye(3)[y] * 2 - 1
++    ridge_cv = RidgeCV(alphas=alphas, store_cv_values=True).fit(x, Y)
++    assert_array_almost_equal(r.cv_values_, ridge_cv.cv_values_)
++
++    # Without store_cv_values, cv_values_ is not exposed.
++    r = RidgeClassifierCV(alphas=alphas).fit(x, y)
++    assert_true(not hasattr(r, 'cv_values_'))
++
++
++def test_ridgeclassifiercv_store_cv_values_with_cv():
++    # store_cv_values is only compatible with the efficient LOO
++    # cross-validation used when cv=None.
++    X = np.arange(20).reshape(10, 2)
++    y = np.array([0, 1] * 5)
++    with assert_raises(ValueError):
++        RidgeClassifierCV(cv=KFold(2), store_cv_values=True).fit(X, y)
++
++
+ def test_ridgecv_sample_weight():
+     rng = np.random.RandomState(0)
+     alphas = (0.1, 1.0, 10.0)
+
+EOF_114329324912
+python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(sklearn/linear_model/ridge\.py)' -m pytest --no-header -rA  -p no:cacheprovider sklearn/linear_model/tests/test_ridge.py
+cat coverage.cover
+git checkout b90661d6a46aa3619d3eec94d5281f5888add501
+git apply /root/pre_state.patch

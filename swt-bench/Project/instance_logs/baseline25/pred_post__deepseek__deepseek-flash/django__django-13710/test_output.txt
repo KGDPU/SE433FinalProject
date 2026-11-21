@@ -1,0 +1,673 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git diff HEAD 1bd6a7a0acc11e249fca11c017505ad39f15ebf6
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch main
+nothing to commit, working tree clean
++ git show
+commit 1bd6a7a0acc11e249fca11c017505ad39f15ebf6
+Author: Siburg <jelle.sjoerdsma@gmail.com>
+Date:   Wed Sep 8 11:19:35 2021 +0200
+
+    Refs #32219 -- Added admin model inline tests for verbose names.
+    
+    Co-authored-by: Mariusz Felisiak <felisiak.mariusz@gmail.com>
+
+diff --git a/tests/admin_inlines/models.py b/tests/admin_inlines/models.py
+index a0a9093a5b..900eb34fca 100644
+--- a/tests/admin_inlines/models.py
++++ b/tests/admin_inlines/models.py
+@@ -337,3 +337,19 @@ class Profile(models.Model):
+     collection = models.ForeignKey(ProfileCollection, models.SET_NULL, blank=True, null=True)
+     first_name = models.CharField(max_length=100)
+     last_name = models.CharField(max_length=100)
++
++
++class VerboseNameProfile(Profile):
++    class Meta:
++        verbose_name = 'Model with verbose name only'
++
++
++class VerboseNamePluralProfile(Profile):
++    class Meta:
++        verbose_name_plural = 'Model with verbose name plural only'
++
++
++class BothVerboseNameProfile(Profile):
++    class Meta:
++        verbose_name = 'Model with both - name'
++        verbose_name_plural = 'Model with both - plural name'
+diff --git a/tests/admin_inlines/tests.py b/tests/admin_inlines/tests.py
+index 74b10d80b3..261c4f0148 100644
+--- a/tests/admin_inlines/tests.py
++++ b/tests/admin_inlines/tests.py
+@@ -8,11 +8,12 @@ from django.urls import reverse
+ 
+ from .admin import InnerInline, site as admin_site
+ from .models import (
+-    Author, BinaryTree, Book, Chapter, Child, ChildModel1, ChildModel2,
+-    Fashionista, FootNote, Holder, Holder2, Holder3, Holder4, Inner, Inner2,
+-    Inner3, Inner4Stacked, Inner4Tabular, Novel, OutfitItem, Parent,
+-    ParentModelWithCustomPk, Person, Poll, Profile, ProfileCollection,
+-    Question, Sighting, SomeChildModel, SomeParentModel, Teacher,
++    Author, BinaryTree, Book, BothVerboseNameProfile, Chapter, Child,
++    ChildModel1, ChildModel2, Fashionista, FootNote, Holder, Holder2, Holder3,
++    Holder4, Inner, Inner2, Inner3, Inner4Stacked, Inner4Tabular, Novel,
++    OutfitItem, Parent, ParentModelWithCustomPk, Person, Poll, Profile,
++    ProfileCollection, Question, Sighting, SomeChildModel, SomeParentModel,
++    Teacher, VerboseNamePluralProfile, VerboseNameProfile,
+ )
+ 
+ INLINE_CHANGELINK_HTML = 'class="inlinechangelink">Change</a>'
+@@ -962,6 +963,115 @@ class TestReadOnlyChangeViewInlinePermissions(TestCase):
+         self.assertNotContains(response, 'id="id_question_set-0-text"')
+ 
+ 
++@override_settings(ROOT_URLCONF='admin_inlines.urls')
++class TestVerboseNameInlineForms(TestDataMixin, TestCase):
++    factory = RequestFactory()
++
++    def test_verbose_name_plural_inline(self):
++        class NonVerboseProfileInline(TabularInline):
++            model = Profile
++            verbose_name_plural = 'Non-verbose childs'
++
++        class VerboseNameProfileInline(TabularInline):
++            model = VerboseNameProfile
++            verbose_name_plural = 'Childs with verbose name'
++
++        class VerboseNamePluralProfileInline(TabularInline):
++            model = VerboseNamePluralProfile
++            verbose_name_plural = 'Childs with verbose name plural'
++
++        class BothVerboseNameProfileInline(TabularInline):
++            model = BothVerboseNameProfile
++            verbose_name_plural = 'Childs with both verbose names'
++
++        modeladmin = ModelAdmin(ProfileCollection, admin_site)
++        modeladmin.inlines = [
++            NonVerboseProfileInline,
++            VerboseNameProfileInline,
++            VerboseNamePluralProfileInline,
++            BothVerboseNameProfileInline,
++        ]
++        obj = ProfileCollection.objects.create()
++        url = reverse('admin:admin_inlines_profilecollection_change', args=(obj.pk,))
++        request = self.factory.get(url)
++        request.user = self.superuser
++        response = modeladmin.changeform_view(request)
++        # Non-verbose model.
++        self.assertContains(response, '<h2>Non-verbose childs</h2>')
++        self.assertContains(response, 'Add another Profile')
++        self.assertNotContains(response, '<h2>Profiles</h2>')
++        # Model with verbose name.
++        self.assertContains(response, '<h2>Childs with verbose name</h2>')
++        self.assertContains(response, 'Add another Model with verbose name only')
++        self.assertNotContains(response, '<h2>Model with verbose name onlys</h2>')
++        # Model with verbose name plural.
++        self.assertContains(response, '<h2>Childs with verbose name plural</h2>')
++        self.assertContains(response, 'Add another Profile')
++        self.assertNotContains(response, '<h2>Model with verbose name plural only</h2>')
++        # Model with both verbose names.
++        self.assertContains(response, '<h2>Childs with both verbose names</h2>')
++        self.assertContains(response, 'Add another Model with both - name')
++        self.assertNotContains(response, '<h2>Model with both - plural name</h2>')
++
++    def test_both_verbose_names_inline(self):
++        class NonVerboseProfileInline(TabularInline):
++            model = Profile
++            verbose_name = 'Non-verbose childs - name'
++            verbose_name_plural = 'Non-verbose childs - plural name'
++
++        class VerboseNameProfileInline(TabularInline):
++            model = VerboseNameProfile
++            verbose_name = 'Childs with verbose name - name'
++            verbose_name_plural = 'Childs with verbose name - plural name'
++
++        class VerboseNamePluralProfileInline(TabularInline):
++            model = VerboseNamePluralProfile
++            verbose_name = 'Childs with verbose name plural - name'
++            verbose_name_plural = 'Childs with verbose name plural - plural name'
++
++        class BothVerboseNameProfileInline(TabularInline):
++            model = BothVerboseNameProfile
++            verbose_name = 'Childs with both - name'
++            verbose_name_plural = 'Childs with both - plural name'
++
++        modeladmin = ModelAdmin(ProfileCollection, admin_site)
++        modeladmin.inlines = [
++            NonVerboseProfileInline,
++            VerboseNameProfileInline,
++            VerboseNamePluralProfileInline,
++            BothVerboseNameProfileInline,
++        ]
++        obj = ProfileCollection.objects.create()
++        url = reverse('admin:admin_inlines_profilecollection_change', args=(obj.pk,))
++        request = self.factory.get(url)
++        request.user = self.superuser
++        response = modeladmin.changeform_view(request)
++        self.assertNotContains(response, 'Add another Profile')
++        # Non-verbose model.
++        self.assertContains(response, '<h2>Non-verbose childs - plural name</h2>')
++        self.assertContains(response, 'Add another Non-verbose childs - name')
++        self.assertNotContains(response, '<h2>Profiles</h2>')
++        # Model with verbose name.
++        self.assertContains(response, '<h2>Childs with verbose name - plural name</h2>')
++        self.assertContains(response, 'Add another Childs with verbose name - name')
++        self.assertNotContains(response, '<h2>Model with verbose name onlys</h2>')
++        # Model with verbose name plural.
++        self.assertContains(
++            response,
++            '<h2>Childs with verbose name plural - plural name</h2>',
++        )
++        self.assertContains(
++            response,
++            'Add another Childs with verbose name plural - name',
++        )
++        self.assertNotContains(response, '<h2>Model with verbose name plural only</h2>')
++        # Model with both verbose names.
++        self.assertContains(response, '<h2>Childs with both - plural name</h2>')
++        self.assertContains(response, 'Add another Childs with both - name')
++        self.assertNotContains(response, '<h2>Model with both - plural name</h2>')
++        self.assertNotContains(response, 'Add another Model with both - name')
++
++
+ @override_settings(ROOT_URLCONF='admin_inlines.urls')
+ class SeleniumTests(AdminSeleniumTestCase):
+ 
++ git diff 1bd6a7a0acc11e249fca11c017505ad39f15ebf6
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e .
+Obtaining file:///testbed
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: asgiref>=3.3.2 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from Django==4.0.dev20210908093206) (3.8.1)
+Requirement already satisfied: pytz in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from Django==4.0.dev20210908093206) (2026.6)
+Requirement already satisfied: sqlparse>=0.2.2 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from Django==4.0.dev20210908093206) (0.5.5)
+Requirement already satisfied: typing-extensions>=4 in /opt/miniconda3/envs/testbed/lib/python3.8/site-packages (from asgiref>=3.3.2->Django==4.0.dev20210908093206) (4.13.2)
+Building wheels for collected packages: Django
+  Building editable for Django (pyproject.toml): started
+  Building editable for Django (pyproject.toml): finished with status 'done'
+  Created wheel for Django: filename=django-4.0.dev20210908093206-0.editable-py3-none-any.whl size=26632 sha256=411f8da1d0f5980535bfaec4940667a9c16381ffa4788bd88fb0ec0b9e588596
+  Stored in directory: /tmp/pip-ephem-wheel-cache-oofnf9dq/wheels/b2/50/f1/218f2e9962a80d01a4b1297698978f9fb3b60056aa24343f24
+Successfully built Django
+Installing collected packages: Django
+  Attempting uninstall: Django
+    Found existing installation: Django 4.0.dev20210908093206
+    Uninstalling Django-4.0.dev20210908093206:
+      Successfully uninstalled Django-4.0.dev20210908093206
+Successfully installed Django-4.0.dev20210908093206
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git apply -v -
+Checking patch django/contrib/admin/options.py...
+Applied patch django/contrib/admin/options.py cleanly.
++ git apply -v -
+Checking patch tests/admin_inlines/tests.py...
+warning: tests/admin_inlines/tests.py has type 100644, expected 100755
+Applied patch tests/admin_inlines/tests.py cleanly.
++ python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(django/contrib/admin/options\.py)' ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 admin_inlines.tests
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(django/contrib/admin/options\\.py)']
+Testing against Django installed in '/testbed/django'
+Importing application admin_inlines
+Found 75 test(s).
+Skipping setup of unused database(s): other.
+Operations to perform:
+  Synchronize unmigrated apps: admin_inlines, auth, contenttypes, messages, sessions, staticfiles
+  Apply all migrations: admin, sites
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table django_content_type
+    Creating table auth_permission
+    Creating table auth_group
+    Creating table auth_user
+    Creating table django_session
+    Creating table admin_inlines_parent
+    Creating table admin_inlines_teacher
+    Creating table admin_inlines_child
+    Creating table admin_inlines_book
+    Creating table admin_inlines_author
+    Creating table admin_inlines_nonautopkbook
+    Creating table admin_inlines_nonautopkbookchild
+    Creating table admin_inlines_editablepkbook
+    Creating table admin_inlines_holder
+    Creating table admin_inlines_inner
+    Creating table admin_inlines_holder2
+    Creating table admin_inlines_inner2
+    Creating table admin_inlines_holder3
+    Creating table admin_inlines_inner3
+    Creating table admin_inlines_holder4
+    Creating table admin_inlines_inner4stacked
+    Creating table admin_inlines_inner4tabular
+    Creating table admin_inlines_holder5
+    Creating table admin_inlines_inner5stacked
+    Creating table admin_inlines_inner5tabular
+    Creating table admin_inlines_person
+    Creating table admin_inlines_outfititem
+    Creating table admin_inlines_fashionista
+    Creating table admin_inlines_shoppingweakness
+    Creating table admin_inlines_titlecollection
+    Creating table admin_inlines_title
+    Creating table admin_inlines_poll
+    Creating table admin_inlines_question
+    Creating table admin_inlines_novel
+    Creating table admin_inlines_chapter
+    Creating table admin_inlines_footnote
+    Creating table admin_inlines_capofamiglia
+    Creating table admin_inlines_consigliere
+    Creating table admin_inlines_sottocapo
+    Creating table admin_inlines_readonlyinline
+    Creating table admin_inlines_parentmodelwithcustompk
+    Creating table admin_inlines_childmodel1
+    Creating table admin_inlines_childmodel2
+    Creating table admin_inlines_binarytree
+    Creating table admin_inlines_lifeform
+    Creating table admin_inlines_extraterrestrial
+    Creating table admin_inlines_sighting
+    Creating table admin_inlines_someparentmodel
+    Creating table admin_inlines_somechildmodel
+    Creating table admin_inlines_course
+    Creating table admin_inlines_class
+    Creating table admin_inlines_profilecollection
+    Creating table admin_inlines_profile
+    Creating table admin_inlines_verbosenameprofile
+    Creating table admin_inlines_verbosenamepluralprofile
+    Creating table admin_inlines_bothverbosenameprofile
+    Running deferred SQL...
+Running migrations:
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sites.0001_initial... OK
+  Applying sites.0002_alter_domain_unique... OK
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+System check identified no issues (0 silenced).
+test_callable_lookup (admin_inlines.tests.TestInline)
+Admin inline should invoke local callable when its name is listed in readonly_fields ... ok
+test_can_delete (admin_inlines.tests.TestInline)
+can_delete should be passed to inlineformset factory. ... ok
+test_create_inlines_on_inherited_model (admin_inlines.tests.TestInline)
+An object can be created with inlines when it inherits another class. ... ok
+test_custom_form_tabular_inline_extra_field_label (admin_inlines.tests.TestInline) ... ok
+test_custom_form_tabular_inline_label (admin_inlines.tests.TestInline)
+A model form with a form field specified (TitleForm.title1) should have ... ok
+test_custom_form_tabular_inline_overridden_label (admin_inlines.tests.TestInline)
+SomeChildModelForm.__init__() overrides the label of a form field. ... ok
+test_custom_get_extra_form (admin_inlines.tests.TestInline) ... ok
+test_custom_min_num (admin_inlines.tests.TestInline) ... ok
+test_custom_pk_shortcut (admin_inlines.tests.TestInline)
+The "View on Site" link is correct for models with a custom primary key ... ok
+test_help_text (admin_inlines.tests.TestInline)
+The inlines' model field help texts are displayed when using both the ... ok
+test_inline_editable_pk (admin_inlines.tests.TestInline) ... ok
+test_inline_hidden_field_no_column (admin_inlines.tests.TestInline)
+#18263 -- Make sure hidden fields don't get a column in tabular inlines ... ok
+test_inline_nonauto_noneditable_inherited_pk (admin_inlines.tests.TestInline) ... ok
+test_inline_nonauto_noneditable_pk (admin_inlines.tests.TestInline) ... ok
+test_inline_primary (admin_inlines.tests.TestInline) ... ok
+test_inlines_plural_heading_foreign_key (admin_inlines.tests.TestInline) ... ok
+test_inlines_show_change_link_registered (admin_inlines.tests.TestInline)
+Inlines `show_change_link` for registered models when enabled. ... ok
+test_inlines_show_change_link_unregistered (admin_inlines.tests.TestInline)
+Inlines `show_change_link` disabled for unregistered models. ... ok
+test_inlines_singular_heading_one_to_one (admin_inlines.tests.TestInline) ... ok
+test_localize_pk_shortcut (admin_inlines.tests.TestInline)
+The "View on Site" link is correct for locales that use thousand ... ok
+test_many_to_many_inlines (admin_inlines.tests.TestInline)
+Autogenerated many-to-many inlines are displayed correctly (#13407) ... ok
+test_min_num (admin_inlines.tests.TestInline)
+min_num and extra determine number of forms. ... ok
+test_no_parent_callable_lookup (admin_inlines.tests.TestInline)
+Admin inline `readonly_field` shouldn't invoke parent ModelAdmin callable ... ok
+test_non_editable_custom_form_tabular_inline_extra_field_label (admin_inlines.tests.TestInline) ... ok
+test_non_related_name_inline (admin_inlines.tests.TestInline)
+Multiple inlines with related_name='+' have correct form prefixes. ... ok
+test_noneditable_inline_has_field_inputs (admin_inlines.tests.TestInline)
+Inlines without change permission shows field inputs on add form. ... ok
+test_readonly_stacked_inline_label (admin_inlines.tests.TestInline)
+Bug #13174. ... ok
+test_stacked_inline_edit_form_contains_has_original_class (admin_inlines.tests.TestInline) ... ok
+test_tabular_inline_column_css_class (admin_inlines.tests.TestInline)
+Field names are included in the context to output a field-specific ... ok
+test_tabular_inline_show_change_link_false_registered (admin_inlines.tests.TestInline)
+Inlines `show_change_link` disabled by default. ... ok
+test_tabular_model_form_meta_readonly_field (admin_inlines.tests.TestInline)
+Tabular inlines use ModelForm.Meta.help_texts and labels for read-only ... ok
+test_tabular_non_field_errors (admin_inlines.tests.TestInline)
+non_field_errors are displayed correctly, including the correct value ... ok
+test_immutable_content_type (admin_inlines.tests.TestInlineAdminForm)
+Regression for #9362 ... ok
+test_all_inline_media (admin_inlines.tests.TestInlineMedia) ... ok
+test_inline_media_only_base (admin_inlines.tests.TestInlineMedia) ... ok
+test_inline_media_only_inline (admin_inlines.tests.TestInlineMedia) ... ok
+test_inline_add_fk_add_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_add_fk_noperm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_add_m2m_add_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_add_m2m_noperm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_add_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_fk_add_change_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_fk_add_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_fk_all_perms (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_fk_change_del_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_fk_change_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_fk_noperm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_m2m_add_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_m2m_change_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_m2m_noperm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_inline_change_m2m_view_only_perm (admin_inlines.tests.TestInlinePermissions) ... ok
+test_deleting_inline_with_protected_delete_does_not_validate (admin_inlines.tests.TestInlineProtectedOnDelete) ... ok
+test_add_url_not_allowed (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_extra_inlines_are_not_shown (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_get_to_change_url_is_allowed (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_inline_delete_buttons_are_not_shown (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_inlines_are_rendered_as_read_only (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_main_model_is_rendered_as_read_only (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_post_to_change_url_not_allowed (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_submit_line_shows_only_close_button (admin_inlines.tests.TestReadOnlyChangeViewInlinePermissions) ... ok
+test_both_verbose_names_inline (admin_inlines.tests.TestVerboseNameInlineForms) ... ok
+test_verbose_name_inline (admin_inlines.tests.TestVerboseNameInlineForms) ... ok
+test_verbose_name_plural_inline (admin_inlines.tests.TestVerboseNameInlineForms) ... ok
+test_add_inline_link_absent_for_view_only_parent_model (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_add_inlines (admin_inlines.tests.SeleniumTests)
+The "Add another XXX" link correctly adds items to the inline form. ... skipped 'No browsers specified.'
+test_add_stackeds (admin_inlines.tests.SeleniumTests)
+The "Add another XXX" link correctly adds items to the stacked formset. ... skipped 'No browsers specified.'
+test_added_stacked_inline_with_collapsed_fields (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_collapsed_inlines (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_delete_inlines (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_delete_invalid_stacked_inlines (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_delete_invalid_tabular_inlines (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_delete_stackeds (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_inline_formset_error (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_inline_formset_error_input_border (admin_inlines.tests.SeleniumTests) ... skipped 'No browsers specified.'
+test_inlines_verbose_name (admin_inlines.tests.SeleniumTests)
+The item added by the "Add another XXX" link must use the correct ... skipped 'No browsers specified.'
+
+----------------------------------------------------------------------
+Ran 75 tests in 9.497s
+
+OK (skipped=12)
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
++ cat coverage.cover
+{"/testbed/django/contrib/admin/options.py": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "7": 1, "8": 1, "9": 1, "10": 1, "11": 1, "14": 1, "15": 1, "16": 1, "17": 1, "22": 1, "25": 1, "26": 1, "29": 1, "30": 1, "31": 1, "32": 1, "33": 1, "37": 1, "38": 1, "39": 1, "40": 1, "41": 1, "42": 1, "43": 1, "44": 1, "45": 1, "46": 1, "49": 1, "50": 1, "51": 1, "53": 1, "54": 1, "57": 1, "60": 1, "67": 1, "71": 2, "79": 2, "80": 1, "81": 1, "83": 1, "84": 1, "85": 1, "86": 1, "87": 1, "88": 1, "89": 1, "90": 1, "91": 1, "92": 1, "93": 1, "78": 1, "96": 1, "99": 2, "550": 2, "2012": 2, "2215": 2, "2219": 2, "63": 91, "64": 91, "68": 0, "72": 1, "102": 1, "103": 1, "104": 1, "105": 1, "106": 1, "107": 1, "108": 1, "109": 1, "110": 1, "111": 1, "112": 1, "113": 1, "114": 1, "115": 1, "116": 1, "117": 1, "118": 1, "120": 1, "123": 1, "131": 1, "188": 1, "206": 1, "219": 1, "243": 1, "285": 1, "292": 1, "305": 1, "314": 1, "320": 1, "330": 1, "338": 1, "342": 1, "348": 1, "354": 1, "360": 1, "372": 1, "376": 1, "430": 1, "475": 1, "484": 1, "499": 1, "514": 1, "533": 1, "536": 1, "121": 62, "126": 217, "127": 219, "128": 2, "129": 217, "140": 1120, "141": 0, "144": 1120, "149": 427, "150": 0, "153": 427, "154": 399, "155": 28, "156": 28, "162": 427, "163": 397, "164": 397, "165": 397, "166": 702, "167": 351, "168": 351, "169": 351, "170": 351, "172": 1191, "173": 794, "176": 427, "180": 1145, "181": 1145, "182": 693, "183": 693, "186": 0, "193": 0, "195": 0, "196": 0, "197": 0, "199": 0, "200": 0, "201": 0, "202": 0, "204": 0, "212": 424, "213": 424, "214": 351, "215": 351, "216": 0, "217": 424, "223": 399, "225": 399, "226": 399, "227": 0, "228": 399, "229": 0, "230": 399, "231": 0, "232": 0, "234": 0, "236": 399, "237": 399, "238": 399, "239": 0, "241": 399, "249": 28, "250": 3, "251": 25, "253": 25, "254": 25, "255": 25, "256": 0, "257": 0, "258": 0, "259": 0, "261": 25, "262": 0, "263": 0, "264": 0, "265": 0, "267": 25, "268": 0, "269": 0, "270": 0, "272": 25, "273": 25, "274": 25, "275": 0, "277": 25, "278": 50, "279": 25, "280": 25, "281": 25, "282": 25, "283": 25, "290": 424, "293": 172, "294": 30, "296": 142, "297": 0, "298": 142, "300": 54, "301": 27, "302": 27, "309": 176, "310": 176, "311": 176, "312": 176, "318": 438, "324": 270, "325": 0, "327": 270, "328": 270, "334": 270, "335": 0, "336": 270, "340": 64, "346": 488, "352": 866, "358": 158, "365": 137, "367": 137, "368": 137, "369": 0, "370": 137, "374": 0, "377": 0, "379": 0, "383": 0, "385": 0, "386": 0, "387": 0, "388": 0, "390": 0, "391": 0, "392": 0, "393": 0, "394": 0, "395": 0, "398": 0, "402": 0, "403": 0, "404": 0, "405": 0, "408": 0, "409": 0, "410": 0, "412": 0, "414": 0, "415": 0, "416": 0, "417": 0, "418": 0, "419": 0, "420": 0, "422": 0, "426": 0, "427": 0, "425": 0, "428": 0, "435": 0, "437": 0, "438": 0, "439": 0, "440": 0, "444": 0, "445": 0, "449": 0, "450": 0, "451": 0, "455": 0, "456": 0, "457": 0, "458": 0, "459": 0, "461": 0, "462": 0, "465": 0, "466": 0, "467": 0, "468": 0, "469": 0, "470": 0, "471": 0, "473": 0, "463": 0, "480": 2731, "481": 2731, "482": 2731, "495": 2825, "496": 2825, "497": 2825, "510": 2551, "511": 2551, "512": 2551, "525": 2510, "526": 2510, "527": 2510, "529": 2510, "530": 735, "528": 2510, "534": 284, "547": 1736, "553": 1, "554": 1, "555": 1, "556": 1, "557": 1, "558": 1, "559": 1, "560": 1, "561": 1, "562": 1, "563": 1, "564": 1, "565": 1, "566": 1, "567": 1, "568": 1, "571": 1, "572": 1, "573": 1, "574": 1, "575": 1, "576": 1, "577": 1, "580": 1, "581": 1, "582": 1, "583": 1, "584": 1, "585": 1, "587": 1, "593": 1, "596": 1, "602": 1, "617": 1, "640": 1, "641": 1, "644": 1, "645": 1, "659": 1, "672": 1, "675": 1, "723": 1, "730": 1, "759": 1, "774": 1, "787": 1, "801": 1, "808": 1, "811": 1, "827": 1, "843": 1, "859": 1, "860": 1, "866": 1, "867": 1, "870": 1, "888": 1, "904": 1, "916": 1, "927": 1, "954": 1, "961": 1, "973": 1, "980": 1, "987": 1, "994": 1, "1048": 1, "1066": 1, "1072": 2, "1073": 1, "1097": 1, "1104": 1, "1110": 1, "1116": 1, "1120": 1, "1126": 1, "1138": 1, "1185": 1, "1262": 1, "1337": 1, "1350": 1, "1357": 1, "1364": 1, "1431": 1, "1472": 1, "1493": 1, "1518": 1, "1533": 1, "1546": 1, "1547": 1, "1551": 1, "1665": 1, "1668": 1, "1671": 1, "1678": 1, "1694": 1, "1695": 1, "1850": 1, "1857": 1, "1858": 1, "1862": 1, "1921": 1, "1962": 1, "1976": 1, "588": 33, "589": 33, "590": 33, "591": 33, "594": 0, "598": 0, "597": 0, "603": 64, "604": 211, "605": 147, "606": 147, "607": 237, "608": 47, "609": 43, "610": 43, "611": 104, "612": 6, "613": 104, "615": 64, "618": 28, "620": 28, "626": 28, "629": 28, "630": 28, "631": 28, "632": 28, "633": 28, "635": 56, "636": 28, "628": 28, "621": 168, "623": 168, "624": 168, "622": 61, "642": 28, "646": 62, "648": 62, "649": 62, "650": 62, "651": 62, "652": 62, "653": 62, "654": 62, "655": 62, "647": 62, "657": 620, "666": 1736, "667": 1736, "668": 1736, "669": 1736, "665": 1736, "673": 64, "680": 128, "681": 128, "683": 0, "684": 128, "685": 128, "686": 128, "687": 128, "690": 128, "691": 6, "692": 128, "695": 0, "698": 128, "701": 256, "702": 128, "705": 128, "706": 128, "707": 128, "708": 128, "704": 256, "709": 128, "712": 128, "713": 64, "715": 128, "716": 128, "717": 0, "718": 0, "719": 0, "720": 0, "727": 0, "728": 0, "735": 0, "736": 0, "738": 0, "739": 0, "740": 0, "741": 0, "742": 0, "743": 0, "744": 0, "745": 0, "746": 0, "747": 0, "748": 0, "749": 0, "750": 0, "751": 0, "752": 0, "753": 0, "754": 0, "755": 0, "756": 0, "765": 33, "766": 33, "767": 33, "768": 33, "769": 33, "770": 33, "771": 0, "772": 0, "779": 0, "778": 0, "780": 0, "782": 0, "783": 0, "785": 0, "793": 0, "792": 0, "794": 0, "796": 0, "797": 0, "798": 0, "805": 168, "806": 104, "809": 0, "817": 2, "818": 4, "819": 2, "820": 2, "821": 2, "822": 2, "823": 2, "824": 2, "833": 0, "834": 0, "835": 0, "836": 0, "837": 0, "838": 0, "839": 0, "840": 0, "850": 0, "851": 0, "852": 0, "853": 0, "854": 0, "855": 0, "856": 0, "864": 0, "868": 50, "872": 50, "873": 100, "875": 100, "876": 100, "879": 100, "880": 50, "881": 0, "882": 50, "883": 50, "885": 50, "886": 50, "890": 0, "891": 0, "892": 0, "893": 0, "894": 0, "895": 0, "896": 0, "898": 0, "900": 0, "901": 0, "902": 0, "897": 0, "911": 0, "912": 0, "913": 0, "914": 0, "921": 0, "922": 0, "923": 0, "924": 0, "925": 0, "934": 0, "935": 0, "936": 0, "941": 0, "942": 0, "946": 0, "947": 0, "948": 0, "949": 0, "951": 0, "952": 0, "959": 0, "967": 0, "968": 0, "971": 0, "978": 0, "985": 0, "992": 0, "1000": 0, "1029": 0, "1030": 0, "1031": 0, "1032": 0, "1033": 0, "1034": 0, "1035": 0, "1036": 0, "1037": 0, "1038": 0, "1039": 0, "1041": 0, "1042": 0, "1044": 0, "1046": 0, "1001": 0, "1002": 0, "1003": 0, "1004": 0, "1005": 0, "1006": 0, "1008": 0, "1009": 0, "1011": 0, "1012": 0, "1013": 0, "1014": 0, "1015": 0, "1016": 0, "1017": 0, "1019": 0, "1020": 0, "1022": 0, "1023": 0, "1025": 0, "1027": 0, "1043": 0, "1052": 128, "1053": 128, "1054": 116, "1055": 116, "1056": 116, "1057": 116, "1058": 0, "1060": 116, "1062": 116, "1063": 0, "1064": 128, "1070": 2, "1083": 2, "1085": 0, "1086": 0, "1087": 0, "1088": 0, "1089": 0, "1090": 0, "1091": 0, "1092": 0, "1095": 2, "1102": 4, "1108": 2, "1114": 0, "1118": 0, "1124": 2, "1134": 2, "1135": 4, "1136": 2, "1139": 62, "1140": 62, "1141": 62, "1142": 62, "1143": 62, "1144": 62, "1145": 70, "1146": 56, "1147": 48, "1148": 48, "1149": 124, "1150": 62, "1151": 62, "1152": 62, "1153": 62, "1154": 62, "1155": 62, "1156": 62, "1157": 288, "1159": 164, "1161": 62, "1162": 62, "1163": 62, "1164": 62, "1165": 62, "1166": 62, "1167": 62, "1168": 62, "1169": 62, "1170": 62, "1172": 62, "1173": 0, "1175": 62, "1177": 62, "1179": 186, "1180": 62, "1181": 62, "1182": 62, "1183": 62, "1158": 102, "1189": 2, "1190": 2, "1191": 4, "1192": 2, "1193": 2, "1194": 2, "1197": 2, "1198": 2, "1200": 0, "1202": 2, "1203": 2, "1201": 2, "1208": 2, "1209": 0, "1210": 0, "1211": 0, "1213": 0, "1214": 0, "1215": 0, "1216": 0, "1217": 0, "1219": 0, "1220": 0, "1221": 0, "1222": 0, "1224": 0, "1223": 0, "1227": 4, "1229": 2, "1230": 0, "1232": 0, "1233": 0, "1234": 0, "1235": 0, "1236": 0, "1237": 0, "1238": 0, "1239": 0, "1240": 0, "1242": 0, "1244": 2, "1245": 0, "1246": 0, "1247": 0, "1249": 0, "1250": 0, "1251": 0, "1252": 0, "1255": 6, "1256": 2, "1257": 2, "1259": 2, "1260": 2, "1267": 0, "1268": 0, "1269": 0, "1270": 0, "1271": 0, "1272": 0, "1273": 0, "1274": 0, "1275": 0, "1276": 0, "1277": 0, "1279": 0, "1280": 0, "1281": 0, "1282": 0, "1284": 0, "1283": 0, "1287": 0, "1288": 0, "1291": 0, "1292": 0, "1290": 0, "1294": 0, "1295": 0, "1296": 0, "1297": 0, "1299": 0, "1300": 0, "1301": 0, "1302": 0, "1304": 0, "1305": 0, "1306": 0, "1307": 0, "1309": 0, "1310": 0, "1311": 0, "1312": 0, "1313": 0, "1314": 0, "1315": 0, "1317": 0, "1318": 0, "1319": 0, "1320": 0, "1322": 0, "1323": 0, "1324": 0, "1325": 0, "1326": 0, "1327": 0, "1330": 0, "1331": 0, "1332": 0, "1334": 0, "1335": 0, "1338": 2, "1339": 2, "1340": 6, "1341": 2, "1342": 2, "1343": 2, "1344": 2, "1346": 0, "1347": 0, "1348": 2, "1355": 2, "1362": 0, "1374": 0, "1375": 0, "1376": 0, "1377": 0, "1380": 0, "1381": 0, "1382": 0, "1385": 0, "1386": 0, "1387": 0, "1391": 0, "1393": 0, "1394": 0, "1397": 0, "1398": 0, "1399": 0, "1400": 0, "1405": 0, "1406": 0, "1408": 0, "1410": 0, "1411": 0, "1413": 0, "1415": 0, "1417": 0, "1422": 0, "1423": 0, "1425": 0, "1427": 0, "1428": 0, "1429": 0, "1435": 0, "1437": 0, "1438": 0, "1439": 0, "1440": 0, "1442": 0, "1443": 0, "1444": 0, "1445": 0, "1447": 0, "1446": 0, "1450": 0, "1451": 0, "1452": 0, "1453": 0, "1454": 0, "1456": 0, "1459": 0, "1460": 0, "1461": 0, "1462": 0, "1464": 0, "1465": 0, "1466": 0, "1469": 0, "1470": 0, "1473": 0, "1474": 0, "1476": 0, "1477": 0, "1478": 0, "1479": 0, "1480": 0, "1483": 0, "1484": 0, "1485": 0, "1486": 0, "1487": 0, "1488": 0, "1490": 0, "1495": 62, "1496": 62, "1497": 164, "1498": 102, "1499": 102, "1500": 102, "1501": 96, "1502": 96, "1503": 96, "1506": 6, "1507": 6, "1508": 102, "1509": 102, "1510": 204, "1511": 102, "1512": 102, "1513": 102, "1515": 102, "1516": 62, "1522": 29, "1523": 29, "1524": 0, "1525": 0, "1526": 0, "1527": 0, "1529": 0, "1530": 0, "1531": 29, "1538": 0, "1539": 0, "1540": 0, "1542": 0, "1543": 0, "1544": 0, "1548": 67, "1549": 67, "1552": 67, "1553": 67, "1554": 0, "1556": 67, "1557": 67, "1559": 67, "1560": 0, "1562": 67, "1564": 67, "1565": 34, "1566": 2, "1567": 32, "1570": 33, "1572": 33, "1573": 2, "1574": 1, "1576": 31, "1577": 0, "1579": 32, "1580": 0, "1582": 64, "1583": 128, "1584": 64, "1586": 64, "1587": 4, "1588": 4, "1589": 4, "1590": 4, "1592": 0, "1593": 4, "1594": 4, "1595": 2, "1596": 2, "1597": 2, "1598": 2, "1599": 2, "1600": 2, "1602": 0, "1603": 0, "1605": 2, "1607": 60, "1608": 29, "1609": 29, "1610": 29, "1612": 31, "1613": 31, "1615": 62, "1616": 6, "1618": 56, "1619": 124, "1620": 62, "1621": 62, "1623": 62, "1624": 62, "1625": 62, "1626": 62, "1628": 62, "1629": 164, "1630": 102, "1632": 62, "1633": 30, "1634": 32, "1635": 26, "1637": 6, "1639": 62, "1640": 62, "1641": 62, "1642": 62, "1643": 62, "1644": 62, "1645": 62, "1646": 62, "1647": 62, "1648": 62, "1649": 62, "1650": 62, "1638": 62, "1655": 62, "1656": 0, "1657": 0, "1659": 0, "1661": 62, "1663": 62, "1666": 29, "1669": 32, "1673": 0, "1674": 0, "1676": 0, "1683": 0, "1684": 0, "1685": 0, "1686": 0, "1687": 0, "1688": 0, "1689": 0, "1691": 0, "1692": 0, "1699": 0, "1700": 0, "1701": 0, "1702": 0, "1703": 0, "1705": 0, "1706": 0, "1707": 0, "1714": 0, "1715": 0, "1716": 0, "1718": 0, "1724": 0, "1725": 0, "1727": 0, "1729": 0, "1730": 0, "1731": 0, "1732": 0, "1733": 0, "1734": 0, "1736": 0, "1738": 0, "1740": 0, "1741": 0, "1744": 0, "1745": 0, "1746": 0, "1747": 0, "1748": 0, "1749": 0, "1750": 0, "1752": 0, "1754": 0, "1758": 0, "1763": 0, "1766": 0, "1767": 0, "1768": 0, "1769": 0, "1770": 0, "1771": 0, "1772": 0, "1773": 0, "1774": 0, "1775": 0, "1776": 0, "1777": 0, "1778": 0, "1779": 0, "1780": 0, "1781": 0, "1783": 0, "1784": 0, "1785": 0, "1786": 0, "1787": 0, "1789": 0, "1790": 0, "1788": 0, "1792": 0, "1794": 0, "1797": 0, "1798": 0, "1799": 0, "1802": 0, "1803": 0, "1805": 0, "1808": 0, "1809": 0, "1810": 0, "1811": 0, "1813": 0, "1815": 0, "1816": 0, "1817": 0, "1818": 0, "1822": 0, "1823": 0, "1824": 0, "1825": 0, "1826": 0, "1827": 0, "1828": 0, "1829": 0, "1830": 0, "1831": 0, "1832": 0, "1833": 0, "1834": 0, "1835": 0, "1836": 0, "1837": 0, "1838": 0, "1821": 0, "1839": 0, "1842": 0, "1844": 0, "1845": 0, "1846": 0, "1847": 0, "1848": 0, "1855": 0, "1859": 0, "1860": 0, "1864": 0, "1865": 0, "1867": 0, "1868": 0, "1869": 0, "1871": 0, "1873": 0, "1874": 0, "1876": 0, "1877": 0, "1881": 0, "1883": 0, "1884": 0, "1885": 0, "1886": 0, "1887": 0, "1888": 0, "1889": 0, "1890": 0, "1892": 0, "1894": 0, "1896": 0, "1897": 0, "1899": 0, "1902": 0, "1903": 0, "1904": 0, "1905": 0, "1906": 0, "1907": 0, "1908": 0, "1909": 0, "1910": 0, "1911": 0, "1912": 0, "1913": 0, "1914": 0, "1915": 0, "1901": 0, "1916": 0, "1919": 0, "1923": 0, "1926": 0, "1927": 0, "1928": 0, "1929": 0, "1931": 0, "1932": 0, "1935": 0, "1936": 0, "1937": 0, "1938": 0, "1939": 0, "1940": 0, "1943": 0, "1944": 0, "1945": 0, "1946": 0, "1947": 0, "1948": 0, "1949": 0, "1950": 0, "1942": 0, "1951": 0, "1954": 0, "1956": 0, "1957": 0, "1958": 0, "1959": 0, "1960": 0, "1964": 104, "1965": 104, "1966": 104, "1963": 104, "1968": 104, "1969": 8, "1970": 4, "1971": 4, "1972": 4, "1974": 104, "1978": 64, "1979": 64, "1980": 64, "1981": 64, "1982": 64, "1983": 32, "1984": 168, "1985": 104, "1986": 104, "1987": 104, "1988": 19, "1989": 104, "1990": 104, "1992": 104, "2001": 104, "2002": 9, "2003": 1, "2004": 0, "2005": 1, "2006": 1, "2007": 104, "2008": 104, "2009": 64, "1995": 1, "1996": 0, "1994": 1, "2020": 1, "2021": 1, "2022": 1, "2023": 1, "2024": 1, "2025": 1, "2026": 1, "2027": 1, "2028": 1, "2029": 1, "2030": 1, "2031": 1, "2032": 1, "2034": 1, "2048": 1, "2049": 1, "2058": 1, "2062": 1, "2066": 1, "2070": 1, "2159": 1, "2162": 1, "2168": 1, "2186": 1, "2195": 1, "2201": 1, "2207": 1, "2035": 184, "2036": 184, "2037": 184, "2038": 184, "2039": 184, "2040": 184, "2041": 176, "2042": 172, "2044": 4, "2045": 184, "2046": 176, "2050": 103, "2051": 103, "2052": 103, "2053": 0, "2054": 103, "2055": 12, "2056": 527, "2060": 304, "2064": 304, "2068": 304, "2072": 310, "2073": 206, "2075": 104, "2076": 310, "2077": 310, "2078": 310, "2079": 310, "2082": 0, "2085": 310, "2086": 310, "2088": 310, "2089": 310, "2090": 310, "2091": 310, "2092": 310, "2093": 310, "2094": 310, "2095": 310, "2096": 310, "2097": 310, "2087": 620, "2098": 310, "2101": 310, "2102": 310, "2103": 310, "2105": 620, "2152": 310, "2154": 310, "2155": 206, "2157": 310, "2107": 310, "2139": 310, "2144": 310, "2113": 10, "2114": 1, "2115": 1, "2116": 1, "2117": 0, "2118": 1, "2119": 1, "2120": 1, "2121": 2, "2122": 2, "2125": 2, "2126": 1, "2127": 1, "2130": 1, "2131": 1, "2132": 1, "2129": 1, "2134": 1, "2137": 1, "2140": 10, "2141": 10, "2142": 9, "2146": 11, "2147": 0, "2148": 11, "2149": 0, "2150": 11, "2160": 206, "2163": 104, "2164": 104, "2165": 4, "2166": 104, "2175": 136, "2177": 408, "2178": 408, "2179": 136, "2180": 136, "2181": 460, "2183": 279, "2182": 143, "2187": 557, "2192": 39, "2193": 518, "2196": 551, "2198": 39, "2199": 512, "2202": 435, "2204": 33, "2205": 402, "2208": 353, "2211": 25, "2212": 328, "2216": 1, "2220": 1}}
++ git checkout 1bd6a7a0acc11e249fca11c017505ad39f15ebf6
+M	django/contrib/admin/options.py
+M	tests/admin_inlines/tests.py
+Note: switching to '1bd6a7a0acc11e249fca11c017505ad39f15ebf6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 1bd6a7a0ac Refs #32219 -- Added admin model inline tests for verbose names.
++ git apply /root/pre_state.patch
+error: unrecognized input

@@ -1,0 +1,64 @@
+2026-11-19 05:21:10,016 - WARNING - Starting evaluation at 1795087270.0165603
+2026-11-19 05:24:35,613 - INFO - Creating container for sympy__sympy-14396...
+2026-11-19 05:24:35,900 - INFO - Container for sympy__sympy-14396 created: 9e2b08b2989d24bf04925722cdcfcaebae9a6693dcd23372aff96ba1b64051df
+2026-11-19 05:24:36,270 - INFO - Container for sympy__sympy-14396 started: 9e2b08b2989d24bf04925722cdcfcaebae9a6693dcd23372aff96ba1b64051df
+2026-11-19 05:24:37,032 - INFO - Git diff before:
+
+2026-11-19 05:24:37,042 - INFO - Eval script for sympy__sympy-14396 written to eval.sh, now applying to container...
+2026-11-19 05:25:24,399 - INFO - Test output for sympy__sympy-14396 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/sympy__sympy-14396/test_output.txt
+2026-11-19 05:25:24,522 - INFO - Git diff after:
+diff --git a/sympy/polys/tests/test_polyoptions.py b/sympy/polys/tests/test_polyoptions.py
+index cbc9681747..628e268aa1 100644
+--- a/sympy/polys/tests/test_polyoptions.py
++++ b/sympy/polys/tests/test_polyoptions.py
+@@ -6,7 +6,7 @@
+     Frac, Formal, Polys, Include, All, Gen, Symbols, Method)
+ 
+ from sympy.polys.orderings import lex
+-from sympy.polys.domains import FF, GF, ZZ, QQ, EX
++from sympy.polys.domains import FF, GF, ZZ, QQ, RR, CC, EX
+ 
+ from sympy.polys.polyerrors import OptionError, GeneratorsError
+ 
+@@ -176,15 +176,23 @@ def test_Domain_preprocess():
+ 
+     assert Domain.preprocess('Z[x]') == ZZ[x]
+     assert Domain.preprocess('Q[x]') == QQ[x]
++    assert Domain.preprocess('R[x]') == RR[x]
++    assert Domain.preprocess('C[x]') == CC[x]
+ 
+     assert Domain.preprocess('ZZ[x]') == ZZ[x]
+     assert Domain.preprocess('QQ[x]') == QQ[x]
++    assert Domain.preprocess('RR[x]') == RR[x]
++    assert Domain.preprocess('CC[x]') == CC[x]
+ 
+     assert Domain.preprocess('Z[x,y]') == ZZ[x, y]
+     assert Domain.preprocess('Q[x,y]') == QQ[x, y]
++    assert Domain.preprocess('R[x,y]') == RR[x, y]
++    assert Domain.preprocess('C[x,y]') == CC[x, y]
+ 
+     assert Domain.preprocess('ZZ[x,y]') == ZZ[x, y]
+     assert Domain.preprocess('QQ[x,y]') == QQ[x, y]
++    assert Domain.preprocess('RR[x,y]') == RR[x, y]
++    assert Domain.preprocess('CC[x,y]') == CC[x, y]
+ 
+     raises(OptionError, lambda: Domain.preprocess('Z()'))
+ 
+diff --git a/sympy/polys/tests/test_polytools.py b/sympy/polys/tests/test_polytools.py
+index 1f889e9f18..1ee3b65c66 100644
+--- a/sympy/polys/tests/test_polytools.py
++++ b/sympy/polys/tests/test_polytools.py
+@@ -319,6 +319,8 @@ def test_Poly__new__():
+     assert Poly(3*x**2 + 2*x + 1, domain='ZZ').all_coeffs() == [3, 2, 1]
+     assert Poly(3*x**2 + 2*x + 1, domain='QQ').all_coeffs() == [3, 2, 1]
+     assert Poly(3*x**2 + 2*x + 1, domain='RR').all_coeffs() == [3.0, 2.0, 1.0]
++    assert Poly(1.2*x*y*z, x, domain='RR[y,z]') == \
++        Poly(1.2*x*y*z, x, domain=RR[y, z])
+ 
+     raises(CoercionFailed, lambda: Poly(3*x**2/5 + 2*x/5 + 1, domain='ZZ'))
+     assert Poly(
+2026-11-19 05:25:24,523 - INFO - Git diff changed after running eval script
+2026-11-19 05:25:24,524 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.125222676431168...
+2026-11-19 05:25:39,893 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.125222676431168...
+2026-11-19 05:25:39,992 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.125222676431168 removed.
+2026-11-19 05:25:39,995 - WARNING - End of eval at 1795087539.9958296

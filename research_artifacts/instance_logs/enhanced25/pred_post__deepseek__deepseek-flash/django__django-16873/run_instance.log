@@ -1,0 +1,68 @@
+2026-11-20 12:05:49,446 - WARNING - Starting evaluation at 1795197949.445981
+2026-11-20 12:05:49,649 - INFO - Creating container for django__django-16873...
+2026-11-20 12:05:49,871 - INFO - Container for django__django-16873 created: eb78886426743045710589432d37616b62caebb077281103441b1f85b4d14ebd
+2026-11-20 12:05:50,073 - INFO - Container for django__django-16873 started: eb78886426743045710589432d37616b62caebb077281103441b1f85b4d14ebd
+2026-11-20 12:05:50,700 - INFO - Git diff before:
+
+2026-11-20 12:05:50,703 - INFO - Eval script for django__django-16873 written to eval.sh, now applying to container...
+2026-11-20 12:05:55,276 - INFO - Test output for django__django-16873 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/django__django-16873/test_output.txt
+2026-11-20 12:05:55,346 - INFO - Git diff after:
+diff --git a/django/template/defaultfilters.py b/django/template/defaultfilters.py
+index 03676533b7..5289ef34a0 100644
+--- a/django/template/defaultfilters.py
++++ b/django/template/defaultfilters.py
+@@ -586,8 +586,9 @@ def join(value, arg, autoescape=True):
+     """Join a list with a string, like Python's ``str.join(list)``."""
+     try:
+         if autoescape:
+-            value = [conditional_escape(v) for v in value]
+-        data = conditional_escape(arg).join(value)
++            data = conditional_escape(arg).join([conditional_escape(v) for v in value])
++        else:
++            data = arg.join(value)
+     except TypeError:  # Fail silently if arg isn't iterable.
+         return value
+     return mark_safe(data)
+diff --git a/tests/template_tests/filter_tests/test_join.py b/tests/template_tests/filter_tests/test_join.py
+index 08f68537ee..870b9aa07b 100644
+--- a/tests/template_tests/filter_tests/test_join.py
++++ b/tests/template_tests/filter_tests/test_join.py
+@@ -55,6 +55,24 @@ class JoinTests(SimpleTestCase):
+         )
+         self.assertEqual(output, "alpha & beta &amp; me")
+ 
++    @setup(
++        {"join09": '{% autoescape off %}{{ a|join:var }}{% endautoescape %}'}
++    )
++    def test_join09(self):
++        output = self.engine.render_to_string(
++            "join09", {"a": ["alpha", "beta & me"], "var": " & "}
++        )
++        self.assertEqual(output, "alpha & beta & me")
++
++    @setup(
++        {"join10": '{% autoescape off %}{{ a|join:var|lower }}{% endautoescape %}'}
++    )
++    def test_join10(self):
++        output = self.engine.render_to_string(
++            "join10", {"a": ["Alpha", "Beta & me"], "var": " & "}
++        )
++        self.assertEqual(output, "alpha & beta & me")
++
+ 
+ class FunctionTests(SimpleTestCase):
+     def test_list(self):
+@@ -69,7 +87,7 @@ class FunctionTests(SimpleTestCase):
+     def test_autoescape_off(self):
+         self.assertEqual(
+             join(["<a>", "<img>", "</a>"], "<br>", autoescape=False),
+-            "<a>&lt;br&gt;<img>&lt;br&gt;</a>",
++            "<a><br><img><br></a>",
+         )
+ 
+     def test_noniterable_arg(self):
+2026-11-20 12:05:55,346 - INFO - Git diff changed after running eval script
+2026-11-20 12:05:55,347 - INFO - Attempting to stop container exec.eval.x86_64.9097b18874f4d0ac315ef2.3e2d627590422584c3cfa2.139575368240464...
+2026-11-20 12:06:11,013 - INFO - Attempting to remove container exec.eval.x86_64.9097b18874f4d0ac315ef2.3e2d627590422584c3cfa2.139575368240464...
+2026-11-20 12:06:11,081 - INFO - Container exec.eval.x86_64.9097b18874f4d0ac315ef2.3e2d627590422584c3cfa2.139575368240464 removed.
+2026-11-20 12:06:11,082 - WARNING - End of eval at 1795197971.0824773

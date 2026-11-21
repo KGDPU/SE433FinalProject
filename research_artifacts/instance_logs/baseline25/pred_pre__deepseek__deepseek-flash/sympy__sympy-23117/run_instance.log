@@ -1,0 +1,30 @@
+2026-11-19 05:56:56,018 - WARNING - Starting evaluation at 1795089416.018798
+2026-11-19 05:58:28,080 - INFO - Creating container for sympy__sympy-23117...
+2026-11-19 05:58:28,305 - INFO - Container for sympy__sympy-23117 created: d99eaa7c9bf5ed3bf22c4aa1f2066e5cddba971f33094a9f53ef0b767a673a6a
+2026-11-19 05:58:28,612 - INFO - Container for sympy__sympy-23117 started: d99eaa7c9bf5ed3bf22c4aa1f2066e5cddba971f33094a9f53ef0b767a673a6a
+2026-11-19 05:58:30,116 - INFO - Git diff before:
+
+2026-11-19 05:58:30,127 - INFO - Eval script for sympy__sympy-23117 written to eval.sh, now applying to container...
+2026-11-19 05:58:43,657 - INFO - Test output for sympy__sympy-23117 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/sympy__sympy-23117/test_output.txt
+2026-11-19 05:58:43,742 - INFO - Git diff after:
+diff --git a/sympy/tensor/array/tests/test_ndim_array.py b/sympy/tensor/array/tests/test_ndim_array.py
+index f0732fd7c7..9768bb84b5 100644
+--- a/sympy/tensor/array/tests/test_ndim_array.py
++++ b/sympy/tensor/array/tests/test_ndim_array.py
+@@ -50,3 +50,11 @@ def test_issue_20222():
+     A = Array([[1, 2], [3, 4]])
+     B = Matrix([[1,2],[3,4]])
+     raises(TypeError, lambda: A - B)
++
++
++def test_issue_17851():
++    for array_type in array_types:
++        A = array_type([])
++        assert isinstance(A, array_type)
++        assert A.shape == (0,)
++        assert list(A) == []
+2026-11-19 05:58:43,743 - INFO - Git diff changed after running eval script
+2026-11-19 05:58:43,743 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.be1495abf19362ed24c254.125222676434768...
+2026-11-19 05:58:59,031 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.be1495abf19362ed24c254.125222676434768...
+2026-11-19 05:58:59,108 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.be1495abf19362ed24c254.125222676434768 removed.
+2026-11-19 05:58:59,109 - WARNING - End of eval at 1795089539.108983

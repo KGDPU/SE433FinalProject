@@ -1,0 +1,28 @@
+diff --git a/tests/utils_tests/test_html.py b/tests/utils_tests/test_html.py
+index 22a43fd4cd..a2d4854a94 100755
+--- a/tests/utils_tests/test_html.py
++++ b/tests/utils_tests/test_html.py
+@@ -1,3 +1,4 @@
++import json
+ import os
+ from datetime import datetime
+ 
+@@ -217,6 +218,18 @@ class TestUtilsHtml(SimpleTestCase):
+             '<script type="application/json">{"key": "value"}</script>',
+         )
+ 
++    def test_json_script_with_custom_encoder(self):
++        class CustomEncoder(json.JSONEncoder):
++            def default(self, obj):
++                if isinstance(obj, set):
++                    return sorted(obj)
++                return super().default(obj)
++
++        self.assertEqual(
++            json_script({"key": {"b", "a"}}, encoder=CustomEncoder),
++            '<script type="application/json">{"key": ["a", "b"]}</script>',
++        )
++
+     def test_smart_urlquote(self):
+         items = (
+             ("http://öäü.com/", "http://xn--4ca9at.com/"),

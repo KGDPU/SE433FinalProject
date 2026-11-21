@@ -1,0 +1,83 @@
+{
+    "django__django-16873": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "coverage_pred": 0.0,
+        "coverage_gold": 1.0,
+        "coverage_base": 0.75,
+        "coverage_delta_pred": 0.0,
+        "coverage_delta_gold": 0.5,
+        "added_f2p": 4,
+        "tests_base": {
+            "FAIL_TO_PASS": [],
+            "PASS_TO_PASS": [
+                "test_join04 (template_tests.filter_tests.test_join.JoinTests.test_join04)",
+                "test_join02 (template_tests.filter_tests.test_join.JoinTests.test_join02)",
+                "test_join08 (template_tests.filter_tests.test_join.JoinTests.test_join08)",
+                "test_join07 (template_tests.filter_tests.test_join.JoinTests.test_join07)",
+                "test_join05 (template_tests.filter_tests.test_join.JoinTests.test_join05)",
+                "test_noniterable_arg_autoescape_off (template_tests.filter_tests.test_join.FunctionTests.test_noniterable_arg_autoescape_off)",
+                "test_join01 (template_tests.filter_tests.test_join.JoinTests.test_join01)",
+                "test_join06 (template_tests.filter_tests.test_join.JoinTests.test_join06)",
+                "test_noniterable_arg (template_tests.filter_tests.test_join.FunctionTests.test_noniterable_arg)",
+                "test_autoescape (template_tests.filter_tests.test_join.FunctionTests.test_autoescape)",
+                "test_join03 (template_tests.filter_tests.test_join.JoinTests.test_join03)"
+            ],
+            "FAIL_TO_FAIL": [],
+            "PASS_TO_FAIL": [
+                "test_autoescape_off (template_tests.filter_tests.test_join.FunctionTests.test_autoescape_off)",
+                "test_list (template_tests.filter_tests.test_join.FunctionTests.test_list)"
+            ],
+            "UNMATCHED": []
+        },
+        "tests_pred": {
+            "FAIL_TO_PASS": [
+                "test_list (template_tests.filter_tests.test_join.FunctionTests.test_list)",
+                "test_join10 (template_tests.filter_tests.test_join.JoinTests.test_join10)",
+                "test_join09 (template_tests.filter_tests.test_join.JoinTests.test_join09)",
+                "test_autoescape_off (template_tests.filter_tests.test_join.FunctionTests.test_autoescape_off)"
+            ],
+            "PASS_TO_PASS": [
+                "test_join04 (template_tests.filter_tests.test_join.JoinTests.test_join04)",
+                "test_join02 (template_tests.filter_tests.test_join.JoinTests.test_join02)",
+                "test_join08 (template_tests.filter_tests.test_join.JoinTests.test_join08)",
+                "test_join07 (template_tests.filter_tests.test_join.JoinTests.test_join07)",
+                "test_join05 (template_tests.filter_tests.test_join.JoinTests.test_join05)",
+                "test_noniterable_arg_autoescape_off (template_tests.filter_tests.test_join.FunctionTests.test_noniterable_arg_autoescape_off)",
+                "test_join01 (template_tests.filter_tests.test_join.JoinTests.test_join01)",
+                "test_join06 (template_tests.filter_tests.test_join.JoinTests.test_join06)",
+                "test_noniterable_arg (template_tests.filter_tests.test_join.FunctionTests.test_noniterable_arg)",
+                "test_autoescape (template_tests.filter_tests.test_join.FunctionTests.test_autoescape)",
+                "test_join03 (template_tests.filter_tests.test_join.JoinTests.test_join03)"
+            ],
+            "FAIL_TO_FAIL": [],
+            "PASS_TO_FAIL": [],
+            "UNMATCHED": []
+        },
+        "tests_gold": {
+            "FAIL_TO_PASS": [
+                "test_list (template_tests.filter_tests.test_join.FunctionTests.test_list)",
+                "test_join_autoescape_off (template_tests.filter_tests.test_join.JoinTests.test_join_autoescape_off)",
+                "test_autoescape_off (template_tests.filter_tests.test_join.FunctionTests.test_autoescape_off)"
+            ],
+            "PASS_TO_PASS": [
+                "test_join04 (template_tests.filter_tests.test_join.JoinTests.test_join04)",
+                "test_join02 (template_tests.filter_tests.test_join.JoinTests.test_join02)",
+                "test_join08 (template_tests.filter_tests.test_join.JoinTests.test_join08)",
+                "test_join07 (template_tests.filter_tests.test_join.JoinTests.test_join07)",
+                "test_join05 (template_tests.filter_tests.test_join.JoinTests.test_join05)",
+                "test_noniterable_arg_autoescape_off (template_tests.filter_tests.test_join.FunctionTests.test_noniterable_arg_autoescape_off)",
+                "test_join01 (template_tests.filter_tests.test_join.JoinTests.test_join01)",
+                "test_join06 (template_tests.filter_tests.test_join.JoinTests.test_join06)",
+                "test_noniterable_arg (template_tests.filter_tests.test_join.FunctionTests.test_noniterable_arg)",
+                "test_autoescape (template_tests.filter_tests.test_join.FunctionTests.test_autoescape)",
+                "test_join03 (template_tests.filter_tests.test_join.JoinTests.test_join03)"
+            ],
+            "FAIL_TO_FAIL": [],
+            "PASS_TO_FAIL": [],
+            "UNMATCHED": []
+        }
+    }
+}

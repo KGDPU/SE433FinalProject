@@ -1,0 +1,23 @@
+2026-11-19 00:53:09,986 - WARNING - Starting evaluation at 1795071189.9863336
+2026-11-19 00:54:48,791 - INFO - Creating container for django__django-10924...
+2026-11-19 00:54:49,116 - INFO - Container for django__django-10924 created: 27f2c1a86e09ec77eec241761678c7db5f853c1f1f983df3a35cabf710ac0c70
+2026-11-19 00:54:49,662 - INFO - Container for django__django-10924 started: 27f2c1a86e09ec77eec241761678c7db5f853c1f1f983df3a35cabf710ac0c70
+2026-11-19 00:54:51,420 - INFO - Git diff before:
+
+2026-11-19 00:54:51,427 - INFO - Eval script for django__django-10924 written to eval.sh, now applying to container...
+2026-11-19 00:54:58,539 - INFO - Test output for django__django-10924 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/django__django-10924/test_output.txt
+2026-11-19 00:54:58,626 - INFO - Git diff after:
+
+2026-11-19 00:54:58,627 - INFO - Attempting to stop container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.128300837139984...
+2026-11-19 00:55:14,194 - INFO - Attempting to remove container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.128300837139984...
+2026-11-19 00:55:14,260 - INFO - Container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.128300837139984 removed.
+2026-11-19 00:55:14,262 - WARNING - End of eval at 1795071314.2624435
+2026-11-19 03:30:58,889 - WARNING - Starting evaluation at 1795080658.889779
+2026-11-19 03:30:58,928 - WARNING - Starting evaluation at 1795080658.9284456
+2026-11-19 03:30:58,972 - WARNING - Starting evaluation at 1795080658.9724715
+2026-11-19 03:30:59,015 - WARNING - Starting evaluation at 1795080659.0158062
+2026-11-19 03:30:59,059 - WARNING - Starting evaluation at 1795080659.059031
+2026-11-19 03:30:59,108 - WARNING - Starting evaluation at 1795080659.1084254
+2026-11-19 06:01:26,712 - INFO - Grading answer for django__django-10924...
+2026-11-19 06:01:26,813 - INFO - report: {'django__django-10924': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'coverage_pred': 0.0, 'coverage_gold': 1.0, 'coverage_base': 0.0, 'coverage_delta_pred': 0.0, 'coverage_delta_gold': 1.0, 'added_f2p': 1, 'tests_base': {'FAIL_TO_PASS': [], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': ['test_filepathfield (unittest.loader._FailedTest)']}, 'tests_pred': {'FAIL_TO_PASS': ['test_path_callable (model_fields.test_filepathfield.FilePathFieldTests)'], 'PASS_TO_PASS': [], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': []}, 'tests_gold': {'FAIL_TO_PASS': ['test_callable_path (model_fields.test_filepathfield.FilePathFieldTests)'], 'PASS_TO_PASS': ['test_path (model_fields.test_filepathfield.FilePathFieldTests)'], 'FAIL_TO_FAIL': [], 'PASS_TO_FAIL': [], 'UNMATCHED': []}}}
+Result for django__django-10924: resolved: True

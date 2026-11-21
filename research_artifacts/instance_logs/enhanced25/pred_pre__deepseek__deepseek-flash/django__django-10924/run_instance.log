@@ -1,0 +1,14 @@
+2026-11-20 11:48:36,929 - WARNING - Starting evaluation at 1795196916.9299088
+2026-11-20 11:48:37,130 - INFO - Creating container for django__django-10924...
+2026-11-20 11:48:37,359 - INFO - Container for django__django-10924 created: 495e35a08690fd0ad348c9be3ad038a958913ba5f676f6d2192e3eee701536e1
+2026-11-20 11:48:37,542 - INFO - Container for django__django-10924 started: 495e35a08690fd0ad348c9be3ad038a958913ba5f676f6d2192e3eee701536e1
+2026-11-20 11:48:56,033 - INFO - Git diff before:
+
+2026-11-20 11:48:56,037 - INFO - Eval script for django__django-10924 written to eval.sh, now applying to container...
+2026-11-20 11:49:04,151 - INFO - Test output for django__django-10924 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/django__django-10924/test_output.txt
+2026-11-20 11:49:04,224 - INFO - Git diff after:
+
+2026-11-20 11:49:04,225 - INFO - Attempting to stop container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.139575367759376...
+2026-11-20 11:49:19,999 - INFO - Attempting to remove container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.139575367759376...
+2026-11-20 11:49:20,072 - INFO - Container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.139575367759376 removed.
+2026-11-20 11:49:20,075 - WARNING - End of eval at 1795196960.074969

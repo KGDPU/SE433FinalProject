@@ -1,0 +1,40 @@
+2026-11-19 05:54:49,044 - WARNING - Starting evaluation at 1795089289.0444152
+2026-11-19 05:54:49,288 - INFO - Creating container for sympy__sympy-21612...
+2026-11-19 05:54:49,524 - INFO - Container for sympy__sympy-21612 created: 233eb9a74ad3c647b35ed081a5e3f6c09fa581edb7d8a40d52e5fa066597ee27
+2026-11-19 05:54:49,727 - INFO - Container for sympy__sympy-21612 started: 233eb9a74ad3c647b35ed081a5e3f6c09fa581edb7d8a40d52e5fa066597ee27
+2026-11-19 05:54:50,138 - INFO - Git diff before:
+
+2026-11-19 05:54:50,141 - INFO - Eval script for sympy__sympy-21612 written to eval.sh, now applying to container...
+2026-11-19 05:54:58,676 - INFO - Test output for sympy__sympy-21612 written to run_instance_swt_logs/baseline25/pred_post__deepseek__deepseek-flash/sympy__sympy-21612/test_output.txt
+2026-11-19 05:54:58,747 - INFO - Git diff after:
+diff --git a/sympy/printing/str.py b/sympy/printing/str.py
+index c3fdcdd435..3e4b7d1b19 100644
+--- a/sympy/printing/str.py
++++ b/sympy/printing/str.py
+@@ -333,7 +333,7 @@ def apow(i):
+                     b.append(apow(item))
+                 else:
+                     if (len(item.args[0].args) != 1 and
+-                            isinstance(item.base, Mul)):
++                            isinstance(item.base, (Mul, Pow))):
+                         # To avoid situations like #14160
+                         pow_paren.append(item)
+                     b.append(item.base)
+diff --git a/sympy/printing/tests/test_str.py b/sympy/printing/tests/test_str.py
+index 690b1a8bbf..68c7d63769 100644
+--- a/sympy/printing/tests/test_str.py
++++ b/sympy/printing/tests/test_str.py
+@@ -252,6 +252,8 @@ def test_Mul():
+     # For issue 14160
+     assert str(Mul(-2, x, Pow(Mul(y,y,evaluate=False), -1, evaluate=False),
+                                                 evaluate=False)) == '-2*x/(y*y)'
++    # issue 21537
++    assert str(Mul(x, Pow(1/y, -1, evaluate=False), evaluate=False)) == 'x/(1/y)'
+ 
+ 
+     class CustomClass1(Expr):
+2026-11-19 05:54:58,748 - INFO - Git diff changed after running eval script
+2026-11-19 05:54:58,749 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.125222676434528...
+2026-11-19 05:55:14,174 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.125222676434528...
+2026-11-19 05:55:14,243 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.125222676434528 removed.
+2026-11-19 05:55:14,245 - WARNING - End of eval at 1795089314.2450602

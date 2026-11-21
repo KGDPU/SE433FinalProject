@@ -1,0 +1,74 @@
+2026-11-19 05:58:59,131 - WARNING - Starting evaluation at 1795089539.131444
+2026-11-19 05:58:59,341 - INFO - Creating container for sympy__sympy-23117...
+2026-11-19 05:58:59,601 - INFO - Container for sympy__sympy-23117 created: f43101064db615c5534c11d6b1949dda7149bb2b88be3cee92a8bd6d8a6196e0
+2026-11-19 05:58:59,847 - INFO - Container for sympy__sympy-23117 started: f43101064db615c5534c11d6b1949dda7149bb2b88be3cee92a8bd6d8a6196e0
+2026-11-19 05:59:00,441 - INFO - Git diff before:
+
+2026-11-19 05:59:00,443 - INFO - Eval script for sympy__sympy-23117 written to eval.sh, now applying to container...
+2026-11-19 05:59:09,287 - INFO - Test output for sympy__sympy-23117 written to run_instance_swt_logs/baseline25/pred_post__deepseek__deepseek-flash/sympy__sympy-23117/test_output.txt
+2026-11-19 05:59:09,347 - INFO - Git diff after:
+diff --git a/sympy/tensor/array/ndim_array.py b/sympy/tensor/array/ndim_array.py
+index 6490a655a4..8e6cd143c4 100644
+--- a/sympy/tensor/array/ndim_array.py
++++ b/sympy/tensor/array/ndim_array.py
+@@ -145,10 +145,12 @@ def __new__(cls, iterable, shape=None, **kwargs):
+ 
+     def _parse_index(self, index):
+         if isinstance(index, (SYMPY_INTS, Integer)):
+-            raise ValueError("Only a tuple index is accepted")
++            if index >= self._loop_size:
++                raise ValueError("Only a tuple index is accepted")
++            return index
+ 
+         if self._loop_size == 0:
+-            raise ValueError("Index not valide with an empty array")
++            raise ValueError("Index not valid with an empty array")
+ 
+         if len(index) != self._rank:
+             raise ValueError('Wrong number of array axes')
+@@ -194,6 +196,9 @@ def f(pointer):
+             if not isinstance(pointer, Iterable):
+                 return [pointer], ()
+ 
++            if len(pointer) == 0:
++                return [], (0,)
++
+             result = []
+             elems, shapes = zip(*[f(i) for i in pointer])
+             if len(set(shapes)) != 1:
+@@ -567,11 +572,11 @@ def _check_special_bounds(cls, flat_list, shape):
+ 
+     def _check_index_for_getitem(self, index):
+         if isinstance(index, (SYMPY_INTS, Integer, slice)):
+-            index = (index, )
++            index = (index,)
+ 
+         if len(index) < self.rank():
+-            index = tuple([i for i in index] + \
+-                          [slice(None) for i in range(len(index), self.rank())])
++            index = tuple(index) + \
++                          tuple(slice(None) for i in range(len(index), self.rank()))
+ 
+         if len(index) > self.rank():
+             raise ValueError('Dimension of index greater than rank of array')
+diff --git a/sympy/tensor/array/tests/test_ndim_array.py b/sympy/tensor/array/tests/test_ndim_array.py
+index f0732fd7c7..9768bb84b5 100644
+--- a/sympy/tensor/array/tests/test_ndim_array.py
++++ b/sympy/tensor/array/tests/test_ndim_array.py
+@@ -50,3 +50,11 @@ def test_issue_20222():
+     A = Array([[1, 2], [3, 4]])
+     B = Matrix([[1,2],[3,4]])
+     raises(TypeError, lambda: A - B)
++
++
++def test_issue_17851():
++    for array_type in array_types:
++        A = array_type([])
++        assert isinstance(A, array_type)
++        assert A.shape == (0,)
++        assert list(A) == []
+2026-11-19 05:59:09,348 - INFO - Git diff changed after running eval script
+2026-11-19 05:59:09,348 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.be1495abf19362ed24c254.125222676434768...
+2026-11-19 05:59:25,501 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.be1495abf19362ed24c254.125222676434768...
+2026-11-19 05:59:25,577 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.be1495abf19362ed24c254.125222676434768 removed.
+2026-11-19 05:59:25,579 - WARNING - End of eval at 1795089565.5792315

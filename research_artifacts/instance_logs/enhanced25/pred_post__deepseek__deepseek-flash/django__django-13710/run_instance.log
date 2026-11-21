@@ -1,0 +1,95 @@
+2026-11-20 12:00:10,799 - WARNING - Starting evaluation at 1795197610.7990334
+2026-11-20 12:00:10,999 - INFO - Creating container for django__django-13710...
+2026-11-20 12:00:11,216 - INFO - Container for django__django-13710 created: fa0c5553ef8de01cc6b32bf5fef913367607dbc051f79a8a7d327fae3c787b47
+2026-11-20 12:00:11,466 - INFO - Container for django__django-13710 started: fa0c5553ef8de01cc6b32bf5fef913367607dbc051f79a8a7d327fae3c787b47
+2026-11-20 12:00:12,100 - INFO - Git diff before:
+
+2026-11-20 12:00:12,103 - INFO - Eval script for django__django-13710 written to eval.sh, now applying to container...
+2026-11-20 12:00:23,175 - INFO - Test output for django__django-13710 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/django__django-13710/test_output.txt
+2026-11-20 12:00:23,248 - INFO - Git diff after:
+diff --git a/django/contrib/admin/options.py b/django/contrib/admin/options.py
+index dadd4acfa1..1e5fab917e 100644
+--- a/django/contrib/admin/options.py
++++ b/django/contrib/admin/options.py
+@@ -2037,10 +2037,13 @@ class InlineModelAdmin(BaseModelAdmin):
+         self.opts = self.model._meta
+         self.has_registered_model = admin_site.is_registered(self.model)
+         super().__init__()
++        if self.verbose_name_plural is None:
++            if self.verbose_name is None:
++                self.verbose_name_plural = self.model._meta.verbose_name_plural
++            else:
++                self.verbose_name_plural = format_lazy('{}s', self.verbose_name)
+         if self.verbose_name is None:
+             self.verbose_name = self.model._meta.verbose_name
+-        if self.verbose_name_plural is None:
+-            self.verbose_name_plural = self.model._meta.verbose_name_plural
+ 
+     @property
+     def media(self):
+diff --git a/tests/admin_inlines/tests.py b/tests/admin_inlines/tests.py
+index 261c4f0148..fe9f6c6172 100644
+--- a/tests/admin_inlines/tests.py
++++ b/tests/admin_inlines/tests.py
+@@ -1013,6 +1013,56 @@ class TestVerboseNameInlineForms(TestDataMixin, TestCase):
+         self.assertContains(response, 'Add another Model with both - name')
+         self.assertNotContains(response, '<h2>Model with both - plural name</h2>')
+ 
++    def test_verbose_name_inline(self):
++        class NonVerboseProfileInline(TabularInline):
++            model = Profile
++            verbose_name = 'Non-verbose childs - name'
++
++        class VerboseNameProfileInline(TabularInline):
++            model = VerboseNameProfile
++            verbose_name = 'Childs with verbose name - name'
++
++        class VerboseNamePluralProfileInline(TabularInline):
++            model = VerboseNamePluralProfile
++            verbose_name = 'Childs with verbose name plural - name'
++
++        class BothVerboseNameProfileInline(TabularInline):
++            model = BothVerboseNameProfile
++            verbose_name = 'Childs with both - name'
++
++        modeladmin = ModelAdmin(ProfileCollection, admin_site)
++        modeladmin.inlines = [
++            NonVerboseProfileInline,
++            VerboseNameProfileInline,
++            VerboseNamePluralProfileInline,
++            BothVerboseNameProfileInline,
++        ]
++        obj = ProfileCollection.objects.create()
++        url = reverse('admin:admin_inlines_profilecollection_change', args=(obj.pk,))
++        request = self.factory.get(url)
++        request.user = self.superuser
++        response = modeladmin.changeform_view(request)
++        # The plural form defaults to the inline's verbose_name, regardless of
++        # the model's verbose_name and verbose_name_plural.
++        self.assertContains(response, '<h2>Non-verbose childs - names</h2>')
++        self.assertContains(response, 'Add another Non-verbose childs - name')
++        self.assertNotContains(response, '<h2>Profiles</h2>')
++        self.assertContains(response, '<h2>Childs with verbose name - names</h2>')
++        self.assertContains(response, 'Add another Childs with verbose name - name')
++        self.assertNotContains(response, '<h2>Model with verbose name onlys</h2>')
++        self.assertContains(
++            response,
++            '<h2>Childs with verbose name plural - names</h2>',
++        )
++        self.assertContains(
++            response,
++            'Add another Childs with verbose name plural - name',
++        )
++        self.assertNotContains(response, '<h2>Model with verbose name plural only</h2>')
++        self.assertContains(response, '<h2>Childs with both - names</h2>')
++        self.assertContains(response, 'Add another Childs with both - name')
++        self.assertNotContains(response, '<h2>Model with both - plural name</h2>')
++
+     def test_both_verbose_names_inline(self):
+         class NonVerboseProfileInline(TabularInline):
+             model = Profile
+2026-11-20 12:00:23,249 - INFO - Git diff changed after running eval script
+2026-11-20 12:00:23,249 - INFO - Attempting to stop container exec.eval.x86_64.ebed327f02c059ebd6024a.e9e479ac494a5d8437325d.139575367564816...
+2026-11-20 12:00:38,870 - INFO - Attempting to remove container exec.eval.x86_64.ebed327f02c059ebd6024a.e9e479ac494a5d8437325d.139575367564816...
+2026-11-20 12:00:38,940 - INFO - Container exec.eval.x86_64.ebed327f02c059ebd6024a.e9e479ac494a5d8437325d.139575367564816 removed.
+2026-11-20 12:00:38,941 - WARNING - End of eval at 1795197638.9415627

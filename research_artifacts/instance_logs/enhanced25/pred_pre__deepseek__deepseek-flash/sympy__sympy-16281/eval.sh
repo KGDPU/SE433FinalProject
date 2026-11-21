@@ -1,0 +1,88 @@
+#!/bin/bash
+set -uxo pipefail
+source /opt/miniconda3/bin/activate
+conda activate testbed
+cd /testbed
+git diff HEAD 41490b75f3621408e0468b0e7b6dc409601fc6ff >> /root/pre_state.patch
+git config --global --add safe.directory /testbed
+cd /testbed
+git status
+git show
+git diff 41490b75f3621408e0468b0e7b6dc409601fc6ff
+source /opt/miniconda3/bin/activate
+conda activate testbed
+python -m pip install -e .
+git apply -v - <<'EOF_114329324912'
+diff --git a/sympy/printing/pretty/tests/test_pretty.py b/sympy/printing/pretty/tests/test_pretty.py
+index cfaa65a7a..f7fc5e8aa 100755
+--- a/sympy/printing/pretty/tests/test_pretty.py
++++ b/sympy/printing/pretty/tests/test_pretty.py
+@@ -2106,6 +2106,62 @@ def test_pretty_product():
+     assert upretty(expr) == unicode_str
+ 
+ 
++def test_pretty_product_issue_16243():
++    # The product sign should not have an extra empty body line below the
++    # expression, and its body should be narrower than the original
++    # implementation.  Check terms of several heights, multiple limits, and
++    # a parenthesized product as well.
++    n, m, x = symbols('n m x')
++    expressions = [
++        Product(S.One, (n, 1, oo)),
++        Product(x**2, (x, 1, 2)),
++        Product(1/n, (n, 1, oo)),
++        Product(1/n**2, (n, 1, oo)),
++        Product(1/n, (n, 1, oo), (m, 1, oo)),
++        Product(1/n, (n, 1, oo))**2,
++    ]
++
++    for use_unicode in (False, True):
++        printer = upretty if use_unicode else pretty
++        vertical = u'\u2502' if use_unicode else '|'
++        for expr in expressions:
++            result = printer(expr)
++            lines = result.splitlines()
++
++            # An empty row between the vertical sides of the product sign is
++            # the old trailing blank line (possibly surrounded by
++            # parentheses when the product is raised to a power).
++            for line in lines:
++                blank = line
++                for ch in vertical + u'()[]{}⎛⎞⎜⎟⎝⎠':
++                    blank = blank.replace(ch, '')
++                assert blank.strip(), result
++
++    # A single product sign must have exactly one line for each line of its
++    # term, plus the upper limit, top bar, and lower limit.  The old output
++    # had one additional blank line in the sign body.
++    for use_unicode in (False, True):
++        printer = upretty if use_unicode else pretty
++        vertical = u'\u2502' if use_unicode else '|'
++        for term in (S.One, x**2, 1/n, 1/n**2):
++            expr = Product(term, (n, 1, oo))
++            result = printer(expr)
++            term_height = len(pretty(term).splitlines())
++            assert len(result.splitlines()) == term_height + 3, result
++
++            # Extract the width between the vertical sides of the product
++            # sign and compare it with the width used by the old printer.
++            old_width = (term_height + 2) * 5 // 3 - 2
++            body_widths = []
++            for line in result.splitlines():
++                if line.count(vertical) >= 2:
++                    left = line.find(vertical)
++                    right = line.rfind(vertical)
++                    body_widths.append(right - left - 1)
++            assert body_widths
++            assert max(body_widths) < old_width, result
++
++
+ def test_pretty_lambda():
+     # S.IdentityFunction is a special case
+     expr = Lambda(y, y)
+
+EOF_114329324912
+PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(sympy/printing/pretty/pretty\.py)' bin/test -C --verbose sympy/printing/pretty/tests/test_pretty.p
+cat coverage.cover
+git checkout 41490b75f3621408e0468b0e7b6dc409601fc6ff
+git apply /root/pre_state.patch

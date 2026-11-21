@@ -1,0 +1,67 @@
+2026-11-19 04:10:02,731 - WARNING - Starting evaluation at 1795083002.7312486
+2026-11-19 04:19:16,809 - INFO - Creating container for pallets__flask-5063...
+2026-11-19 04:19:17,034 - INFO - Container for pallets__flask-5063 created: 2cfa24c5fffff88769e2de1d53ff8fadebff68ce483e6fb4701dd0594bcd3933
+2026-11-19 04:19:17,284 - INFO - Container for pallets__flask-5063 started: 2cfa24c5fffff88769e2de1d53ff8fadebff68ce483e6fb4701dd0594bcd3933
+2026-11-19 04:19:17,459 - INFO - Git diff before:
+
+2026-11-19 04:19:17,469 - INFO - Eval script for pallets__flask-5063 written to eval.sh, now applying to container...
+2026-11-19 04:19:21,721 - INFO - Test output for pallets__flask-5063 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/pallets__flask-5063/test_output.txt
+2026-11-19 04:19:21,814 - INFO - Git diff after:
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+index 0d9625b1..ace5df06 100644
+--- a/tests/test_cli.py
++++ b/tests/test_cli.py
+@@ -498,6 +498,48 @@ class TestRoutes:
+         assert result.exit_code == 0
+         assert "No routes were registered." in result.output
+ 
++    def test_subdomain(self, runner):
++        app = Flask(__name__, static_folder=None)
++        app.add_url_rule("/a", subdomain="a", endpoint="a")
++        app.add_url_rule("/b", subdomain="b", endpoint="b")
++        cli = FlaskGroup(create_app=lambda: app)
++        result = runner.invoke(cli, ["routes"])
++        assert result.exit_code == 0
++        assert result.output.splitlines()[0].split() == [
++            "Endpoint",
++            "Methods",
++            "Subdomain",
++            "Rule",
++        ]
++        rows = {}
++
++        for line in result.output.splitlines()[2:]:
++            endpoint, _, subdomain, rule = line.split()
++            rows[endpoint] = (subdomain, rule)
++
++        assert rows == {"a": ("a", "/a"), "b": ("b", "/b")}
++
++    def test_host(self, runner):
++        app = Flask(__name__, static_folder=None, host_matching=True)
++        app.add_url_rule("/a", host="a", endpoint="a")
++        app.add_url_rule("/b", host="b", endpoint="b")
++        cli = FlaskGroup(create_app=lambda: app)
++        result = runner.invoke(cli, ["routes"])
++        assert result.exit_code == 0
++        assert result.output.splitlines()[0].split() == [
++            "Endpoint",
++            "Methods",
++            "Host",
++            "Rule",
++        ]
++        rows = {}
++
++        for line in result.output.splitlines()[2:]:
++            endpoint, _, host, rule = line.split()
++            rows[endpoint] = (host, rule)
++
++        assert rows == {"a": ("a", "/a"), "b": ("b", "/b")}
++
+ 
+ def dotenv_not_available():
+     try:
+2026-11-19 04:19:21,818 - INFO - Git diff changed after running eval script
+2026-11-19 04:19:21,819 - INFO - Attempting to stop container exec.eval.x86_64.3a033ae49dc50aea84d1f4.fd6d5ba059a3867b7e54c4.125222694571344...
+2026-11-19 04:19:37,230 - INFO - Attempting to remove container exec.eval.x86_64.3a033ae49dc50aea84d1f4.fd6d5ba059a3867b7e54c4.125222694571344...
+2026-11-19 04:19:37,304 - INFO - Container exec.eval.x86_64.3a033ae49dc50aea84d1f4.fd6d5ba059a3867b7e54c4.125222694571344 removed.
+2026-11-19 04:19:37,308 - WARNING - End of eval at 1795083577.308588

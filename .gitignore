@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files and logs
+*.tmp
+*.bak
+image_build_logs/
+run_instance_swt_logs/
+locks/
+
+# Generated results outside research_artifacts
+swt-bench/results/
+swt-bench/evaluation_results/

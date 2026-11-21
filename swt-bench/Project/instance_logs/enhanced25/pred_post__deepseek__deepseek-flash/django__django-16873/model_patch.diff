@@ -1,0 +1,38 @@
+diff --git a/tests/template_tests/filter_tests/test_join.py b/tests/template_tests/filter_tests/test_join.py
+index 08f68537ee..870b9aa07b 100755
+--- a/tests/template_tests/filter_tests/test_join.py
++++ b/tests/template_tests/filter_tests/test_join.py
+@@ -55,6 +55,24 @@ class JoinTests(SimpleTestCase):
+         )
+         self.assertEqual(output, "alpha & beta &amp; me")
+ 
++    @setup(
++        {"join09": '{% autoescape off %}{{ a|join:var }}{% endautoescape %}'}
++    )
++    def test_join09(self):
++        output = self.engine.render_to_string(
++            "join09", {"a": ["alpha", "beta & me"], "var": " & "}
++        )
++        self.assertEqual(output, "alpha & beta & me")
++
++    @setup(
++        {"join10": '{% autoescape off %}{{ a|join:var|lower }}{% endautoescape %}'}
++    )
++    def test_join10(self):
++        output = self.engine.render_to_string(
++            "join10", {"a": ["Alpha", "Beta & me"], "var": " & "}
++        )
++        self.assertEqual(output, "alpha & beta & me")
++
+ 
+ class FunctionTests(SimpleTestCase):
+     def test_list(self):
+@@ -69,7 +87,7 @@ class FunctionTests(SimpleTestCase):
+     def test_autoescape_off(self):
+         self.assertEqual(
+             join(["<a>", "<img>", "</a>"], "<br>", autoescape=False),
+-            "<a>&lt;br&gt;<img>&lt;br&gt;</a>",
++            "<a><br><img><br></a>",
+         )
+ 
+     def test_noniterable_arg(self):

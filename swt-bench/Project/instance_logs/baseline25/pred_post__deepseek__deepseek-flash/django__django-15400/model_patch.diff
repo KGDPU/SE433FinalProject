@@ -1,0 +1,15 @@
+diff --git a/tests/utils_tests/test_lazyobject.py b/tests/utils_tests/test_lazyobject.py
+index 9ccae595f4..ad4db600ab 100755
+--- a/tests/utils_tests/test_lazyobject.py
++++ b/tests/utils_tests/test_lazyobject.py
+@@ -317,6 +317,10 @@ class SimpleLazyObjectTestCase(LazyObjectTestCase):
+         self.assertIsInstance(obj._wrapped, int)
+         self.assertEqual(repr(obj), "<SimpleLazyObject: 42>")
+ 
++    def test_radd(self):
++        obj1 = self.lazy_wrap(1)
++        self.assertEqual(1 + obj1, 2)
++
+     def test_trace(self):
+         # See ticket #19456
+         old_trace_func = sys.gettrace()

@@ -1,0 +1,114 @@
+2026-11-19 05:36:46,629 - WARNING - Starting evaluation at 1795088206.6291473
+2026-11-19 05:38:37,234 - INFO - Creating container for sympy__sympy-16281...
+2026-11-19 05:38:37,489 - INFO - Container for sympy__sympy-16281 created: 2674a41f33f9acf7b1ac27d3b0997962e3334c9eef0df1bf85ce593f195af5fe
+2026-11-19 05:38:37,860 - INFO - Container for sympy__sympy-16281 started: 2674a41f33f9acf7b1ac27d3b0997962e3334c9eef0df1bf85ce593f195af5fe
+2026-11-19 05:38:38,790 - INFO - Git diff before:
+
+2026-11-19 05:38:38,799 - INFO - Eval script for sympy__sympy-16281 written to eval.sh, now applying to container...
+2026-11-19 05:39:27,577 - INFO - Test output for sympy__sympy-16281 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/sympy__sympy-16281/test_output.txt
+2026-11-19 05:39:27,704 - INFO - Git diff after:
+diff --git a/sympy/printing/pretty/tests/test_pretty.py b/sympy/printing/pretty/tests/test_pretty.py
+index cfaa65a7a2..adfec933e8 100644
+--- a/sympy/printing/pretty/tests/test_pretty.py
++++ b/sympy/printing/pretty/tests/test_pretty.py
+@@ -2054,23 +2054,23 @@ def test_pretty_product():
+     unicode_str = \
+ u("""\
+     l           \n\
+-┬────────┬      \n\
+-│        │  ⎛ 2⎞\n\
+-│        │  ⎜n ⎟\n\
+-│        │ f⎜──⎟\n\
+-│        │  ⎝9 ⎠\n\
+-│        │      \n\
++─┬──────┬─      \n\
++ │      │   ⎛ 2⎞\n\
++ │      │   ⎜n ⎟\n\
++ │      │  f⎜──⎟\n\
++ │      │   ⎝9 ⎠\n\
++ │      │       \n\
+        2        \n\
+   n = k         """)
+     ascii_str = \
+ """\
+     l           \n\
+ __________      \n\
+-|        |  / 2\\\n\
+-|        |  |n |\n\
+-|        | f|--|\n\
+-|        |  \\9 /\n\
+-|        |      \n\
++ |      |   / 2\\\n\
++ |      |   |n |\n\
++ |      |  f|--|\n\
++ |      |   \\9 /\n\
++ |      |       \n\
+        2        \n\
+   n = k         """
+ 
+@@ -2082,23 +2082,23 @@ def test_pretty_product():
+     unicode_str = \
+ u("""\
+     m          l           \n\
+-┬────────┬ ┬────────┬      \n\
+-│        │ │        │  ⎛ 2⎞\n\
+-│        │ │        │  ⎜n ⎟\n\
+-│        │ │        │ f⎜──⎟\n\
+-│        │ │        │  ⎝9 ⎠\n\
+-│        │ │        │      \n\
++─┬──────┬─ ─┬──────┬─      \n\
++ │      │   │      │   ⎛ 2⎞\n\
++ │      │   │      │   ⎜n ⎟\n\
++ │      │   │      │  f⎜──⎟\n\
++ │      │   │      │   ⎝9 ⎠\n\
++ │      │   │      │       \n\
+   l = 1           2        \n\
+              n = k         """)
+     ascii_str = \
+ """\
+     m          l           \n\
+ __________ __________      \n\
+-|        | |        |  / 2\\\n\
+-|        | |        |  |n |\n\
+-|        | |        | f|--|\n\
+-|        | |        |  \\9 /\n\
+-|        | |        |      \n\
++ |      |   |      |   / 2\\\n\
++ |      |   |      |   |n |\n\
++ |      |   |      |  f|--|\n\
++ |      |   |      |   \\9 /\n\
++ |      |   |      |       \n\
+   l = 1           2        \n\
+              n = k         """
+ 
+@@ -5514,19 +5514,19 @@ def test_issue_6359():
+            2
+ /  2      \\ \n\
+ |______   | \n\
+-||    |  2| \n\
+-||    | x | \n\
+-||    |   | \n\
++| |  |   2| \n\
++| |  |  x | \n\
++| |  |    | \n\
+ \\x = 1    / \
+ """
+     assert upretty(Product(x**2, (x, 1, 2))**2) == \
+ u("""\
+            2
+ ⎛  2      ⎞ \n\
+-⎜┬────┬   ⎟ \n\
+-⎜│    │  2⎟ \n\
+-⎜│    │ x ⎟ \n\
+-⎜│    │   ⎟ \n\
++⎜─┬──┬─   ⎟ \n\
++⎜ │  │   2⎟ \n\
++⎜ │  │  x ⎟ \n\
++⎜ │  │    ⎟ \n\
+ ⎝x = 1    ⎠ \
+ """)
+2026-11-19 05:39:27,705 - INFO - Git diff changed after running eval script
+2026-11-19 05:39:27,706 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.73b1d36da9391eed881b2b.125222676433808...
+2026-11-19 05:39:43,143 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.73b1d36da9391eed881b2b.125222676433808...
+2026-11-19 05:39:43,237 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.73b1d36da9391eed881b2b.125222676433808 removed.
+2026-11-19 05:39:43,241 - WARNING - End of eval at 1795088383.2412539

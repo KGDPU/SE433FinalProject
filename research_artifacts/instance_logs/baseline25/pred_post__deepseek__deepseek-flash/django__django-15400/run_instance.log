@@ -1,0 +1,46 @@
+2026-11-19 03:41:36,771 - WARNING - Starting evaluation at 1795081296.7717516
+2026-11-19 03:41:37,175 - INFO - Creating container for django__django-15400...
+2026-11-19 03:41:37,442 - INFO - Container for django__django-15400 created: 9f9f5f2dc21815ecab4baddd1348da9ebaf4aceb4ec9761fb643caf7291e88f1
+2026-11-19 03:41:37,674 - INFO - Container for django__django-15400 started: 9f9f5f2dc21815ecab4baddd1348da9ebaf4aceb4ec9761fb643caf7291e88f1
+2026-11-19 03:41:38,677 - INFO - Git diff before:
+
+2026-11-19 03:41:38,684 - INFO - Eval script for django__django-15400 written to eval.sh, now applying to container...
+2026-11-19 03:41:45,547 - INFO - Test output for django__django-15400 written to run_instance_swt_logs/baseline25/pred_post__deepseek__deepseek-flash/django__django-15400/test_output.txt
+2026-11-19 03:41:45,669 - INFO - Git diff after:
+diff --git a/django/utils/functional.py b/django/utils/functional.py
+index 9e1be0fe0f..2696dd49c5 100644
+--- a/django/utils/functional.py
++++ b/django/utils/functional.py
+@@ -432,6 +432,12 @@ class SimpleLazyObject(LazyObject):
+             return result
+         return copy.deepcopy(self._wrapped, memo)
+ 
++    __add__ = new_method_proxy(operator.add)
++
++    @new_method_proxy
++    def __radd__(self, other):
++        return other + self
++
+ 
+ def partition(predicate, values):
+     """
+diff --git a/tests/utils_tests/test_lazyobject.py b/tests/utils_tests/test_lazyobject.py
+index 9ccae595f4..ad4db600ab 100644
+--- a/tests/utils_tests/test_lazyobject.py
++++ b/tests/utils_tests/test_lazyobject.py
+@@ -317,6 +317,10 @@ class SimpleLazyObjectTestCase(LazyObjectTestCase):
+         self.assertIsInstance(obj._wrapped, int)
+         self.assertEqual(repr(obj), "<SimpleLazyObject: 42>")
+ 
++    def test_radd(self):
++        obj1 = self.lazy_wrap(1)
++        self.assertEqual(1 + obj1, 2)
++
+     def test_trace(self):
+         # See ticket #19456
+         old_trace_func = sys.gettrace()
+2026-11-19 03:41:45,670 - INFO - Git diff changed after running eval script
+2026-11-19 03:41:45,670 - INFO - Attempting to stop container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.125222694407712...
+2026-11-19 03:42:01,181 - INFO - Attempting to remove container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.125222694407712...
+2026-11-19 03:42:01,248 - INFO - Container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.125222694407712 removed.
+2026-11-19 03:42:01,250 - WARNING - End of eval at 1795081321.2504742

@@ -1,0 +1,27 @@
+2026-11-19 05:52:57,097 - WARNING - Starting evaluation at 1795089177.0974736
+2026-11-19 05:54:24,123 - INFO - Creating container for sympy__sympy-21612...
+2026-11-19 05:54:24,324 - INFO - Container for sympy__sympy-21612 created: 5e83a7559cbb7d1c34071af76188f207b9c637c95194a9515af321dcc1e22f97
+2026-11-19 05:54:24,512 - INFO - Container for sympy__sympy-21612 started: 5e83a7559cbb7d1c34071af76188f207b9c637c95194a9515af321dcc1e22f97
+2026-11-19 05:54:25,009 - INFO - Git diff before:
+
+2026-11-19 05:54:25,013 - INFO - Eval script for sympy__sympy-21612 written to eval.sh, now applying to container...
+2026-11-19 05:54:33,474 - INFO - Test output for sympy__sympy-21612 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/sympy__sympy-21612/test_output.txt
+2026-11-19 05:54:33,541 - INFO - Git diff after:
+diff --git a/sympy/printing/tests/test_str.py b/sympy/printing/tests/test_str.py
+index 690b1a8bbf..68c7d63769 100644
+--- a/sympy/printing/tests/test_str.py
++++ b/sympy/printing/tests/test_str.py
+@@ -252,6 +252,8 @@ def test_Mul():
+     # For issue 14160
+     assert str(Mul(-2, x, Pow(Mul(y,y,evaluate=False), -1, evaluate=False),
+                                                 evaluate=False)) == '-2*x/(y*y)'
++    # issue 21537
++    assert str(Mul(x, Pow(1/y, -1, evaluate=False), evaluate=False)) == 'x/(1/y)'
+ 
+ 
+     class CustomClass1(Expr):
+2026-11-19 05:54:33,542 - INFO - Git diff changed after running eval script
+2026-11-19 05:54:33,543 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.125222676434528...
+2026-11-19 05:54:48,942 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.125222676434528...
+2026-11-19 05:54:49,015 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.125222676434528 removed.
+2026-11-19 05:54:49,017 - WARNING - End of eval at 1795089289.016967

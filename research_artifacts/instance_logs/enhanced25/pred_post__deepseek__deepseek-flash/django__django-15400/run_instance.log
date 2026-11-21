@@ -1,0 +1,59 @@
+2026-11-20 12:03:28,811 - WARNING - Starting evaluation at 1795197808.811641
+2026-11-20 12:03:29,008 - INFO - Creating container for django__django-15400...
+2026-11-20 12:03:29,215 - INFO - Container for django__django-15400 created: 7d5e9358e46e30a2b542c57911b54a0371805df974fa98da18f0939d2dcc4413
+2026-11-20 12:03:29,394 - INFO - Container for django__django-15400 started: 7d5e9358e46e30a2b542c57911b54a0371805df974fa98da18f0939d2dcc4413
+2026-11-20 12:03:29,996 - INFO - Git diff before:
+
+2026-11-20 12:03:29,999 - INFO - Eval script for django__django-15400 written to eval.sh, now applying to container...
+2026-11-20 12:03:34,995 - INFO - Test output for django__django-15400 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/django__django-15400/test_output.txt
+2026-11-20 12:03:35,067 - INFO - Git diff after:
+diff --git a/django/utils/functional.py b/django/utils/functional.py
+index 9e1be0fe0f..2696dd49c5 100644
+--- a/django/utils/functional.py
++++ b/django/utils/functional.py
+@@ -432,6 +432,12 @@ class SimpleLazyObject(LazyObject):
+             return result
+         return copy.deepcopy(self._wrapped, memo)
+ 
++    __add__ = new_method_proxy(operator.add)
++
++    @new_method_proxy
++    def __radd__(self, other):
++        return other + self
++
+ 
+ def partition(predicate, values):
+     """
+diff --git a/tests/utils_tests/test_lazyobject.py b/tests/utils_tests/test_lazyobject.py
+index 9ccae595f4..579c8fb725 100644
+--- a/tests/utils_tests/test_lazyobject.py
++++ b/tests/utils_tests/test_lazyobject.py
+@@ -345,6 +345,23 @@ class SimpleLazyObjectTestCase(LazyObjectTestCase):
+         self.assertEqual(str(x), "None")
+         self.assertEqual(i, [1])
+ 
++    def test_radd(self):
++        setup_calls = []
++
++        def setup():
++            setup_calls.append(None)
++            return 1
++
++        obj = SimpleLazyObject(setup)
++        self.assertIs(obj._wrapped, empty)
++        self.assertEqual(1 + obj, 2)
++        self.assertEqual(len(setup_calls), 1)
++        self.assertEqual(1 + obj, 2)
++        self.assertEqual(len(setup_calls), 1)
++        self.assertEqual("a" + self.lazy_wrap("b"), "ab")
++        self.assertEqual([1] + self.lazy_wrap([2]), [1, 2])
++        self.assertEqual(sum([self.lazy_wrap(1), self.lazy_wrap(2)]), 3)
++
+     def test_dict(self):
+         # See ticket #18447
+         lazydict = SimpleLazyObject(lambda: {"one": 1})
+2026-11-20 12:03:35,068 - INFO - Git diff changed after running eval script
+2026-11-20 12:03:35,069 - INFO - Attempting to stop container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.139575368076832...
+2026-11-20 12:03:50,610 - INFO - Attempting to remove container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.139575368076832...
+2026-11-20 12:03:50,671 - INFO - Container exec.eval.x86_64.6b24dca158642bd6288384.fdc0a09f7dff5e7dbb1375.139575368076832 removed.
+2026-11-20 12:03:50,673 - WARNING - End of eval at 1795197830.6730976

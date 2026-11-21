@@ -1,0 +1,91 @@
+2026-11-19 05:25:40,052 - WARNING - Starting evaluation at 1795087540.0520227
+2026-11-19 05:25:40,523 - INFO - Creating container for sympy__sympy-14396...
+2026-11-19 05:25:40,790 - INFO - Container for sympy__sympy-14396 created: 411832e29834ace039bbec7cadf832109bc247761672b7b52ea66fe26aace82a
+2026-11-19 05:25:41,341 - INFO - Container for sympy__sympy-14396 started: 411832e29834ace039bbec7cadf832109bc247761672b7b52ea66fe26aace82a
+2026-11-19 05:25:42,121 - INFO - Git diff before:
+
+2026-11-19 05:25:42,128 - INFO - Eval script for sympy__sympy-14396 written to eval.sh, now applying to container...
+2026-11-19 05:26:35,375 - INFO - Test output for sympy__sympy-14396 written to run_instance_swt_logs/baseline25/pred_post__deepseek__deepseek-flash/sympy__sympy-14396/test_output.txt
+2026-11-19 05:26:35,498 - INFO - Git diff after:
+diff --git a/sympy/polys/polyoptions.py b/sympy/polys/polyoptions.py
+index 6e504a3057..426072134d 100644
+--- a/sympy/polys/polyoptions.py
++++ b/sympy/polys/polyoptions.py
+@@ -405,7 +405,7 @@ class Domain(with_metaclass(OptionType, Option)):
+     _re_realfield = re.compile(r"^(R|RR)(_(\d+))?$")
+     _re_complexfield = re.compile(r"^(C|CC)(_(\d+))?$")
+     _re_finitefield = re.compile(r"^(FF|GF)\((\d+)\)$")
+-    _re_polynomial = re.compile(r"^(Z|ZZ|Q|QQ)\[(.+)\]$")
++    _re_polynomial = re.compile(r"^(Z|ZZ|Q|QQ|R|RR|C|CC)\[(.+)\]$")
+     _re_fraction = re.compile(r"^(Z|ZZ|Q|QQ)\((.+)\)$")
+     _re_algebraic = re.compile(r"^(Q|QQ)\<(.+)\>$")
+ 
+@@ -459,8 +459,12 @@ def preprocess(cls, domain):
+ 
+                 if ground in ['Z', 'ZZ']:
+                     return sympy.polys.domains.ZZ.poly_ring(*gens)
+-                else:
++                elif ground in ['Q', 'QQ']:
+                     return sympy.polys.domains.QQ.poly_ring(*gens)
++                elif ground in ['R', 'RR']:
++                    return sympy.polys.domains.RR.poly_ring(*gens)
++                else:
++                    return sympy.polys.domains.CC.poly_ring(*gens)
+ 
+             r = cls._re_fraction.match(domain)
+ 
+diff --git a/sympy/polys/tests/test_polyoptions.py b/sympy/polys/tests/test_polyoptions.py
+index cbc9681747..628e268aa1 100644
+--- a/sympy/polys/tests/test_polyoptions.py
++++ b/sympy/polys/tests/test_polyoptions.py
+@@ -6,7 +6,7 @@
+     Frac, Formal, Polys, Include, All, Gen, Symbols, Method)
+ 
+ from sympy.polys.orderings import lex
+-from sympy.polys.domains import FF, GF, ZZ, QQ, EX
++from sympy.polys.domains import FF, GF, ZZ, QQ, RR, CC, EX
+ 
+ from sympy.polys.polyerrors import OptionError, GeneratorsError
+ 
+@@ -176,15 +176,23 @@ def test_Domain_preprocess():
+ 
+     assert Domain.preprocess('Z[x]') == ZZ[x]
+     assert Domain.preprocess('Q[x]') == QQ[x]
++    assert Domain.preprocess('R[x]') == RR[x]
++    assert Domain.preprocess('C[x]') == CC[x]
+ 
+     assert Domain.preprocess('ZZ[x]') == ZZ[x]
+     assert Domain.preprocess('QQ[x]') == QQ[x]
++    assert Domain.preprocess('RR[x]') == RR[x]
++    assert Domain.preprocess('CC[x]') == CC[x]
+ 
+     assert Domain.preprocess('Z[x,y]') == ZZ[x, y]
+     assert Domain.preprocess('Q[x,y]') == QQ[x, y]
++    assert Domain.preprocess('R[x,y]') == RR[x, y]
++    assert Domain.preprocess('C[x,y]') == CC[x, y]
+ 
+     assert Domain.preprocess('ZZ[x,y]') == ZZ[x, y]
+     assert Domain.preprocess('QQ[x,y]') == QQ[x, y]
++    assert Domain.preprocess('RR[x,y]') == RR[x, y]
++    assert Domain.preprocess('CC[x,y]') == CC[x, y]
+ 
+     raises(OptionError, lambda: Domain.preprocess('Z()'))
+ 
+diff --git a/sympy/polys/tests/test_polytools.py b/sympy/polys/tests/test_polytools.py
+index 1f889e9f18..1ee3b65c66 100644
+--- a/sympy/polys/tests/test_polytools.py
++++ b/sympy/polys/tests/test_polytools.py
+@@ -319,6 +319,8 @@ def test_Poly__new__():
+     assert Poly(3*x**2 + 2*x + 1, domain='ZZ').all_coeffs() == [3, 2, 1]
+     assert Poly(3*x**2 + 2*x + 1, domain='QQ').all_coeffs() == [3, 2, 1]
+     assert Poly(3*x**2 + 2*x + 1, domain='RR').all_coeffs() == [3.0, 2.0, 1.0]
++    assert Poly(1.2*x*y*z, x, domain='RR[y,z]') == \
++        Poly(1.2*x*y*z, x, domain=RR[y, z])
+ 
+     raises(CoercionFailed, lambda: Poly(3*x**2/5 + 2*x/5 + 1, domain='ZZ'))
+     assert Poly(
+2026-11-19 05:26:35,500 - INFO - Git diff changed after running eval script
+2026-11-19 05:26:35,501 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.125222676431168...
+2026-11-19 05:26:50,877 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.125222676431168...
+2026-11-19 05:26:50,972 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.125222676431168 removed.
+2026-11-19 05:26:50,978 - WARNING - End of eval at 1795087610.9784408

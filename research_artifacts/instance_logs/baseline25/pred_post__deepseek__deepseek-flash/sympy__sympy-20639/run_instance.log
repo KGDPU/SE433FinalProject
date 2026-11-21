@@ -1,0 +1,123 @@
+2026-11-19 05:49:58,374 - WARNING - Starting evaluation at 1795088998.374843
+2026-11-19 05:49:58,579 - INFO - Creating container for sympy__sympy-20639...
+2026-11-19 05:49:58,814 - INFO - Container for sympy__sympy-20639 created: 1850433faf77ef32bb7655a036a495aad7df943beca728138dbd2399f9d5e6ab
+2026-11-19 05:49:59,031 - INFO - Container for sympy__sympy-20639 started: 1850433faf77ef32bb7655a036a495aad7df943beca728138dbd2399f9d5e6ab
+2026-11-19 05:49:59,430 - INFO - Git diff before:
+
+2026-11-19 05:49:59,434 - INFO - Eval script for sympy__sympy-20639 written to eval.sh, now applying to container...
+2026-11-19 05:50:18,891 - INFO - Test output for sympy__sympy-20639 written to run_instance_swt_logs/baseline25/pred_post__deepseek__deepseek-flash/sympy__sympy-20639/test_output.txt
+2026-11-19 05:50:18,955 - INFO - Git diff after:
+diff --git a/sympy/printing/pretty/pretty.py b/sympy/printing/pretty/pretty.py
+index df7452ee87..fbe9edb632 100644
+--- a/sympy/printing/pretty/pretty.py
++++ b/sympy/printing/pretty/pretty.py
+@@ -1902,12 +1902,12 @@ def _print_Mul(self, product):
+             return prettyForm.__mul__(*a)/prettyForm.__mul__(*b)
+ 
+     # A helper function for _print_Pow to print x**(1/n)
+-    def _print_nth_root(self, base, expt):
++    def _print_nth_root(self, base, root):
+         bpretty = self._print(base)
+ 
+         # In very simple cases, use a single-char root sign
+         if (self._settings['use_unicode_sqrt_char'] and self._use_unicode
+-            and expt is S.Half and bpretty.height() == 1
++            and root == 2 and bpretty.height() == 1
+             and (bpretty.width() == 1
+                  or (base.is_Integer and base.is_nonnegative))):
+             return prettyForm(*bpretty.left('\N{SQUARE ROOT}'))
+@@ -1915,14 +1915,13 @@ def _print_nth_root(self, base, expt):
+         # Construct root sign, start with the \/ shape
+         _zZ = xobj('/', 1)
+         rootsign = xobj('\\', 1) + _zZ
+-        # Make exponent number to put above it
+-        if isinstance(expt, Rational):
+-            exp = str(expt.q)
+-            if exp == '2':
+-                exp = ''
+-        else:
+-            exp = str(expt.args[0])
+-        exp = exp.ljust(2)
++        # Constructing the number to put on root
++        rpretty = self._print(root)
++        # roots look bad if they are not a single line
++        if rpretty.height() != 1:
++            return self._print(base)**self._print(1/root)
++        # If power is half, no number should appear on top of root sign
++        exp = '' if root == 2 else str(rpretty).ljust(2)
+         if len(exp) > 2:
+             rootsign = ' '*(len(exp) - 2) + rootsign
+         # Stack the exponent
+@@ -1954,8 +1953,9 @@ def _print_Pow(self, power):
+             if e is S.NegativeOne:
+                 return prettyForm("1")/self._print(b)
+             n, d = fraction(e)
+-            if n is S.One and d.is_Atom and not e.is_Integer and self._settings['root_notation']:
+-                return self._print_nth_root(b, e)
++            if n is S.One and d.is_Atom and not e.is_Integer and (e.is_Rational or d.is_Symbol) \
++                    and self._settings['root_notation']:
++                return self._print_nth_root(b, d)
+             if e.is_Rational and e < 0:
+                 return prettyForm("1")/self._print(Pow(b, -e, evaluate=False))
+ 
+diff --git a/sympy/printing/pretty/tests/test_pretty.py b/sympy/printing/pretty/tests/test_pretty.py
+index d33795d155..a2d977b05e 100644
+--- a/sympy/printing/pretty/tests/test_pretty.py
++++ b/sympy/printing/pretty/tests/test_pretty.py
+@@ -7205,6 +7205,51 @@ def test_is_combining():
+         [False, True, False, False]
+ 
+ 
++
++def test_issue_17616():
++    assert pretty(pi**(1/exp(1))) == \
++   '  / -1\\\n'\
++   '  \\e  /\n'\
++   'pi     '
++
++    assert upretty(pi**(1/exp(1))) == \
++   ' ⎛ -1⎞\n'\
++   ' ⎝ℯ  ⎠\n'\
++   'π     '
++
++    assert pretty(pi**(1/pi)) == \
++    '  1 \n'\
++    '  --\n'\
++    '  pi\n'\
++    'pi  '
++
++    assert upretty(pi**(1/pi)) == \
++    ' 1\n'\
++    ' ─\n'\
++    ' π\n'\
++    'π '
++
++    assert pretty(pi**(1/EulerGamma)) == \
++    '      1     \n'\
++    '  ----------\n'\
++    '  EulerGamma\n'\
++    'pi          '
++
++    assert upretty(pi**(1/EulerGamma)) == \
++    ' 1\n'\
++    ' ─\n'\
++    ' γ\n'\
++    'π '
++
++    z = Symbol("x_17")
++    assert upretty(7**(1/z)) == \
++    'x₁₇___\n'\
++    ' ╲╱ 7 '
++
++    assert pretty(7**(1/z)) == \
++    'x_17___\n'\
++    '  \\/ 7 '
++
+ def test_issue_17857():
+     assert pretty(Range(-oo, oo)) == '{..., -1, 0, 1, ...}'
+     assert pretty(Range(oo, -oo, -1)) == '{..., 1, 0, -1, ...}'
+2026-11-19 05:50:18,956 - INFO - Git diff changed after running eval script
+2026-11-19 05:50:18,956 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.125222676434288...
+2026-11-19 05:50:34,351 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.125222676434288...
+2026-11-19 05:50:34,424 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.125222676434288 removed.
+2026-11-19 05:50:34,425 - WARNING - End of eval at 1795089034.425945

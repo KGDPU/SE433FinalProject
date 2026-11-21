@@ -1,0 +1,84 @@
+2026-11-20 12:16:39,044 - WARNING - Starting evaluation at 1795198599.0449219
+2026-11-20 12:16:39,246 - INFO - Creating container for scikit-learn__scikit-learn-13496...
+2026-11-20 12:16:39,513 - INFO - Container for scikit-learn__scikit-learn-13496 created: 5cfe0964bd00a1c4ef954b5e937777d3ef868791b7443223acc977edffe37c9f
+2026-11-20 12:16:39,724 - INFO - Container for scikit-learn__scikit-learn-13496 started: 5cfe0964bd00a1c4ef954b5e937777d3ef868791b7443223acc977edffe37c9f
+2026-11-20 12:16:46,831 - INFO - Git diff before:
+
+2026-11-20 12:16:46,834 - INFO - Eval script for scikit-learn__scikit-learn-13496 written to eval.sh, now applying to container...
+2026-11-20 12:16:59,405 - INFO - Test output for scikit-learn__scikit-learn-13496 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/scikit-learn__scikit-learn-13496/test_output.txt
+2026-11-20 12:16:59,469 - INFO - Git diff after:
+diff --git a/sklearn/ensemble/tests/test_iforest.py b/sklearn/ensemble/tests/test_iforest.py
+index 67ba2d7f93..0bb9f68693 100644
+--- a/sklearn/ensemble/tests/test_iforest.py
++++ b/sklearn/ensemble/tests/test_iforest.py
+@@ -359,3 +359,65 @@ def test_iforest_chunks_works2(
+ ):
+     test_iforest_works(contamination)
+     assert mocked_get_chunk.call_count == n_predict_calls
++
++
++def test_iforest_warm_start():
++    """Test IsolationForest exposes and supports warm_start."""
++    rng = check_random_state(0)
++    X = rng.randn(50, 2)
++
++    clf = IsolationForest(
++        n_estimators=5,
++        warm_start=True,
++        random_state=0,
++        contamination="auto",
++        behaviour="new",
++    )
++    clf.fit(X)
++    assert_equal(clf.warm_start, True)
++    assert_equal(len(clf.estimators_), 5)
++    first_estimators = clf.estimators_[:]
++
++    # Adding trees must preserve the previously fitted trees.
++    clf.set_params(n_estimators=10)
++    clf.fit(X)
++    assert_equal(len(clf.estimators_), 10)
++    assert all(
++        old_tree is new_tree
++        for old_tree, new_tree in zip(first_estimators, clf.estimators_)
++    )
++
++    # A warm-started fit is equivalent to fitting all trees at once.
++    clf_batch = IsolationForest(
++        n_estimators=10,
++        warm_start=False,
++        random_state=0,
++        contamination="auto",
++        behaviour="new",
++    )
++    clf_batch.fit(X)
++    assert_array_equal(clf.estimators_features_, clf_batch.estimators_features_)
++    assert_array_equal(clf.score_samples(X), clf_batch.score_samples(X))
++    assert_array_equal(clf.predict(X), clf_batch.predict(X))
++
++    # Fitting without increasing n_estimators should not modify the forest.
++    assert_warns_message(
++        UserWarning,
++        "Warm-start fitting without increasing n_estimators",
++        clf.fit,
++        X,
++    )
++    assert_equal(len(clf.estimators_), 10)
++    assert_array_equal(clf.score_samples(X), clf_batch.score_samples(X))
++
++    # The default is to fit a new forest, and reducing the number of trees
++    # while warm-starting is invalid.
++    assert_equal(IsolationForest().warm_start, False)
++    clf.set_params(n_estimators=9)
++    assert_raises_regex(
++        ValueError,
++        "must be larger or equal to",
++        clf.fit,
++        X,
++    )
++    assert_equal(len(clf.estimators_), 10)
+2026-11-20 12:16:59,469 - INFO - Git diff changed after running eval script
+2026-11-20 12:16:59,470 - INFO - Attempting to stop container exec.eval.x86_64.437918b9cd24690e5e9c56.08f722c01b948bb8f26db3.139575350046512...
+2026-11-20 12:17:14,908 - INFO - Attempting to remove container exec.eval.x86_64.437918b9cd24690e5e9c56.08f722c01b948bb8f26db3.139575350046512...
+2026-11-20 12:17:14,971 - INFO - Container exec.eval.x86_64.437918b9cd24690e5e9c56.08f722c01b948bb8f26db3.139575350046512 removed.
+2026-11-20 12:17:14,972 - WARNING - End of eval at 1795198634.972694

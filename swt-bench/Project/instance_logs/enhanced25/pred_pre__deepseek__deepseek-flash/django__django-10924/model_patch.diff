@@ -1,0 +1,51 @@
+diff --git a/tests/model_fields/test_filepathfield.py b/tests/model_fields/test_filepathfield.py
+new file mode 100644
+index 0000000000..8931e14486
+--- /dev/null
++++ b/tests/model_fields/test_filepathfield.py
+@@ -0,0 +1,45 @@
++import os
++import tempfile
++
++from django import forms
++from django.db import models
++from django.test import SimpleTestCase
++
++
++class FilePathFieldTests(SimpleTestCase):
++    def test_callable_path(self):
++        with tempfile.TemporaryDirectory() as path:
++            filename = os.path.join(path, 'file.txt')
++            with open(filename, 'w'):
++                pass
++
++            calls = []
++
++            def get_path():
++                calls.append(True)
++                return path
++
++            field = models.FilePathField(path=get_path)
++            self.assertEqual(calls, [])
++
++            form_field = field.formfield()
++            self.assertIsInstance(form_field, forms.FilePathField)
++            self.assertEqual(form_field.path, path)
++            self.assertEqual(form_field.choices, [(filename, 'file.txt')])
++            self.assertEqual(calls, [True])
++            self.assertIs(field.path, get_path)
++
++    def test_callable_path_deconstruct(self):
++        calls = []
++
++        def get_path():
++            calls.append(True)
++            return '/some/path'
++
++        field = models.FilePathField(path=get_path)
++        name, path, args, kwargs = field.deconstruct()
++        self.assertIsNone(name)
++        self.assertEqual(path, 'django.db.models.FilePathField')
++        self.assertEqual(args, [])
++        self.assertIs(kwargs['path'], get_path)
++        self.assertEqual(calls, [])

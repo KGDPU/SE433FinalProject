@@ -1,0 +1,37 @@
+diff --git a/tests/model_fields/test_filepathfield.py b/tests/model_fields/test_filepathfield.py
+new file mode 100644
+index 0000000000..6f027be4b6
+--- /dev/null
++++ b/tests/model_fields/test_filepathfield.py
+@@ -0,0 +1,31 @@
++import os
++import tempfile
++
++from django.db import models
++from django.test import SimpleTestCase
++
++
++class FilePathFieldTests(SimpleTestCase):
++    def test_path_callable(self):
++        with tempfile.TemporaryDirectory() as path:
++            with open(os.path.join(path, 'test.txt'), 'w'):
++                pass
++
++            def path_callable():
++                return path
++
++            field = models.FilePathField(path=path_callable)
++
++            # The callable is preserved when deconstructing the field so that
++            # migrations don't store the path for the machine where they were
++            # generated.
++            name, field_path, args, kwargs = field.deconstruct()
++            self.assertIs(kwargs['path'], path_callable)
++
++            # The callable is evaluated when creating the form field.
++            form_field = field.formfield()
++            self.assertEqual(form_field.path, path)
++            self.assertEqual(
++                form_field.choices,
++                [(os.path.join(path, 'test.txt'), 'test.txt')],
++            )

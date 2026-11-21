@@ -1,0 +1,26 @@
+diff --git a/sympy/physics/units/tests/test_util.py b/sympy/physics/units/tests/test_util.py
+index ed2f7df27e..4793023b50 100755
+--- a/sympy/physics/units/tests/test_util.py
++++ b/sympy/physics/units/tests/test_util.py
+@@ -65,6 +65,21 @@ def test_convert_to_quantities():
+     assert convert_to(pi, degree) == 180*degree
+ 
+ 
++def test_convert_to_incompatible_units():
++    # A target unit (or collection of units) which cannot exactly represent
++    # the dimensions of the expression should leave the expression unchanged.
++    # In particular, do not use least-squares exponents to combine orthogonal
++    # dimensions into a dimensionally different expression.
++    assert convert_to(joule*second, joule) == joule*second
++    assert convert_to(2*joule*second, joule) == 2*joule*second
++    assert convert_to(joule, joule*second) == joule
++    assert convert_to(meter**2, meter*second) == meter**2
++    assert convert_to(joule*second, [joule, kilogram]) == joule*second
++
++    # Exact conversions to a collection of units are still supported.
++    assert convert_to(joule*second, [joule, second]) == joule*second
++
++
+ def test_convert_to_tuples_of_quantities():
+     assert convert_to(speed_of_light, [meter, second]) == 299792458 * meter / second
+     assert convert_to(speed_of_light, (meter, second)) == 299792458 * meter / second

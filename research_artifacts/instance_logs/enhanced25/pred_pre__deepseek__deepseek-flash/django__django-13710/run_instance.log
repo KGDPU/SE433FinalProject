@@ -1,0 +1,75 @@
+2026-11-20 11:59:20,776 - WARNING - Starting evaluation at 1795197560.7762554
+2026-11-20 11:59:20,990 - INFO - Creating container for django__django-13710...
+2026-11-20 11:59:21,211 - INFO - Container for django__django-13710 created: c8391f678b561b6ca92643c57e95f2d564aaaed54c62289f455280554b26de78
+2026-11-20 11:59:21,414 - INFO - Container for django__django-13710 started: c8391f678b561b6ca92643c57e95f2d564aaaed54c62289f455280554b26de78
+2026-11-20 11:59:42,007 - INFO - Git diff before:
+
+2026-11-20 11:59:42,010 - INFO - Eval script for django__django-13710 written to eval.sh, now applying to container...
+2026-11-20 11:59:54,973 - INFO - Test output for django__django-13710 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/django__django-13710/test_output.txt
+2026-11-20 11:59:55,044 - INFO - Git diff after:
+diff --git a/tests/admin_inlines/tests.py b/tests/admin_inlines/tests.py
+index 261c4f0148..fe9f6c6172 100644
+--- a/tests/admin_inlines/tests.py
++++ b/tests/admin_inlines/tests.py
+@@ -1013,6 +1013,56 @@ class TestVerboseNameInlineForms(TestDataMixin, TestCase):
+         self.assertContains(response, 'Add another Model with both - name')
+         self.assertNotContains(response, '<h2>Model with both - plural name</h2>')
+ 
++    def test_verbose_name_inline(self):
++        class NonVerboseProfileInline(TabularInline):
++            model = Profile
++            verbose_name = 'Non-verbose childs - name'
++
++        class VerboseNameProfileInline(TabularInline):
++            model = VerboseNameProfile
++            verbose_name = 'Childs with verbose name - name'
++
++        class VerboseNamePluralProfileInline(TabularInline):
++            model = VerboseNamePluralProfile
++            verbose_name = 'Childs with verbose name plural - name'
++
++        class BothVerboseNameProfileInline(TabularInline):
++            model = BothVerboseNameProfile
++            verbose_name = 'Childs with both - name'
++
++        modeladmin = ModelAdmin(ProfileCollection, admin_site)
++        modeladmin.inlines = [
++            NonVerboseProfileInline,
++            VerboseNameProfileInline,
++            VerboseNamePluralProfileInline,
++            BothVerboseNameProfileInline,
++        ]
++        obj = ProfileCollection.objects.create()
++        url = reverse('admin:admin_inlines_profilecollection_change', args=(obj.pk,))
++        request = self.factory.get(url)
++        request.user = self.superuser
++        response = modeladmin.changeform_view(request)
++        # The plural form defaults to the inline's verbose_name, regardless of
++        # the model's verbose_name and verbose_name_plural.
++        self.assertContains(response, '<h2>Non-verbose childs - names</h2>')
++        self.assertContains(response, 'Add another Non-verbose childs - name')
++        self.assertNotContains(response, '<h2>Profiles</h2>')
++        self.assertContains(response, '<h2>Childs with verbose name - names</h2>')
++        self.assertContains(response, 'Add another Childs with verbose name - name')
++        self.assertNotContains(response, '<h2>Model with verbose name onlys</h2>')
++        self.assertContains(
++            response,
++            '<h2>Childs with verbose name plural - names</h2>',
++        )
++        self.assertContains(
++            response,
++            'Add another Childs with verbose name plural - name',
++        )
++        self.assertNotContains(response, '<h2>Model with verbose name plural only</h2>')
++        self.assertContains(response, '<h2>Childs with both - names</h2>')
++        self.assertContains(response, 'Add another Childs with both - name')
++        self.assertNotContains(response, '<h2>Model with both - plural name</h2>')
++
+     def test_both_verbose_names_inline(self):
+         class NonVerboseProfileInline(TabularInline):
+             model = Profile
+2026-11-20 11:59:55,045 - INFO - Git diff changed after running eval script
+2026-11-20 11:59:55,045 - INFO - Attempting to stop container exec.eval.x86_64.ebed327f02c059ebd6024a.e9e479ac494a5d8437325d.139575367564816...
+2026-11-20 12:00:10,705 - INFO - Attempting to remove container exec.eval.x86_64.ebed327f02c059ebd6024a.e9e479ac494a5d8437325d.139575367564816...
+2026-11-20 12:00:10,769 - INFO - Container exec.eval.x86_64.ebed327f02c059ebd6024a.e9e479ac494a5d8437325d.139575367564816 removed.
+2026-11-20 12:00:10,771 - WARNING - End of eval at 1795197610.7715213

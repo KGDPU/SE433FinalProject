@@ -1,0 +1,30 @@
+2026-11-19 04:32:39,532 - WARNING - Starting evaluation at 1795084359.5322628
+2026-11-19 04:41:07,811 - INFO - Creating container for pytest-dev__pytest-8906...
+2026-11-19 04:41:08,042 - INFO - Container for pytest-dev__pytest-8906 created: 5f5e97f7b1bc8316dd562284442f6b10cc0d16488fd4f5e7f14a4895a2c2eda4
+2026-11-19 04:41:08,275 - INFO - Container for pytest-dev__pytest-8906 started: 5f5e97f7b1bc8316dd562284442f6b10cc0d16488fd4f5e7f14a4895a2c2eda4
+2026-11-19 04:41:08,478 - INFO - Git diff before:
+
+2026-11-19 04:41:08,485 - INFO - Eval script for pytest-dev__pytest-8906 written to eval.sh, now applying to container...
+2026-11-19 04:41:23,033 - INFO - Test output for pytest-dev__pytest-8906 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/pytest-dev__pytest-8906/test_output.txt
+2026-11-19 04:41:23,120 - INFO - Git diff after:
+diff --git a/testing/test_skipping.py b/testing/test_skipping.py
+index 53bf953a8..6ca25cf0a 100644
+--- a/testing/test_skipping.py
++++ b/testing/test_skipping.py
+@@ -1341,7 +1341,12 @@ def test_module_level_skip_error(pytester: Pytester) -> None:
+     )
+     result = pytester.runpytest()
+     result.stdout.fnmatch_lines(
+-        ["*Using pytest.skip outside of a test is not allowed*"]
++        [
++            "*Using pytest.skip outside of a test will skip the entire module. "
++            "If that's your intention, pass `allow_module_level=True`. "
++            "If you want to skip a specific test or an entire class, "
++            "use the @pytest.mark.skip or @pytest.mark.skipif decorators."
++        ]
+     )
+2026-11-19 04:41:23,121 - INFO - Git diff changed after running eval script
+2026-11-19 04:41:23,122 - INFO - Attempting to stop container exec.eval.x86_64.f4028624418b912e4444d5.f450bac883b12330e0396e.125222676262224...
+2026-11-19 04:41:39,467 - INFO - Attempting to remove container exec.eval.x86_64.f4028624418b912e4444d5.f450bac883b12330e0396e.125222676262224...
+2026-11-19 04:41:39,568 - INFO - Container exec.eval.x86_64.f4028624418b912e4444d5.f450bac883b12330e0396e.125222676262224 removed.
+2026-11-19 04:41:39,571 - WARNING - End of eval at 1795084899.571484

@@ -1,0 +1,3 @@
+run,total_evaluated,resolved,unresolved,errors,mean_coverage,mean_coverage_delta,generation_cost_usd
+baseline25,21,20,1,0,0.8091657715717866,0.5145960138441341,0.24
+enhanced25,21,18,3,0,0.8603055257190595,0.6445995942236544,0.24

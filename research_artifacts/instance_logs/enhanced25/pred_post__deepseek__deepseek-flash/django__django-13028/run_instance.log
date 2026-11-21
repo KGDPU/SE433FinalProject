@@ -1,0 +1,47 @@
+2026-11-20 11:50:33,648 - WARNING - Starting evaluation at 1795197033.6485703
+2026-11-20 11:50:33,843 - INFO - Creating container for django__django-13028...
+2026-11-20 11:50:34,079 - INFO - Container for django__django-13028 created: 890d56b562eb60f419c06503df45b12ab1d49b85616a2db2fd52d2c4b1d760ec
+2026-11-20 11:50:34,335 - INFO - Container for django__django-13028 started: 890d56b562eb60f419c06503df45b12ab1d49b85616a2db2fd52d2c4b1d760ec
+2026-11-20 11:50:34,931 - INFO - Git diff before:
+
+2026-11-20 11:50:34,935 - INFO - Eval script for django__django-13028 written to eval.sh, now applying to container...
+2026-11-20 11:50:41,936 - INFO - Test output for django__django-13028 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/django__django-13028/test_output.txt
+2026-11-20 11:50:42,011 - INFO - Git diff after:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index ce18098fd2..d65141b834 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1124,7 +1124,10 @@ class Query(BaseExpression):
+ 
+     def check_filterable(self, expression):
+         """Raise an error if expression cannot be used in a WHERE clause."""
+-        if not getattr(expression, 'filterable', True):
++        if (
++            hasattr(expression, 'resolve_expression') and
++            not getattr(expression, 'filterable', True)
++        ):
+             raise NotSupportedError(
+                 expression.__class__.__name__ + ' is disallowed in the filter '
+                 'clause.'
+diff --git a/tests/queries/models.py b/tests/queries/models.py
+index 247d4b7671..163627b4c4 100644
+--- a/tests/queries/models.py
++++ b/tests/queries/models.py
+@@ -745,3 +745,12 @@ class JSONFieldNullable(models.Model):
+ 
+     class Meta:
+         required_db_features = {'supports_json_field'}
++
++
++class FilterableFieldModel(models.Model):
++    name = models.CharField(max_length=10)
++    filterable = models.BooleanField(default=False)
++    parent = models.ForeignKey('self', models.CASCADE, null=True)
++
++    def __str__(self):
++        return self.name
+2026-11-20 11:50:42,011 - INFO - Git diff changed after running eval script
+2026-11-20 11:50:42,012 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.9a960126b5c1d849de2b89.139575368014160...
+2026-11-20 11:50:57,787 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.9a960126b5c1d849de2b89.139575368014160...
+2026-11-20 11:50:57,860 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.9a960126b5c1d849de2b89.139575368014160 removed.
+2026-11-20 11:50:57,861 - WARNING - End of eval at 1795197057.8612761

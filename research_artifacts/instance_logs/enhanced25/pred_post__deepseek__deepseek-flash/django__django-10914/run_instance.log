@@ -1,0 +1,61 @@
+2026-11-20 11:48:11,548 - WARNING - Starting evaluation at 1795196891.5487
+2026-11-20 11:48:11,772 - INFO - Creating container for django__django-10914...
+2026-11-20 11:48:12,045 - INFO - Container for django__django-10914 created: 52225b85a026851c4b1711deda41ce6b355ebc37a406b0b82aa89e24b7a5360a
+2026-11-20 11:48:12,315 - INFO - Container for django__django-10914 started: 52225b85a026851c4b1711deda41ce6b355ebc37a406b0b82aa89e24b7a5360a
+2026-11-20 11:48:12,944 - INFO - Git diff before:
+
+2026-11-20 11:48:12,947 - INFO - Eval script for django__django-10914 written to eval.sh, now applying to container...
+2026-11-20 11:48:20,921 - INFO - Test output for django__django-10914 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/django__django-10914/test_output.txt
+2026-11-20 11:48:20,992 - INFO - Git diff after:
+diff --git a/django/conf/global_settings.py b/django/conf/global_settings.py
+index acee9887d2..bdeec80610 100644
+--- a/django/conf/global_settings.py
++++ b/django/conf/global_settings.py
+@@ -304,7 +304,7 @@ FILE_UPLOAD_TEMP_DIR = None
+ 
+ # The numeric mode to set newly-uploaded files to. The value should be a mode
+ # you'd pass directly to os.chmod; see https://docs.python.org/library/os.html#files-and-directories.
+-FILE_UPLOAD_PERMISSIONS = None
++FILE_UPLOAD_PERMISSIONS = 0o644
+ 
+ # The numeric mode to assign to newly-created directories, when uploading files.
+ # The value should be a mode as you'd pass to os.chmod;
+diff --git a/tests/file_storage/tests.py b/tests/file_storage/tests.py
+index 434869554c..7e90a7224c 100644
+--- a/tests/file_storage/tests.py
++++ b/tests/file_storage/tests.py
+@@ -892,8 +892,28 @@ class FileStoragePermissions(unittest.TestCase):
+         actual_mode = os.stat(self.storage.path(name))[0] & 0o777
+         self.assertEqual(actual_mode, 0o654)
+ 
+-    @override_settings(FILE_UPLOAD_PERMISSIONS=None)
+     def test_file_upload_default_permissions(self):
++        self.storage = FileSystemStorage(self.storage_dir)
++        self.assertEqual(self.storage.file_permissions_mode, 0o644)
++
++        # Uploaded files should have the same permissions regardless of
++        # whether they were held in memory or in a temporary file. Temporary
++        # files may be created with restrictive permissions and moved into
++        # place without going through the normal file creation path.
++        with TemporaryUploadedFile('temporary.txt', 'text/plain', 4, 'utf8') as temp_file:
++            temp_file.write(b'data')
++            temp_file.seek(0)
++            temporary_name = self.storage.save('temporary.txt', temp_file)
++        memory_file = SimpleUploadedFile('memory.txt', b'data')
++        memory_name = self.storage.save('memory.txt', memory_file)
++
++        temporary_mode = os.stat(self.storage.path(temporary_name))[0] & 0o777
++        memory_mode = os.stat(self.storage.path(memory_name))[0] & 0o777
++        self.assertEqual(temporary_mode, 0o644)
++        self.assertEqual(memory_mode, 0o644)
++
++    @override_settings(FILE_UPLOAD_PERMISSIONS=None)
++    def test_file_upload_none_permissions(self):
+         self.storage = FileSystemStorage(self.storage_dir)
+         fname = self.storage.save("some_file", ContentFile("data"))
+         mode = os.stat(self.storage.path(fname))[0] & 0o777
+2026-11-20 11:48:20,992 - INFO - Git diff changed after running eval script
+2026-11-20 11:48:20,993 - INFO - Attempting to stop container exec.eval.x86_64.ee2ad6945f237e9160354f.4586a2d244604116ecaa14.139575367654704...
+2026-11-20 11:48:36,704 - INFO - Attempting to remove container exec.eval.x86_64.ee2ad6945f237e9160354f.4586a2d244604116ecaa14.139575367654704...
+2026-11-20 11:48:36,783 - INFO - Container exec.eval.x86_64.ee2ad6945f237e9160354f.4586a2d244604116ecaa14.139575367654704 removed.
+2026-11-20 11:48:36,784 - WARNING - End of eval at 1795196916.7846584

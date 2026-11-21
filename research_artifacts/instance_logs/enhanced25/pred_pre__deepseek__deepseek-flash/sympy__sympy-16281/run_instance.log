@@ -1,0 +1,81 @@
+2026-11-20 12:20:32,966 - WARNING - Starting evaluation at 1795198832.9668844
+2026-11-20 12:20:33,171 - INFO - Creating container for sympy__sympy-16281...
+2026-11-20 12:20:33,402 - INFO - Container for sympy__sympy-16281 created: f4c421bde2708082e4d72066c60d990bdb3a04c9dd115b168ab7aef6276cc5a4
+2026-11-20 12:20:33,584 - INFO - Container for sympy__sympy-16281 started: f4c421bde2708082e4d72066c60d990bdb3a04c9dd115b168ab7aef6276cc5a4
+2026-11-20 12:20:43,363 - INFO - Git diff before:
+
+2026-11-20 12:20:43,366 - INFO - Eval script for sympy__sympy-16281 written to eval.sh, now applying to container...
+2026-11-20 12:21:09,965 - INFO - Test output for sympy__sympy-16281 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/sympy__sympy-16281/test_output.txt
+2026-11-20 12:21:10,030 - INFO - Git diff after:
+diff --git a/sympy/printing/pretty/tests/test_pretty.py b/sympy/printing/pretty/tests/test_pretty.py
+index cfaa65a7a2..f7fc5e8aac 100644
+--- a/sympy/printing/pretty/tests/test_pretty.py
++++ b/sympy/printing/pretty/tests/test_pretty.py
+@@ -2106,6 +2106,62 @@ def test_pretty_product():
+     assert upretty(expr) == unicode_str
+ 
+ 
++def test_pretty_product_issue_16243():
++    # The product sign should not have an extra empty body line below the
++    # expression, and its body should be narrower than the original
++    # implementation.  Check terms of several heights, multiple limits, and
++    # a parenthesized product as well.
++    n, m, x = symbols('n m x')
++    expressions = [
++        Product(S.One, (n, 1, oo)),
++        Product(x**2, (x, 1, 2)),
++        Product(1/n, (n, 1, oo)),
++        Product(1/n**2, (n, 1, oo)),
++        Product(1/n, (n, 1, oo), (m, 1, oo)),
++        Product(1/n, (n, 1, oo))**2,
++    ]
++
++    for use_unicode in (False, True):
++        printer = upretty if use_unicode else pretty
++        vertical = u'\u2502' if use_unicode else '|'
++        for expr in expressions:
++            result = printer(expr)
++            lines = result.splitlines()
++
++            # An empty row between the vertical sides of the product sign is
++            # the old trailing blank line (possibly surrounded by
++            # parentheses when the product is raised to a power).
++            for line in lines:
++                blank = line
++                for ch in vertical + u'()[]{}⎛⎞⎜⎟⎝⎠':
++                    blank = blank.replace(ch, '')
++                assert blank.strip(), result
++
++    # A single product sign must have exactly one line for each line of its
++    # term, plus the upper limit, top bar, and lower limit.  The old output
++    # had one additional blank line in the sign body.
++    for use_unicode in (False, True):
++        printer = upretty if use_unicode else pretty
++        vertical = u'\u2502' if use_unicode else '|'
++        for term in (S.One, x**2, 1/n, 1/n**2):
++            expr = Product(term, (n, 1, oo))
++            result = printer(expr)
++            term_height = len(pretty(term).splitlines())
++            assert len(result.splitlines()) == term_height + 3, result
++
++            # Extract the width between the vertical sides of the product
++            # sign and compare it with the width used by the old printer.
++            old_width = (term_height + 2) * 5 // 3 - 2
++            body_widths = []
++            for line in result.splitlines():
++                if line.count(vertical) >= 2:
++                    left = line.find(vertical)
++                    right = line.rfind(vertical)
++                    body_widths.append(right - left - 1)
++            assert body_widths
++            assert max(body_widths) < old_width, result
++
++
+ def test_pretty_lambda():
+     # S.IdentityFunction is a special case
+     expr = Lambda(y, y)
+2026-11-20 12:21:10,031 - INFO - Git diff changed after running eval script
+2026-11-20 12:21:10,032 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.73b1d36da9391eed881b2b.139575350201232...
+2026-11-20 12:21:25,940 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.73b1d36da9391eed881b2b.139575350201232...
+2026-11-20 12:21:26,011 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.73b1d36da9391eed881b2b.139575350201232 removed.
+2026-11-20 12:21:26,012 - WARNING - End of eval at 1795198886.012726

@@ -1,0 +1,60 @@
+2026-11-20 11:51:44,858 - WARNING - Starting evaluation at 1795197104.8588743
+2026-11-20 11:51:45,060 - INFO - Creating container for django__django-13447...
+2026-11-20 11:51:45,336 - INFO - Container for django__django-13447 created: 6f7d25a5cbc5e191ddc2d5b170f6067789b710ee7fc94d65309cb896c49e0a6d
+2026-11-20 11:51:45,592 - INFO - Container for django__django-13447 started: 6f7d25a5cbc5e191ddc2d5b170f6067789b710ee7fc94d65309cb896c49e0a6d
+2026-11-20 11:52:06,273 - INFO - Git diff before:
+
+2026-11-20 11:52:06,276 - INFO - Eval script for django__django-13447 written to eval.sh, now applying to container...
+2026-11-20 11:53:45,546 - INFO - Test output for django__django-13447 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/django__django-13447/test_output.txt
+2026-11-20 11:53:45,624 - INFO - Git diff after:
+diff --git a/tests/admin_views/tests.py b/tests/admin_views/tests.py
+index b1658941ee..2dc8bb32d1 100644
+--- a/tests/admin_views/tests.py
++++ b/tests/admin_views/tests.py
+@@ -1070,6 +1070,41 @@ class AdminViewBasicTest(AdminViewBasicTestCase):
+         self.assertEqual(response.context['title'], 'Admin_Views administration')
+         self.assertEqual(response.context['app_label'], 'admin_views')
+ 
++    def test_app_list_models_include_model_classes(self):
++        response = self.client.get(reverse('admin:index'))
++        models = {
++            model_dict['object_name']: model_dict['model']
++            for app in response.context['app_list']
++            for model_dict in app['models']
++        }
++        self.assertIs(models['Article'], Article)
++
++    def test_app_index_app_list_models_include_model_classes(self):
++        response = self.client.get(reverse('admin:app_list', args=('admin_views',)))
++        models = {
++            model_dict['object_name']: model_dict['model']
++            for app in response.context['app_list']
++            for model_dict in app['models']
++        }
++        self.assertIs(models['Article'], Article)
++
++    def test_build_app_dict_includes_model_class(self):
++        response = self.client.get(reverse('admin:index'))
++        app_dict = site.build_app_dict(response.wsgi_request)
++        models = {
++            model_dict['object_name']: model_dict['model']
++            for app in app_dict.values()
++            for model_dict in app['models']
++        }
++        self.assertIs(models['Article'], Article)
++
++        app_dict = site.build_app_dict(response.wsgi_request, 'admin_views')
++        models = {
++            model_dict['object_name']: model_dict['model']
++            for model_dict in app_dict['models']
++        }
++        self.assertIs(models['Article'], Article)
++
+     def test_change_view_subtitle_per_object(self):
+         response = self.client.get(
+             reverse('admin:admin_views_article_change', args=(self.a1.pk,)),
+2026-11-20 11:53:45,625 - INFO - Git diff changed after running eval script
+2026-11-20 11:53:45,625 - INFO - Attempting to stop container exec.eval.x86_64.ebed327f02c059ebd6024a.08afa4e69c09abe9db9966.139575367554784...
+2026-11-20 11:54:00,929 - INFO - Attempting to remove container exec.eval.x86_64.ebed327f02c059ebd6024a.08afa4e69c09abe9db9966.139575367554784...
+2026-11-20 11:54:00,992 - INFO - Container exec.eval.x86_64.ebed327f02c059ebd6024a.08afa4e69c09abe9db9966.139575367554784 removed.
+2026-11-20 11:54:00,993 - WARNING - End of eval at 1795197240.9938905

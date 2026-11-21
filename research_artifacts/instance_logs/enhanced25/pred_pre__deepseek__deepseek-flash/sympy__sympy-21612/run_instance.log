@@ -1,0 +1,60 @@
+2026-11-20 12:24:33,360 - WARNING - Starting evaluation at 1795199073.3609707
+2026-11-20 12:24:33,570 - INFO - Creating container for sympy__sympy-21612...
+2026-11-20 12:24:33,835 - INFO - Container for sympy__sympy-21612 created: 58a8b5e820fcf8e2e7cda57bbda2aec0ada8c406c7ebd165525ce93cae2adb3e
+2026-11-20 12:24:34,030 - INFO - Container for sympy__sympy-21612 started: 58a8b5e820fcf8e2e7cda57bbda2aec0ada8c406c7ebd165525ce93cae2adb3e
+2026-11-20 12:24:45,052 - INFO - Git diff before:
+
+2026-11-20 12:24:45,056 - INFO - Eval script for sympy__sympy-21612 written to eval.sh, now applying to container...
+2026-11-20 12:24:54,617 - INFO - Test output for sympy__sympy-21612 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/sympy__sympy-21612/test_output.txt
+2026-11-20 12:24:54,685 - INFO - Git diff after:
+diff --git a/sympy/parsing/tests/test_latex.py b/sympy/parsing/tests/test_latex.py
+index f5c61cde13..9871f11030 100644
+--- a/sympy/parsing/tests/test_latex.py
++++ b/sympy/parsing/tests/test_latex.py
+@@ -251,6 +251,22 @@ def test_parseable():
+     for latex_str, sympy_expr in GOOD_PAIRS:
+         assert parse_latex(latex_str) == sympy_expr, latex_str
+ 
++
++def test_nested_fraction_string():
++    from sympy.parsing.latex import parse_latex
++
++    # A reciprocal fraction in the denominator must stay parenthesized when
++    # printed, otherwise the output is interpreted as division by the
++    # reciprocal's numerator and denominator separately.
++    expr = parse_latex(r"\frac{\frac{a^3+b}{c}}{\frac{1}{c^2}}")
++    assert str(expr) == "((a**3 + b)/c)/(1/(c**2))"
++
++    expr = parse_latex(r"\frac{a}{\frac{1}{b}}")
++    assert str(expr) == "a/(1/b)"
++
++    expr = parse_latex(r"\frac{\frac{a}{b}}{\frac{1}{c + d}}")
++    assert str(expr) == "(a/b)/(1/(c + d))"
++
+ # These bad LaTeX strings should raise a LaTeXParsingError when parsed
+ BAD_STRINGS = [
+     r"(",
+diff --git a/sympy/printing/tests/test_str.py b/sympy/printing/tests/test_str.py
+index 690b1a8bbf..d317d01bbf 100644
+--- a/sympy/printing/tests/test_str.py
++++ b/sympy/printing/tests/test_str.py
+@@ -253,6 +253,14 @@ def test_Mul():
+     assert str(Mul(-2, x, Pow(Mul(y,y,evaluate=False), -1, evaluate=False),
+                                                 evaluate=False)) == '-2*x/(y*y)'
+ 
++    # A denominator that is itself a reciprocal must be parenthesized so that
++    # the string representation preserves the structure of the unevaluated Mul.
++    assert str(Mul(x, Pow(Pow(y, -1, evaluate=False), -1, evaluate=False),
++                   evaluate=False)) == 'x/(1/y)'
++    assert str(Mul(Mul(x, Pow(y, -1, evaluate=False), evaluate=False),
++                   Pow(Pow(z, -1, evaluate=False), -1, evaluate=False),
++                   evaluate=False)) == '(x/y)/(1/z)'
++
+ 
+     class CustomClass1(Expr):
+         is_commutative = True
+2026-11-20 12:24:54,686 - INFO - Git diff changed after running eval script
+2026-11-20 12:24:54,687 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.139575350201952...
+2026-11-20 12:25:10,705 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.139575350201952...
+2026-11-20 12:25:10,773 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.7049653f55d2036f56aa86.139575350201952 removed.
+2026-11-20 12:25:10,774 - WARNING - End of eval at 1795199110.7748568

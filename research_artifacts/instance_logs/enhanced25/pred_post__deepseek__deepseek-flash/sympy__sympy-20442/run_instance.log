@@ -1,0 +1,63 @@
+2026-11-20 12:22:45,400 - WARNING - Starting evaluation at 1795198965.4004972
+2026-11-20 12:22:45,603 - INFO - Creating container for sympy__sympy-20442...
+2026-11-20 12:22:45,825 - INFO - Container for sympy__sympy-20442 created: 90b64f819eb96810435c4b8d1359156e3a7e8f66b56ef4095c12754517389b86
+2026-11-20 12:22:46,008 - INFO - Container for sympy__sympy-20442 started: 90b64f819eb96810435c4b8d1359156e3a7e8f66b56ef4095c12754517389b86
+2026-11-20 12:22:46,387 - INFO - Git diff before:
+
+2026-11-20 12:22:46,390 - INFO - Eval script for sympy__sympy-20442 written to eval.sh, now applying to container...
+2026-11-20 12:22:53,877 - INFO - Test output for sympy__sympy-20442 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/sympy__sympy-20442/test_output.txt
+2026-11-20 12:22:53,949 - INFO - Git diff after:
+diff --git a/sympy/physics/units/tests/test_util.py b/sympy/physics/units/tests/test_util.py
+index ed2f7df27e..4793023b50 100644
+--- a/sympy/physics/units/tests/test_util.py
++++ b/sympy/physics/units/tests/test_util.py
+@@ -65,6 +65,21 @@ def test_convert_to_quantities():
+     assert convert_to(pi, degree) == 180*degree
+ 
+ 
++def test_convert_to_incompatible_units():
++    # A target unit (or collection of units) which cannot exactly represent
++    # the dimensions of the expression should leave the expression unchanged.
++    # In particular, do not use least-squares exponents to combine orthogonal
++    # dimensions into a dimensionally different expression.
++    assert convert_to(joule*second, joule) == joule*second
++    assert convert_to(2*joule*second, joule) == 2*joule*second
++    assert convert_to(joule, joule*second) == joule
++    assert convert_to(meter**2, meter*second) == meter**2
++    assert convert_to(joule*second, [joule, kilogram]) == joule*second
++
++    # Exact conversions to a collection of units are still supported.
++    assert convert_to(joule*second, [joule, second]) == joule*second
++
++
+ def test_convert_to_tuples_of_quantities():
+     assert convert_to(speed_of_light, [meter, second]) == 299792458 * meter / second
+     assert convert_to(speed_of_light, (meter, second)) == 299792458 * meter / second
+diff --git a/sympy/physics/units/util.py b/sympy/physics/units/util.py
+index b03ed4cd88..150dc05111 100644
+--- a/sympy/physics/units/util.py
++++ b/sympy/physics/units/util.py
+@@ -4,6 +4,7 @@
+ 
+ from sympy import Add, Mul, Pow, Tuple, sympify
+ from sympy.core.compatibility import reduce, Iterable, ordered
++from sympy.matrices.common import NonInvertibleMatrixError
+ from sympy.physics.units.dimensions import Dimension
+ from sympy.physics.units.prefixes import Prefix
+ from sympy.physics.units.quantities import Quantity
+@@ -30,7 +31,11 @@ def _get_conversion_matrix_for_expr(expr, target_units, unit_system):
+     camat = Matrix([[dimension_system.get_dimensional_dependencies(i, mark_dimensionless=True).get(j, 0) for i in target_dims] for j in canon_dim_units])
+     exprmat = Matrix([dim_dependencies.get(k, 0) for k in canon_dim_units])
+ 
+-    res_exponents = camat.solve_least_squares(exprmat, method=None)
++    try:
++        res_exponents = camat.solve(exprmat)
++    except NonInvertibleMatrixError:
++        return None
++
+     return res_exponents
+2026-11-20 12:22:53,950 - INFO - Git diff changed after running eval script
+2026-11-20 12:22:53,950 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.139575350201472...
+2026-11-20 12:23:09,751 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.139575350201472...
+2026-11-20 12:23:09,818 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.139575350201472 removed.
+2026-11-20 12:23:09,819 - WARNING - End of eval at 1795198989.8197224

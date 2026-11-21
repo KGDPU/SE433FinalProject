@@ -1,0 +1,70 @@
+2026-11-19 05:47:55,081 - WARNING - Starting evaluation at 1795088875.0811925
+2026-11-19 05:49:22,070 - INFO - Creating container for sympy__sympy-20639...
+2026-11-19 05:49:22,277 - INFO - Container for sympy__sympy-20639 created: 320ce6855e3f5bd3e15f414d6bb7f341fc3b699bbbe62ce984c4244e9b771292
+2026-11-19 05:49:22,610 - INFO - Container for sympy__sympy-20639 started: 320ce6855e3f5bd3e15f414d6bb7f341fc3b699bbbe62ce984c4244e9b771292
+2026-11-19 05:49:23,125 - INFO - Git diff before:
+
+2026-11-19 05:49:23,129 - INFO - Eval script for sympy__sympy-20639 written to eval.sh, now applying to container...
+2026-11-19 05:49:42,578 - INFO - Test output for sympy__sympy-20639 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/sympy__sympy-20639/test_output.txt
+2026-11-19 05:49:42,642 - INFO - Git diff after:
+diff --git a/sympy/printing/pretty/tests/test_pretty.py b/sympy/printing/pretty/tests/test_pretty.py
+index d33795d155..a2d977b05e 100644
+--- a/sympy/printing/pretty/tests/test_pretty.py
++++ b/sympy/printing/pretty/tests/test_pretty.py
+@@ -7205,6 +7205,51 @@ def test_is_combining():
+         [False, True, False, False]
+ 
+ 
++
++def test_issue_17616():
++    assert pretty(pi**(1/exp(1))) == \
++   '  / -1\\\n'\
++   '  \\e  /\n'\
++   'pi     '
++
++    assert upretty(pi**(1/exp(1))) == \
++   ' ⎛ -1⎞\n'\
++   ' ⎝ℯ  ⎠\n'\
++   'π     '
++
++    assert pretty(pi**(1/pi)) == \
++    '  1 \n'\
++    '  --\n'\
++    '  pi\n'\
++    'pi  '
++
++    assert upretty(pi**(1/pi)) == \
++    ' 1\n'\
++    ' ─\n'\
++    ' π\n'\
++    'π '
++
++    assert pretty(pi**(1/EulerGamma)) == \
++    '      1     \n'\
++    '  ----------\n'\
++    '  EulerGamma\n'\
++    'pi          '
++
++    assert upretty(pi**(1/EulerGamma)) == \
++    ' 1\n'\
++    ' ─\n'\
++    ' γ\n'\
++    'π '
++
++    z = Symbol("x_17")
++    assert upretty(7**(1/z)) == \
++    'x₁₇___\n'\
++    ' ╲╱ 7 '
++
++    assert pretty(7**(1/z)) == \
++    'x_17___\n'\
++    '  \\/ 7 '
++
+ def test_issue_17857():
+     assert pretty(Range(-oo, oo)) == '{..., -1, 0, 1, ...}'
+     assert pretty(Range(oo, -oo, -1)) == '{..., 1, 0, -1, ...}'
+2026-11-19 05:49:42,643 - INFO - Git diff changed after running eval script
+2026-11-19 05:49:42,643 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.125222676434288...
+2026-11-19 05:49:58,278 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.125222676434288...
+2026-11-19 05:49:58,349 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.1dbc82e1fb5d0584b01bb6.125222676434288 removed.
+2026-11-19 05:49:58,350 - WARNING - End of eval at 1795088998.3508227

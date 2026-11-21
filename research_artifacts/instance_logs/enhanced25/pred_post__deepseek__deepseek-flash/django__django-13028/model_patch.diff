@@ -1,0 +1,53 @@
+diff --git a/tests/queries/models.py b/tests/queries/models.py
+index 247d4b7671..163627b4c4 100755
+--- a/tests/queries/models.py
++++ b/tests/queries/models.py
+@@ -745,3 +745,12 @@ class JSONFieldNullable(models.Model):
+ 
+     class Meta:
+         required_db_features = {'supports_json_field'}
++
++
++class FilterableFieldModel(models.Model):
++    name = models.CharField(max_length=10)
++    filterable = models.BooleanField(default=False)
++    parent = models.ForeignKey('self', models.CASCADE, null=True)
++
++    def __str__(self):
++        return self.name
+diff --git a/tests/queries/test_filterable.py b/tests/queries/test_filterable.py
+new file mode 100644
+index 0000000000..c3bf20523e
+--- /dev/null
++++ b/tests/queries/test_filterable.py
+@@ -0,0 +1,30 @@
++from django.db.models import Q
++from django.test import TestCase
++
++from .models import FilterableFieldModel
++
++
++class FilterableFieldTests(TestCase):
++    @classmethod
++    def setUpTestData(cls):
++        cls.parent = FilterableFieldModel.objects.create(name='parent')
++        cls.child = FilterableFieldModel.objects.create(
++            name='child',
++            parent=cls.parent,
++        )
++
++    def test_filter_by_model_instance_with_filterable_false_field(self):
++        self.assertSequenceEqual(
++            FilterableFieldModel.objects.filter(parent=self.parent),
++            [self.child],
++        )
++        self.assertSequenceEqual(
++            FilterableFieldModel.objects.filter(Q(parent=self.parent)),
++            [self.child],
++        )
++
++    def test_exclude_by_model_instance_with_filterable_false_field(self):
++        self.assertSequenceEqual(
++            FilterableFieldModel.objects.exclude(parent=self.parent),
++            [self.parent],
++        )

@@ -1,0 +1,42 @@
+2026-11-20 12:19:22,497 - WARNING - Starting evaluation at 1795198762.4977155
+2026-11-20 12:19:22,703 - INFO - Creating container for sympy__sympy-15308...
+2026-11-20 12:19:22,938 - INFO - Container for sympy__sympy-15308 created: 107c47793fea37b795ff9cc7370a296bda5d00cf30ead160abebc6f1982d2a4a
+2026-11-20 12:19:23,115 - INFO - Container for sympy__sympy-15308 started: 107c47793fea37b795ff9cc7370a296bda5d00cf30ead160abebc6f1982d2a4a
+2026-11-20 12:19:33,596 - INFO - Git diff before:
+
+2026-11-20 12:19:33,600 - INFO - Eval script for sympy__sympy-15308 written to eval.sh, now applying to container...
+2026-11-20 12:19:47,135 - INFO - Test output for sympy__sympy-15308 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/sympy__sympy-15308/test_output.txt
+2026-11-20 12:19:47,199 - INFO - Git diff after:
+diff --git a/sympy/printing/tests/test_latex.py b/sympy/printing/tests/test_latex.py
+index 9f644f15ee..3a6ac4eac0 100644
+--- a/sympy/printing/tests/test_latex.py
++++ b/sympy/printing/tests/test_latex.py
+@@ -1395,6 +1395,23 @@ def test_Tr():
+     assert latex(t) == r'\mbox{Tr}\left(A B\right)'
+ 
+ 
++def test_Trace():
++    from sympy import Trace, trace
++    A = MatrixSymbol('A', 3, 3)
++    B = MatrixSymbol('B', 3, 3)
++
++    assert latex(Trace(A)) == r'\operatorname{Tr}\left(A\right)'
++    assert latex(trace(A**2)) == r'\operatorname{Tr}\left(A^{2}\right)'
++    assert latex(Trace(A + B)) == r'\operatorname{Tr}\left(A + B\right)'
++    assert latex(Trace(A*B)) == r'\operatorname{Tr}\left(A B\right)'
++    assert latex(Trace(A*B + A)) == \
++        r'\operatorname{Tr}\left(A B + A\right)'
++    assert latex(Trace(A.T)) == r'\operatorname{Tr}\left(A^T\right)'
++    assert latex(2*Trace(A)) == r'2 \operatorname{Tr}\left(A\right)'
++    assert latex(Trace(A)**2) == \
++        r'\operatorname{Tr}\left(A\right)^{2}'
++
++
+ def test_Adjoint():
+     from sympy.matrices import MatrixSymbol, Adjoint, Inverse, Transpose
+     X = MatrixSymbol('X', 2, 2)
+2026-11-20 12:19:47,200 - INFO - Git diff changed after running eval script
+2026-11-20 12:19:47,200 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.139575350198352...
+2026-11-20 12:20:03,218 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.139575350198352...
+2026-11-20 12:20:03,287 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.139575350198352 removed.
+2026-11-20 12:20:03,288 - WARNING - End of eval at 1795198803.288859

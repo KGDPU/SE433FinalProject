@@ -1,0 +1,42 @@
+2026-11-19 03:43:36,434 - WARNING - Starting evaluation at 1795081416.4343581
+2026-11-19 03:54:17,102 - INFO - Creating container for django__django-15789...
+2026-11-19 03:54:17,352 - INFO - Container for django__django-15789 created: 531c9d5795cbf73569b10617b3065b66da05fe6bab21d46ebd9624b3aed751a4
+2026-11-19 03:54:17,661 - INFO - Container for django__django-15789 started: 531c9d5795cbf73569b10617b3065b66da05fe6bab21d46ebd9624b3aed751a4
+2026-11-19 03:54:18,604 - INFO - Git diff before:
+
+2026-11-19 03:54:18,612 - INFO - Eval script for django__django-15789 written to eval.sh, now applying to container...
+2026-11-19 03:54:25,488 - INFO - Test output for django__django-15789 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/django__django-15789/test_output.txt
+2026-11-19 03:54:25,583 - INFO - Git diff after:
+diff --git a/tests/utils_tests/test_html.py b/tests/utils_tests/test_html.py
+index 22a43fd4cd..a2d4854a94 100644
+--- a/tests/utils_tests/test_html.py
++++ b/tests/utils_tests/test_html.py
+@@ -1,3 +1,4 @@
++import json
+ import os
+ from datetime import datetime
+ 
+@@ -217,6 +218,18 @@ class TestUtilsHtml(SimpleTestCase):
+             '<script type="application/json">{"key": "value"}</script>',
+         )
+ 
++    def test_json_script_with_custom_encoder(self):
++        class CustomEncoder(json.JSONEncoder):
++            def default(self, obj):
++                if isinstance(obj, set):
++                    return sorted(obj)
++                return super().default(obj)
++
++        self.assertEqual(
++            json_script({"key": {"b", "a"}}, encoder=CustomEncoder),
++            '<script type="application/json">{"key": ["a", "b"]}</script>',
++        )
++
+     def test_smart_urlquote(self):
+         items = (
+             ("http://öäü.com/", "http://xn--4ca9at.com/"),
+2026-11-19 03:54:25,586 - INFO - Git diff changed after running eval script
+2026-11-19 03:54:25,587 - INFO - Attempting to stop container exec.eval.x86_64.8985b3936436978ec949e1.a32357f9a05065139fcb49.125222694411520...
+2026-11-19 03:54:41,330 - INFO - Attempting to remove container exec.eval.x86_64.8985b3936436978ec949e1.a32357f9a05065139fcb49.125222694411520...
+2026-11-19 03:54:41,422 - INFO - Container exec.eval.x86_64.8985b3936436978ec949e1.a32357f9a05065139fcb49.125222694411520 removed.
+2026-11-19 03:54:41,424 - WARNING - End of eval at 1795082081.4246469

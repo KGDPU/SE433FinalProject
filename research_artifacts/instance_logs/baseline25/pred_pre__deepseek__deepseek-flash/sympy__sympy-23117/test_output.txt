@@ -1,0 +1,363 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git diff HEAD c5cef2499d6eed024b0db5c792d6ec7c53baa470
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch master
+nothing to commit, working tree clean
++ git show
+commit c5cef2499d6eed024b0db5c792d6ec7c53baa470
+Merge: af999e4441 27d7c125f7
+Author: Francesco Bonazzi <franz.bonazzi@gmail.com>
+Date:   Sat Feb 19 13:01:37 2022 +0100
+
+    Merge pull request #23103 from Upabjojr/matmul_simplify_inverse_times_args
+    
+    Added simplification of matrix multiplication with inverse matrices containing MatMul objects
+
++ git diff c5cef2499d6eed024b0db5c792d6ec7c53baa470
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e .
+Obtaining file:///testbed
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: mpmath>=0.19 in /opt/miniconda3/envs/testbed/lib/python3.9/site-packages (from sympy==1.11.dev0) (1.3.0)
+Building wheels for collected packages: sympy
+  Building editable for sympy (pyproject.toml): started
+  Building editable for sympy (pyproject.toml): finished with status 'done'
+  Created wheel for sympy: filename=sympy-1.11.dev0-0.editable-py3-none-any.whl size=29807 sha256=16deab300021438592b43a40474a0928bdc436ce7bec5fb69b899a72855644b9
+  Stored in directory: /tmp/pip-ephem-wheel-cache-475v1g6b/wheels/7d/66/67/70d1ee2124ccf21d601c352e25cdca10f611f7c8b3f9ffb9e4
+Successfully built sympy
+Installing collected packages: sympy
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.11.dev0
+    Uninstalling sympy-1.11.dev0:
+      Successfully uninstalled sympy-1.11.dev0
+Successfully installed sympy-1.11.dev0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ git apply -v -
+Checking patch sympy/tensor/array/tests/test_ndim_array.py...
+warning: sympy/tensor/array/tests/test_ndim_array.py has type 100644, expected 100755
+Applied patch sympy/tensor/array/tests/test_ndim_array.py cleanly.
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(sympy/tensor/array/ndim_array\.py)' bin/test -C --verbose sympy/tensor/array/tests/test_ndim_array.p
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(sympy/tensor/array/ndim_array\\.py)']
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python3  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        98454009
+hash randomization: on (PYTHONHASHSEED=2453460350)
+
+sympy/tensor/array/tests/test_ndim_array.py[4] 
+test_array_negative_indices ok
+test_issue_18361 ok
+test_issue_20222 ok
+test_issue_17851 E                                                        [FAIL]
+
+
+________________________________________________________________________________
+_________ sympy/tensor/array/tests/test_ndim_array.py:test_issue_17851 _________
+Traceback (most recent call last):
+  File "/testbed/sympy/tensor/array/tests/test_ndim_array.py", line 57, in test_issue_17851
+    A = array_type([])
+  File "/testbed/sympy/tensor/array/dense_ndim_array.py", line 137, in __new__
+    return cls._new(iterable, shape, **kwargs)
+  File "/testbed/sympy/tensor/array/dense_ndim_array.py", line 141, in _new
+    shape, flat_list = cls._handle_ndarray_creation_inputs(iterable, shape, **kwargs)
+  File "/testbed/sympy/tensor/array/ndim_array.py", line 226, in _handle_ndarray_creation_inputs
+    iterable, shape = cls._scan_iterable_shape(iterable)
+  File "/testbed/sympy/tensor/array/ndim_array.py", line 205, in _scan_iterable_shape
+    return f(iterable)
+  File "/testbed/sympy/tensor/array/ndim_array.py", line 198, in f
+    elems, shapes = zip(*[f(i) for i in pointer])
+ValueError: not enough values to unpack (expected 2, got 0)
+
+=========== tests finished: 3 passed, 1 exceptions, in 5.88 seconds ============
+DO *NOT* COMMIT!
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(sympy/tensor/array/ndim_array\\.py)']
++ cat coverage.cover
+{"/testbed/sympy/tensor/array/ndim_array.py": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "8": 1, "9": 1, "11": 1, "12": 1, "15": 2, "86": 2, "582": 2, "68": 1, "73": 1, "76": 1, "77": 1, "69": 0, "70": 0, "71": 0, "74": 0, "78": 0, "79": 0, "80": 0, "82": 0, "83": 0, "139": 1, "140": 1, "142": 1, "146": 1, "167": 1, "175": 1, "186": 1, "191": 1, "192": 1, "207": 1, "208": 1, "254": 1, "270": 1, "271": 1, "286": 1, "301": 1, "319": 1, "323": 1, "326": 1, "347": 1, "360": 1, "387": 1, "399": 1, "411": 1, "428": 1, "445": 1, "460": 1, "463": 1, "473": 1, "483": 1, "516": 1, "519": 1, "525": 1, "528": 1, "533": 1, "536": 1, "539": 1, "542": 1, "548": 1, "553": 1, "561": 1, "562": 1, "568": 1, "143": 0, "144": 0, "147": 262, "148": 0, "150": 262, "151": 0, "153": 262, "154": 0, "156": 262, "158": 604, "159": 350, "160": 8, "161": 342, "162": 48, "163": 342, "165": 254, "168": 0, "169": 0, "170": 0, "171": 0, "172": 0, "173": 0, "177": 222, "178": 718, "179": 0, "180": 0, "181": 0, "182": 0, "183": 0, "184": 222, "187": 0, "188": 0, "189": 0, "193": 52, "205": 52, "194": 196, "195": 134, "197": 62, "198": 268, "199": 61, "200": 0, "201": 205, "202": 144, "203": 61, "209": 95, "210": 95, "212": 95, "213": 52, "214": 0, "215": 0, "217": 52, "218": 0, "221": 52, "222": 0, "225": 52, "226": 52, "229": 0, "230": 0, "233": 0, "234": 0, "236": 94, "237": 0, "238": 0, "239": 0, "240": 0, "241": 0, "242": 0, "243": 0, "244": 0, "246": 94, "247": 0, "249": 287, "250": 0, "252": 94, "268": 180, "284": 1179, "299": 444, "315": 0, "316": 0, "317": 0, "321": 0, "324": 0, "339": 3, "340": 3, "342": 3, "343": 0, "345": 3, "348": 0, "355": 0, "356": 0, "358": 0, "349": 0, "350": 0, "352": 0, "353": 0, "376": 0, "385": 0, "377": 0, "378": 0, "379": 0, "380": 0, "381": 0, "382": 0, "383": 0, "388": 0, "390": 0, "391": 0, "393": 0, "394": 0, "395": 0, "397": 0, "400": 2, "402": 2, "403": 2, "405": 0, "406": 0, "407": 0, "409": 0, "412": 0, "413": 0, "414": 0, "416": 0, "417": 0, "419": 0, "420": 0, "421": 0, "422": 0, "423": 0, "425": 0, "426": 0, "429": 0, "430": 0, "431": 0, "433": 0, "434": 0, "436": 0, "437": 0, "438": 0, "439": 0, "440": 0, "442": 0, "443": 0, "446": 0, "447": 0, "448": 0, "450": 0, "451": 0, "453": 0, "454": 0, "455": 0, "457": 0, "458": 0, "461": 0, "464": 0, "465": 0, "467": 0, "468": 0, "470": 0, "471": 0, "474": 86, "481": 86, "475": 86, "476": 256, "477": 170, "479": 0, "504": 43, "505": 43, "506": 0, "508": 43, "509": 0, "511": 43, "512": 0, "514": 43, "517": 0, "520": 0, "521": 0, "522": 0, "523": 0, "526": 0, "529": 0, "531": 0, "534": 0, "537": 0, "540": 0, "543": 96, "544": 48, "545": 48, "546": 204, "549": 192, "550": 48, "551": 48, "554": 0, "555": 0, "556": 0, "557": 0, "559": 0, "563": 72, "564": 0, "565": 72, "566": 0, "569": 222, "570": 170, "572": 222, "573": 0, "574": 0, "576": 222, "577": 0, "579": 222, "583": 1, "585": 1, "588": 1, "591": 1, "586": 0, "589": 0, "592": 0}}
+{"/testbed/sympy/tensor/array/ndim_array.py": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "8": 1, "9": 1, "11": 1, "12": 1, "15": 2, "86": 2, "582": 2, "68": 1, "73": 1, "76": 1, "77": 1, "69": 0, "70": 0, "71": 0, "74": 0, "78": 0, "79": 0, "80": 0, "82": 0, "83": 0, "139": 1, "140": 1, "142": 1, "146": 1, "167": 1, "175": 1, "186": 1, "191": 1, "192": 1, "207": 1, "208": 1, "254": 1, "270": 1, "271": 1, "286": 1, "301": 1, "319": 1, "323": 1, "326": 1, "347": 1, "360": 1, "387": 1, "399": 1, "411": 1, "428": 1, "445": 1, "460": 1, "463": 1, "473": 1, "483": 1, "516": 1, "519": 1, "525": 1, "528": 1, "533": 1, "536": 1, "539": 1, "542": 1, "548": 1, "553": 1, "561": 1, "562": 1, "568": 1, "143": 0, "144": 0, "147": 0, "148": 0, "150": 0, "151": 0, "153": 0, "154": 0, "156": 0, "158": 0, "159": 0, "160": 0, "161": 0, "162": 0, "163": 0, "165": 0, "168": 0, "169": 0, "170": 0, "171": 0, "172": 0, "173": 0, "177": 0, "178": 0, "179": 0, "180": 0, "181": 0, "182": 0, "183": 0, "184": 0, "187": 0, "188": 0, "189": 0, "193": 0, "205": 0, "194": 0, "195": 0, "197": 0, "198": 0, "199": 0, "200": 0, "201": 0, "202": 0, "203": 0, "209": 0, "210": 0, "212": 0, "213": 0, "214": 0, "215": 0, "217": 0, "218": 0, "221": 0, "222": 0, "225": 0, "226": 0, "229": 0, "230": 0, "233": 0, "234": 0, "236": 0, "237": 0, "238": 0, "239": 0, "240": 0, "241": 0, "242": 0, "243": 0, "244": 0, "246": 0, "247": 0, "249": 0, "250": 0, "252": 0, "268": 0, "284": 0, "299": 0, "315": 0, "316": 0, "317": 0, "321": 0, "324": 0, "339": 0, "340": 0, "342": 0, "343": 0, "345": 0, "348": 0, "355": 0, "356": 0, "358": 0, "349": 0, "350": 0, "352": 0, "353": 0, "376": 0, "385": 0, "377": 0, "378": 0, "379": 0, "380": 0, "381": 0, "382": 0, "383": 0, "388": 0, "390": 0, "391": 0, "393": 0, "394": 0, "395": 0, "397": 0, "400": 0, "402": 0, "403": 0, "405": 0, "406": 0, "407": 0, "409": 0, "412": 0, "413": 0, "414": 0, "416": 0, "417": 0, "419": 0, "420": 0, "421": 0, "422": 0, "423": 0, "425": 0, "426": 0, "429": 0, "430": 0, "431": 0, "433": 0, "434": 0, "436": 0, "437": 0, "438": 0, "439": 0, "440": 0, "442": 0, "443": 0, "446": 0, "447": 0, "448": 0, "450": 0, "451": 0, "453": 0, "454": 0, "455": 0, "457": 0, "458": 0, "461": 0, "464": 0, "465": 0, "467": 0, "468": 0, "470": 0, "471": 0, "474": 0, "481": 0, "475": 0, "476": 0, "477": 0, "479": 0, "504": 0, "505": 0, "506": 0, "508": 0, "509": 0, "511": 0, "512": 0, "514": 0, "517": 0, "520": 0, "521": 0, "522": 0, "523": 0, "526": 0, "529": 0, "531": 0, "534": 0, "537": 0, "540": 0, "543": 0, "544": 0, "545": 0, "546": 0, "549": 0, "550": 0, "551": 0, "554": 0, "555": 0, "556": 0, "557": 0, "559": 0, "563": 0, "564": 0, "565": 0, "566": 0, "569": 0, "570": 0, "572": 0, "573": 0, "574": 0, "576": 0, "577": 0, "579": 0, "583": 1, "585": 1, "588": 1, "591": 1, "586": 0, "589": 0, "592": 0}}
++ git checkout c5cef2499d6eed024b0db5c792d6ec7c53baa470
+M	sympy/tensor/array/tests/test_ndim_array.py
+Note: switching to 'c5cef2499d6eed024b0db5c792d6ec7c53baa470'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at c5cef2499d Merge pull request #23103 from Upabjojr/matmul_simplify_inverse_times_args
++ git apply /root/pre_state.patch
+error: unrecognized input

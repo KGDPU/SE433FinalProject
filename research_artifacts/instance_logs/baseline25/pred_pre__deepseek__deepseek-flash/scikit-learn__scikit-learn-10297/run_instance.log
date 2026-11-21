@@ -1,0 +1,51 @@
+2026-11-19 04:44:10,843 - WARNING - Starting evaluation at 1795085050.8434973
+2026-11-19 05:06:12,771 - INFO - Creating container for scikit-learn__scikit-learn-10297...
+2026-11-19 05:06:13,146 - INFO - Container for scikit-learn__scikit-learn-10297 created: eba26e2c9aa29bc72eb281cf38b228d7fef07d6d2fc20748ffdcf71bc09e773a
+2026-11-19 05:06:13,528 - INFO - Container for scikit-learn__scikit-learn-10297 started: eba26e2c9aa29bc72eb281cf38b228d7fef07d6d2fc20748ffdcf71bc09e773a
+2026-11-19 05:06:14,132 - INFO - Git diff before:
+
+2026-11-19 05:06:14,144 - INFO - Eval script for scikit-learn__scikit-learn-10297 written to eval.sh, now applying to container...
+2026-11-19 05:06:21,899 - INFO - Test output for scikit-learn__scikit-learn-10297 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/scikit-learn__scikit-learn-10297/test_output.txt
+2026-11-19 05:06:22,011 - INFO - Git diff after:
+diff --git a/sklearn/linear_model/tests/test_ridge.py b/sklearn/linear_model/tests/test_ridge.py
+index ee44da5d56..31102b00b7 100644
+--- a/sklearn/linear_model/tests/test_ridge.py
++++ b/sklearn/linear_model/tests/test_ridge.py
+@@ -598,6 +598,32 @@ def test_ridgecv_store_cv_values():
+     assert_equal(r.cv_values_.shape, (n_samples, n_responses, n_alphas))
+ 
+ 
++def test_ridge_classifier_cv_store_cv_values():
++    # Test RidgeClassifierCV's store_cv_values attribute.
++    x = np.array([[-1.0, -1.0], [-1.0, 0], [-.8, -1.0],
++                  [1.0, 1.0], [1.0, 0.0]])
++    y = np.array([1, 1, 1, -1, -1])
++
++    n_samples = x.shape[0]
++    alphas = [1e-1, 1e0, 1e1]
++    n_alphas = len(alphas)
++
++    r = RidgeClassifierCV(alphas=alphas, cv=None, store_cv_values=True)
++
++    # with len(y.shape) == 1
++    n_targets = 1
++    r.fit(x, y)
++    assert_equal(r.cv_values_.shape, (n_samples, n_targets, n_alphas))
++
++    # with len(y.shape) == 2
++    y = np.array([[1, 1, 1, -1, -1],
++                  [1, -1, 1, -1, 1],
++                  [-1, -1, 1, -1, -1]]).transpose()
++    n_targets = y.shape[1]
++    r.fit(x, y)
++    assert_equal(r.cv_values_.shape, (n_samples, n_targets, n_alphas))
++
++
+ def test_ridgecv_sample_weight():
+     rng = np.random.RandomState(0)
+     alphas = (0.1, 1.0, 10.0)
+2026-11-19 05:06:22,021 - INFO - Git diff changed after running eval script
+2026-11-19 05:06:22,025 - INFO - Attempting to stop container exec.eval.x86_64.437918b9cd24690e5e9c56.2519c671692046866c46f4.125222676262464...
+2026-11-19 05:06:37,515 - INFO - Attempting to remove container exec.eval.x86_64.437918b9cd24690e5e9c56.2519c671692046866c46f4.125222676262464...
+2026-11-19 05:06:37,613 - INFO - Container exec.eval.x86_64.437918b9cd24690e5e9c56.2519c671692046866c46f4.125222676262464 removed.
+2026-11-19 05:06:37,616 - WARNING - End of eval at 1795086397.6162932

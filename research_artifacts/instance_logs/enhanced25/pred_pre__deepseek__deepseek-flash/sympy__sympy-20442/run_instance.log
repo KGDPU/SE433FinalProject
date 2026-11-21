@@ -1,0 +1,40 @@
+2026-11-20 12:22:09,208 - WARNING - Starting evaluation at 1795198929.2081115
+2026-11-20 12:22:09,413 - INFO - Creating container for sympy__sympy-20442...
+2026-11-20 12:22:09,633 - INFO - Container for sympy__sympy-20442 created: 7f1e7864aef9bdee3c5bfce723e20f667f584871c66b2cfd5ce2cb52e4a6a9c3
+2026-11-20 12:22:09,888 - INFO - Container for sympy__sympy-20442 started: 7f1e7864aef9bdee3c5bfce723e20f667f584871c66b2cfd5ce2cb52e4a6a9c3
+2026-11-20 12:22:20,320 - INFO - Git diff before:
+
+2026-11-20 12:22:20,323 - INFO - Eval script for sympy__sympy-20442 written to eval.sh, now applying to container...
+2026-11-20 12:22:29,367 - INFO - Test output for sympy__sympy-20442 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/sympy__sympy-20442/test_output.txt
+2026-11-20 12:22:29,429 - INFO - Git diff after:
+diff --git a/sympy/physics/units/tests/test_util.py b/sympy/physics/units/tests/test_util.py
+index ed2f7df27e..4793023b50 100644
+--- a/sympy/physics/units/tests/test_util.py
++++ b/sympy/physics/units/tests/test_util.py
+@@ -65,6 +65,21 @@ def test_convert_to_quantities():
+     assert convert_to(pi, degree) == 180*degree
+ 
+ 
++def test_convert_to_incompatible_units():
++    # A target unit (or collection of units) which cannot exactly represent
++    # the dimensions of the expression should leave the expression unchanged.
++    # In particular, do not use least-squares exponents to combine orthogonal
++    # dimensions into a dimensionally different expression.
++    assert convert_to(joule*second, joule) == joule*second
++    assert convert_to(2*joule*second, joule) == 2*joule*second
++    assert convert_to(joule, joule*second) == joule
++    assert convert_to(meter**2, meter*second) == meter**2
++    assert convert_to(joule*second, [joule, kilogram]) == joule*second
++
++    # Exact conversions to a collection of units are still supported.
++    assert convert_to(joule*second, [joule, second]) == joule*second
++
++
+ def test_convert_to_tuples_of_quantities():
+     assert convert_to(speed_of_light, [meter, second]) == 299792458 * meter / second
+     assert convert_to(speed_of_light, (meter, second)) == 299792458 * meter / second
+2026-11-20 12:22:29,429 - INFO - Git diff changed after running eval script
+2026-11-20 12:22:29,430 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.139575350201472...
+2026-11-20 12:22:45,303 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.139575350201472...
+2026-11-20 12:22:45,367 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.cd35cf92057152c5b42354.139575350201472 removed.
+2026-11-20 12:22:45,368 - WARNING - End of eval at 1795198965.3681314

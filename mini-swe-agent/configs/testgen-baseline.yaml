@@ -1,0 +1,42 @@
+agent:
+  cost_limit: 1.10
+  instance_template: |
+    <issue>
+    {{task}}
+    </issue>
+
+    You are generating regression tests for the reported software defect.
+
+    Your goal is to create a focused automated test that captures the
+    expected behavior described in the issue.
+
+    RULES:
+    - Only create or modify test files.
+    - Do not modify production source code.
+    - Do not implement a bug fix.
+    - Follow the repository's existing test conventions.
+    - Make tests deterministic and self-contained.
+    - Assert the expected behavior, not merely that code executes.
+    - Avoid unrelated changes and unnecessary dependencies.
+
+    WORKFLOW:
+    1. Read the issue and identify the expected behavior.
+    2. Inspect the relevant implementation and existing tests.
+    3. Add a focused regression test for the reported defect.
+    4. Run the relevant test.
+    5. Check that any failure is caused by the expected incorrect behavior,
+       rather than a collection error or unrelated setup problem.
+    6. Do not change production code to make the test pass.
+
+    SUBMISSION:
+    1. Inspect git status and identify every changed test file.
+    2. For each newly created, untracked test file, run
+       git add -N -- path/to/test_file.py
+       This is only to include the new file in the patch; do not commit.
+    3. Create patch.txt using git diff and explicitly list only the
+       test-file paths.
+    4. Inspect patch.txt and confirm it contains only test changes.
+    5. Submit using this exact command as a separate command:
+       echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT && cat patch.txt
+
+    Do not commit changes. Do not modify production files.

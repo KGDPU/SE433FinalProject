@@ -1,0 +1,31 @@
+2026-11-20 11:49:43,394 - WARNING - Starting evaluation at 1795196983.3946474
+2026-11-20 11:49:43,594 - INFO - Creating container for django__django-13028...
+2026-11-20 11:49:43,887 - INFO - Container for django__django-13028 created: 96efc544a1ef1de40bf58a23a2bda1bd71d708c8c531942842eee3432560cd3e
+2026-11-20 11:49:44,156 - INFO - Container for django__django-13028 started: 96efc544a1ef1de40bf58a23a2bda1bd71d708c8c531942842eee3432560cd3e
+2026-11-20 11:50:04,140 - INFO - Git diff before:
+
+2026-11-20 11:50:04,144 - INFO - Eval script for django__django-13028 written to eval.sh, now applying to container...
+2026-11-20 11:50:17,643 - INFO - Test output for django__django-13028 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/django__django-13028/test_output.txt
+2026-11-20 11:50:17,712 - INFO - Git diff after:
+diff --git a/tests/queries/models.py b/tests/queries/models.py
+index 247d4b7671..163627b4c4 100644
+--- a/tests/queries/models.py
++++ b/tests/queries/models.py
+@@ -745,3 +745,12 @@ class JSONFieldNullable(models.Model):
+ 
+     class Meta:
+         required_db_features = {'supports_json_field'}
++
++
++class FilterableFieldModel(models.Model):
++    name = models.CharField(max_length=10)
++    filterable = models.BooleanField(default=False)
++    parent = models.ForeignKey('self', models.CASCADE, null=True)
++
++    def __str__(self):
++        return self.name
+2026-11-20 11:50:17,713 - INFO - Git diff changed after running eval script
+2026-11-20 11:50:17,713 - INFO - Attempting to stop container exec.eval.x86_64.f904a9d2e0f61fc0d70077.9a960126b5c1d849de2b89.139575368014160...
+2026-11-20 11:50:33,550 - INFO - Attempting to remove container exec.eval.x86_64.f904a9d2e0f61fc0d70077.9a960126b5c1d849de2b89.139575368014160...
+2026-11-20 11:50:33,620 - INFO - Container exec.eval.x86_64.f904a9d2e0f61fc0d70077.9a960126b5c1d849de2b89.139575368014160 removed.
+2026-11-20 11:50:33,621 - WARNING - End of eval at 1795197033.6213546

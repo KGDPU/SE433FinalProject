@@ -1,0 +1,31 @@
+diff --git a/sklearn/ensemble/tests/test_iforest.py b/sklearn/ensemble/tests/test_iforest.py
+index 67ba2d7f9..c8d36dfd3 100755
+--- a/sklearn/ensemble/tests/test_iforest.py
++++ b/sklearn/ensemble/tests/test_iforest.py
+@@ -64,6 +64,26 @@ def test_iforest():
+                             **params).fit(X_train).predict(X_test)
+ 
+ 
++@pytest.mark.filterwarnings('ignore:default contamination')
++@pytest.mark.filterwarnings('ignore:behaviour="old"')
++def test_iforest_warm_start():
++    """Test that we can incrementally add trees to IsolationForest."""
++    X = iris.data
++    clf = IsolationForest(n_estimators=5, warm_start=True, random_state=0)
++    clf.fit(X)
++
++    assert_equal(len(clf.estimators_), 5)
++    first_estimators = clf.estimators_[:]
++
++    clf.set_params(n_estimators=10)
++    clf.fit(X)
++
++    assert_equal(len(clf.estimators_), 10)
++    # The trees from the first fit must be reused, not discarded.
++    assert all(first is current
++               for first, current in zip(first_estimators, clf.estimators_))
++
++
+ @pytest.mark.filterwarnings('ignore:default contamination')
+ @pytest.mark.filterwarnings('ignore:threshold_ attribute')
+ @pytest.mark.filterwarnings('ignore:behaviour="old"')

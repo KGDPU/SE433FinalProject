@@ -1,0 +1,51 @@
+2026-11-19 04:21:20,870 - WARNING - Starting evaluation at 1795083680.8699727
+2026-11-19 04:29:49,864 - INFO - Creating container for pytest-dev__pytest-5692...
+2026-11-19 04:29:50,086 - INFO - Container for pytest-dev__pytest-5692 created: 5346dd4fd3d6eda03cffce38ec9c4a651d45f62178ce30cdf7e0987d5ec7a934
+2026-11-19 04:29:50,335 - INFO - Container for pytest-dev__pytest-5692 started: 5346dd4fd3d6eda03cffce38ec9c4a651d45f62178ce30cdf7e0987d5ec7a934
+2026-11-19 04:29:50,521 - INFO - Git diff before:
+
+2026-11-19 04:29:50,527 - INFO - Eval script for pytest-dev__pytest-5692 written to eval.sh, now applying to container...
+2026-11-19 04:30:01,726 - INFO - Test output for pytest-dev__pytest-5692 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/pytest-dev__pytest-5692/test_output.txt
+2026-11-19 04:30:01,808 - INFO - Git diff after:
+diff --git a/testing/test_junitxml.py b/testing/test_junitxml.py
+index 3196f0ebd..e9dea09af 100644
+--- a/testing/test_junitxml.py
++++ b/testing/test_junitxml.py
+@@ -1,4 +1,6 @@
+ import os
++import platform
++from datetime import datetime
+ from xml.dom import minidom
+ 
+ import py
+@@ -157,6 +159,26 @@ class TestPython:
+         val = tnode["time"]
+         assert round(float(val), 2) >= 0.03
+ 
++    def test_testsuite_hostname_and_timestamp(self, testdir):
++        testdir.makepyfile(
++            """
++            def test_pass():
++                pass
++        """
++        )
++        start_time = datetime.now().replace(microsecond=0)
++        result, dom = runandparse(testdir)
++        end_time = datetime.now()
++
++        assert result.ret == 0
++        node = dom.find_first_by_tag("testsuite")
++        assert node["hostname"] == platform.node()
++
++        timestamp = node["timestamp"]
++        assert timestamp is not None
++        timestamp_dt = datetime.strptime(timestamp[:19], "%Y-%m-%dT%H:%M:%S")
++        assert start_time <= timestamp_dt <= end_time
++
+     @pytest.mark.parametrize("duration_report", ["call", "total"])
+     def test_junit_duration_report(self, testdir, monkeypatch, duration_report):
+2026-11-19 04:30:01,809 - INFO - Git diff changed after running eval script
+2026-11-19 04:30:01,810 - INFO - Attempting to stop container exec.eval.x86_64.bbbc4277fd8f648e693b98.a47a8ec20488ec34a274d3.125222676253824...
+2026-11-19 04:30:17,473 - INFO - Attempting to remove container exec.eval.x86_64.bbbc4277fd8f648e693b98.a47a8ec20488ec34a274d3.125222676253824...
+2026-11-19 04:30:17,564 - INFO - Container exec.eval.x86_64.bbbc4277fd8f648e693b98.a47a8ec20488ec34a274d3.125222676253824 removed.
+2026-11-19 04:30:17,567 - WARNING - End of eval at 1795084217.5677867

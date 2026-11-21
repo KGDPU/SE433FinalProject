@@ -1,0 +1,95 @@
+2026-11-20 12:17:41,091 - WARNING - Starting evaluation at 1795198661.0912223
+2026-11-20 12:17:41,295 - INFO - Creating container for sympy__sympy-14396...
+2026-11-20 12:17:41,551 - INFO - Container for sympy__sympy-14396 created: 9081cfbc56586c60b0298f70d90c881af8b4224080ffc69ea64bc706d54f1eb8
+2026-11-20 12:17:41,741 - INFO - Container for sympy__sympy-14396 started: 9081cfbc56586c60b0298f70d90c881af8b4224080ffc69ea64bc706d54f1eb8
+2026-11-20 12:17:51,325 - INFO - Git diff before:
+
+2026-11-20 12:17:51,328 - INFO - Eval script for sympy__sympy-14396 written to eval.sh, now applying to container...
+2026-11-20 12:18:23,657 - INFO - Test output for sympy__sympy-14396 written to run_instance_swt_logs/enhanced25/pred_pre__deepseek__deepseek-flash/sympy__sympy-14396/test_output.txt
+2026-11-20 12:18:23,718 - INFO - Git diff after:
+diff --git a/sympy/polys/tests/test_polyoptions.py b/sympy/polys/tests/test_polyoptions.py
+index cbc9681747..c8a49403de 100644
+--- a/sympy/polys/tests/test_polyoptions.py
++++ b/sympy/polys/tests/test_polyoptions.py
+@@ -6,7 +6,7 @@
+     Frac, Formal, Polys, Include, All, Gen, Symbols, Method)
+ 
+ from sympy.polys.orderings import lex
+-from sympy.polys.domains import FF, GF, ZZ, QQ, EX
++from sympy.polys.domains import FF, GF, ZZ, QQ, RR, CC, EX
+ 
+ from sympy.polys.polyerrors import OptionError, GeneratorsError
+ 
+@@ -186,6 +186,21 @@ def test_Domain_preprocess():
+     assert Domain.preprocess('ZZ[x,y]') == ZZ[x, y]
+     assert Domain.preprocess('QQ[x,y]') == QQ[x, y]
+ 
++    assert Domain.preprocess('R[x]') == RR[x]
++    assert Domain.preprocess('RR[x]') == RR[x]
++
++    assert Domain.preprocess('C[x]') == CC[x]
++    assert Domain.preprocess('CC[x]') == CC[x]
++
++    assert Domain.preprocess('R[x,y]') == RR[x, y]
++    assert Domain.preprocess('RR[x,y]') == RR[x, y]
++
++    assert Domain.preprocess('C[x,y]') == CC[x, y]
++    assert Domain.preprocess('CC[x,y]') == CC[x, y]
++
++    raises(OptionError, lambda: Domain.preprocess('R[]'))
++    raises(OptionError, lambda: Domain.preprocess('C[]'))
++
+     raises(OptionError, lambda: Domain.preprocess('Z()'))
+ 
+     assert Domain.preprocess('Z(x)') == ZZ.frac_field(x)
+@@ -200,6 +215,18 @@ def test_Domain_preprocess():
+     assert Domain.preprocess('ZZ(x,y)') == ZZ.frac_field(x, y)
+     assert Domain.preprocess('QQ(x,y)') == QQ.frac_field(x, y)
+ 
++    assert Domain.preprocess('R(x)') == RR.frac_field(x)
++    assert Domain.preprocess('RR(x)') == RR.frac_field(x)
++
++    assert Domain.preprocess('C(x)') == CC.frac_field(x)
++    assert Domain.preprocess('CC(x)') == CC.frac_field(x)
++
++    assert Domain.preprocess('R(x,y)') == RR.frac_field(x, y)
++    assert Domain.preprocess('RR(x,y)') == RR.frac_field(x, y)
++
++    assert Domain.preprocess('C(x,y)') == CC.frac_field(x, y)
++    assert Domain.preprocess('CC(x,y)') == CC.frac_field(x, y)
++
+     assert Domain.preprocess('Q<I>') == QQ.algebraic_field(I)
+     assert Domain.preprocess('QQ<I>') == QQ.algebraic_field(I)
+ 
+diff --git a/sympy/polys/tests/test_polytools.py b/sympy/polys/tests/test_polytools.py
+index 1f889e9f18..ed3a62c909 100644
+--- a/sympy/polys/tests/test_polytools.py
++++ b/sympy/polys/tests/test_polytools.py
+@@ -47,7 +47,7 @@
+ from sympy.polys.polyclasses import DMP
+ 
+ from sympy.polys.fields import field
+-from sympy.polys.domains import FF, ZZ, QQ, RR, EX
++from sympy.polys.domains import FF, ZZ, QQ, RR, CC, EX
+ from sympy.polys.domains.realfield import RealField
+ from sympy.polys.orderings import lex, grlex, grevlex
+ 
+@@ -320,6 +320,13 @@ def test_Poly__new__():
+     assert Poly(3*x**2 + 2*x + 1, domain='QQ').all_coeffs() == [3, 2, 1]
+     assert Poly(3*x**2 + 2*x + 1, domain='RR').all_coeffs() == [3.0, 2.0, 1.0]
+ 
++    assert Poly(1.2*x*y, x, domain='RR[y]').get_domain() == RR[y]
++    assert Poly(1.2*x*y*z, x, domain='RR[y,z]') == Poly(1.2*x*y*z, x)
++    assert Poly((1.2 + 2.0*I)*x*y, x, domain='CC[y]').get_domain() == CC[y]
++
++    raises(GeneratorsError,
++        lambda: Poly(1.2*x*y, x, y, domain='RR[y]'))
++
+     raises(CoercionFailed, lambda: Poly(3*x**2/5 + 2*x/5 + 1, domain='ZZ'))
+     assert Poly(
+         3*x**2/5 + 2*x/5 + 1, domain='QQ').all_coeffs() == [S(3)/5, S(2)/5, 1]
+2026-11-20 12:18:23,719 - INFO - Git diff changed after running eval script
+2026-11-20 12:18:23,720 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.139575350198592...
+2026-11-20 12:18:39,050 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.139575350198592...
+2026-11-20 12:18:39,109 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.7d34c1b6bf4068eca50dda.139575350198592 removed.
+2026-11-20 12:18:39,110 - WARNING - End of eval at 1795198719.110288

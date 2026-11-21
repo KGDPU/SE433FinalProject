@@ -1,0 +1,53 @@
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+index 0d9625b1..ace5df06 100755
+--- a/tests/test_cli.py
++++ b/tests/test_cli.py
+@@ -498,6 +498,48 @@ class TestRoutes:
+         assert result.exit_code == 0
+         assert "No routes were registered." in result.output
+ 
++    def test_subdomain(self, runner):
++        app = Flask(__name__, static_folder=None)
++        app.add_url_rule("/a", subdomain="a", endpoint="a")
++        app.add_url_rule("/b", subdomain="b", endpoint="b")
++        cli = FlaskGroup(create_app=lambda: app)
++        result = runner.invoke(cli, ["routes"])
++        assert result.exit_code == 0
++        assert result.output.splitlines()[0].split() == [
++            "Endpoint",
++            "Methods",
++            "Subdomain",
++            "Rule",
++        ]
++        rows = {}
++
++        for line in result.output.splitlines()[2:]:
++            endpoint, _, subdomain, rule = line.split()
++            rows[endpoint] = (subdomain, rule)
++
++        assert rows == {"a": ("a", "/a"), "b": ("b", "/b")}
++
++    def test_host(self, runner):
++        app = Flask(__name__, static_folder=None, host_matching=True)
++        app.add_url_rule("/a", host="a", endpoint="a")
++        app.add_url_rule("/b", host="b", endpoint="b")
++        cli = FlaskGroup(create_app=lambda: app)
++        result = runner.invoke(cli, ["routes"])
++        assert result.exit_code == 0
++        assert result.output.splitlines()[0].split() == [
++            "Endpoint",
++            "Methods",
++            "Host",
++            "Rule",
++        ]
++        rows = {}
++
++        for line in result.output.splitlines()[2:]:
++            endpoint, _, host, rule = line.split()
++            rows[endpoint] = (host, rule)
++
++        assert rows == {"a": ("a", "/a"), "b": ("b", "/b")}
++
+ 
+ def dotenv_not_available():
+     try:

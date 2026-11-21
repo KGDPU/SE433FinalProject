@@ -1,0 +1,45 @@
+2026-11-19 05:08:39,840 - WARNING - Starting evaluation at 1795086519.8404775
+2026-11-19 05:17:33,986 - INFO - Creating container for scikit-learn__scikit-learn-13496...
+2026-11-19 05:17:34,263 - INFO - Container for scikit-learn__scikit-learn-13496 created: b468b6a052bd801c440ecf8d3b1b9326d6645a24f58cd835ac57d5448cd6e21e
+2026-11-19 05:17:34,627 - INFO - Container for scikit-learn__scikit-learn-13496 started: b468b6a052bd801c440ecf8d3b1b9326d6645a24f58cd835ac57d5448cd6e21e
+2026-11-19 05:17:35,267 - INFO - Git diff before:
+
+2026-11-19 05:17:35,275 - INFO - Eval script for scikit-learn__scikit-learn-13496 written to eval.sh, now applying to container...
+2026-11-19 05:17:54,083 - INFO - Test output for scikit-learn__scikit-learn-13496 written to run_instance_swt_logs/baseline25/pred_pre__deepseek__deepseek-flash/scikit-learn__scikit-learn-13496/test_output.txt
+2026-11-19 05:17:54,204 - INFO - Git diff after:
+diff --git a/sklearn/ensemble/tests/test_iforest.py b/sklearn/ensemble/tests/test_iforest.py
+index 67ba2d7f93..c8d36dfd3b 100644
+--- a/sklearn/ensemble/tests/test_iforest.py
++++ b/sklearn/ensemble/tests/test_iforest.py
+@@ -64,6 +64,26 @@ def test_iforest():
+                             **params).fit(X_train).predict(X_test)
+ 
+ 
++@pytest.mark.filterwarnings('ignore:default contamination')
++@pytest.mark.filterwarnings('ignore:behaviour="old"')
++def test_iforest_warm_start():
++    """Test that we can incrementally add trees to IsolationForest."""
++    X = iris.data
++    clf = IsolationForest(n_estimators=5, warm_start=True, random_state=0)
++    clf.fit(X)
++
++    assert_equal(len(clf.estimators_), 5)
++    first_estimators = clf.estimators_[:]
++
++    clf.set_params(n_estimators=10)
++    clf.fit(X)
++
++    assert_equal(len(clf.estimators_), 10)
++    # The trees from the first fit must be reused, not discarded.
++    assert all(first is current
++               for first, current in zip(first_estimators, clf.estimators_))
++
++
+ @pytest.mark.filterwarnings('ignore:default contamination')
+ @pytest.mark.filterwarnings('ignore:threshold_ attribute')
+ @pytest.mark.filterwarnings('ignore:behaviour="old"')
+2026-11-19 05:17:54,206 - INFO - Git diff changed after running eval script
+2026-11-19 05:17:54,207 - INFO - Attempting to stop container exec.eval.x86_64.437918b9cd24690e5e9c56.08f722c01b948bb8f26db3.125222676262704...
+2026-11-19 05:18:09,756 - INFO - Attempting to remove container exec.eval.x86_64.437918b9cd24690e5e9c56.08f722c01b948bb8f26db3.125222676262704...
+2026-11-19 05:18:09,855 - INFO - Container exec.eval.x86_64.437918b9cd24690e5e9c56.08f722c01b948bb8f26db3.125222676262704 removed.
+2026-11-19 05:18:09,857 - WARNING - End of eval at 1795087089.8577275

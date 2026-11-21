@@ -1,0 +1,68 @@
+2026-11-20 12:20:03,315 - WARNING - Starting evaluation at 1795198803.3154972
+2026-11-20 12:20:03,525 - INFO - Creating container for sympy__sympy-15308...
+2026-11-20 12:20:03,751 - INFO - Container for sympy__sympy-15308 created: 108ba488ab8469f333bf2b5b631bc183e843137501091f56db17fd3cf2dcc7aa
+2026-11-20 12:20:03,932 - INFO - Container for sympy__sympy-15308 started: 108ba488ab8469f333bf2b5b631bc183e843137501091f56db17fd3cf2dcc7aa
+2026-11-20 12:20:04,263 - INFO - Git diff before:
+
+2026-11-20 12:20:04,266 - INFO - Eval script for sympy__sympy-15308 written to eval.sh, now applying to container...
+2026-11-20 12:20:16,835 - INFO - Test output for sympy__sympy-15308 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/sympy__sympy-15308/test_output.txt
+2026-11-20 12:20:16,900 - INFO - Git diff after:
+diff --git a/sympy/printing/latex.py b/sympy/printing/latex.py
+index a0eb97792e..3de6929ba4 100644
+--- a/sympy/printing/latex.py
++++ b/sympy/printing/latex.py
+@@ -289,6 +289,10 @@ def _do_exponent(self, expr, exp):
+         else:
+             return expr
+ 
++    def _print_Basic(self, expr):
++        l = [self._print(o) for o in expr.args]
++        return self._deal_with_super_sub(expr.__class__.__name__) + r"\left(%s\right)" % ", ".join(l)
++
+     def _print_bool(self, e):
+         return r"\mathrm{%s}" % e
+ 
+@@ -1462,6 +1466,10 @@ def _print_Transpose(self, expr):
+         else:
+             return "%s^T" % self._print(mat)
+ 
++    def _print_Trace(self, expr):
++        mat = expr.arg
++        return r"\mathrm{tr}\left (%s \right )" % self._print(mat)
++
+     def _print_Adjoint(self, expr):
+         mat = expr.arg
+         from sympy.matrices import MatrixSymbol
+diff --git a/sympy/printing/tests/test_latex.py b/sympy/printing/tests/test_latex.py
+index 9f644f15ee..3a6ac4eac0 100644
+--- a/sympy/printing/tests/test_latex.py
++++ b/sympy/printing/tests/test_latex.py
+@@ -1395,6 +1395,23 @@ def test_Tr():
+     assert latex(t) == r'\mbox{Tr}\left(A B\right)'
+ 
+ 
++def test_Trace():
++    from sympy import Trace, trace
++    A = MatrixSymbol('A', 3, 3)
++    B = MatrixSymbol('B', 3, 3)
++
++    assert latex(Trace(A)) == r'\operatorname{Tr}\left(A\right)'
++    assert latex(trace(A**2)) == r'\operatorname{Tr}\left(A^{2}\right)'
++    assert latex(Trace(A + B)) == r'\operatorname{Tr}\left(A + B\right)'
++    assert latex(Trace(A*B)) == r'\operatorname{Tr}\left(A B\right)'
++    assert latex(Trace(A*B + A)) == \
++        r'\operatorname{Tr}\left(A B + A\right)'
++    assert latex(Trace(A.T)) == r'\operatorname{Tr}\left(A^T\right)'
++    assert latex(2*Trace(A)) == r'2 \operatorname{Tr}\left(A\right)'
++    assert latex(Trace(A)**2) == \
++        r'\operatorname{Tr}\left(A\right)^{2}'
++
++
+ def test_Adjoint():
+     from sympy.matrices import MatrixSymbol, Adjoint, Inverse, Transpose
+     X = MatrixSymbol('X', 2, 2)
+2026-11-20 12:20:16,901 - INFO - Git diff changed after running eval script
+2026-11-20 12:20:16,901 - INFO - Attempting to stop container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.139575350198352...
+2026-11-20 12:20:32,766 - INFO - Attempting to remove container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.139575350198352...
+2026-11-20 12:20:32,836 - INFO - Container exec.eval.x86_64.deec2122407a414e380748.1ae8fb279f0f9d4ee9951d.139575350198352 removed.
+2026-11-20 12:20:32,837 - WARNING - End of eval at 1795198832.837444

@@ -1,0 +1,27 @@
+2026-11-20 11:49:20,104 - WARNING - Starting evaluation at 1795196960.1047728
+2026-11-20 11:49:20,304 - INFO - Creating container for django__django-10924...
+2026-11-20 11:49:20,552 - INFO - Container for django__django-10924 created: 43da82bc48fd7f926d99d1274c95027c5e27d9442a2fa088bf7e8d6d07678cd4
+2026-11-20 11:49:20,763 - INFO - Container for django__django-10924 started: 43da82bc48fd7f926d99d1274c95027c5e27d9442a2fa088bf7e8d6d07678cd4
+2026-11-20 11:49:21,362 - INFO - Git diff before:
+
+2026-11-20 11:49:21,366 - INFO - Eval script for django__django-10924 written to eval.sh, now applying to container...
+2026-11-20 11:49:27,293 - INFO - Test output for django__django-10924 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/django__django-10924/test_output.txt
+2026-11-20 11:49:27,360 - INFO - Git diff after:
+diff --git a/django/db/models/fields/__init__.py b/django/db/models/fields/__init__.py
+index 0c64748ccd..4d7eb11151 100644
+--- a/django/db/models/fields/__init__.py
++++ b/django/db/models/fields/__init__.py
+@@ -1709,7 +1709,7 @@ class FilePathField(Field):
+ 
+     def formfield(self, **kwargs):
+         return super().formfield(**{
+-            'path': self.path,
++            'path': self.path() if callable(self.path) else self.path,
+             'match': self.match,
+             'recursive': self.recursive,
+             'form_class': forms.FilePathField,
+2026-11-20 11:49:27,361 - INFO - Git diff changed after running eval script
+2026-11-20 11:49:27,362 - INFO - Attempting to stop container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.139575367759376...
+2026-11-20 11:49:43,180 - INFO - Attempting to remove container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.139575367759376...
+2026-11-20 11:49:43,253 - INFO - Container exec.eval.x86_64.ee2ad6945f237e9160354f.b32cb4f7eb8d719ccbf828.139575367759376 removed.
+2026-11-20 11:49:43,254 - WARNING - End of eval at 1795196983.2549095

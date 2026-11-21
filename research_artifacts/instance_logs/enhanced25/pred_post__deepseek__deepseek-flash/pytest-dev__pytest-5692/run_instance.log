@@ -1,0 +1,83 @@
+2026-11-20 12:14:06,575 - WARNING - Starting evaluation at 1795198446.5758343
+2026-11-20 12:14:06,777 - INFO - Creating container for pytest-dev__pytest-5692...
+2026-11-20 12:14:07,030 - INFO - Container for pytest-dev__pytest-5692 created: a52650073005dc63048f6c5185028cd1052eb0d0ac57bbace83cf877141eb982
+2026-11-20 12:14:07,220 - INFO - Container for pytest-dev__pytest-5692 started: a52650073005dc63048f6c5185028cd1052eb0d0ac57bbace83cf877141eb982
+2026-11-20 12:14:07,333 - INFO - Git diff before:
+
+2026-11-20 12:14:07,337 - INFO - Eval script for pytest-dev__pytest-5692 written to eval.sh, now applying to container...
+2026-11-20 12:14:16,984 - INFO - Test output for pytest-dev__pytest-5692 written to run_instance_swt_logs/enhanced25/pred_post__deepseek__deepseek-flash/pytest-dev__pytest-5692/test_output.txt
+2026-11-20 12:14:17,044 - INFO - Git diff after:
+diff --git a/src/_pytest/junitxml.py b/src/_pytest/junitxml.py
+index 15c630b1d..ba0f48ed3 100644
+--- a/src/_pytest/junitxml.py
++++ b/src/_pytest/junitxml.py
+@@ -10,9 +10,11 @@ src/main/resources/org/jenkinsci/plugins/xunit/types/model/xsd/junit-10.xsd
+ """
+ import functools
+ import os
++import platform
+ import re
+ import sys
+ import time
++from datetime import datetime
+ 
+ import py
+ 
+@@ -666,6 +668,8 @@ class LogXML:
+             skipped=self.stats["skipped"],
+             tests=numtests,
+             time="%.3f" % suite_time_delta,
++            timestamp=datetime.fromtimestamp(self.suite_start_time).isoformat(),
++            hostname=platform.node(),
+         )
+         logfile.write(Junit.testsuites([suite_node]).unicode(indent=0))
+         logfile.close()
+diff --git a/testing/test_junitxml.py b/testing/test_junitxml.py
+index 3196f0ebd..5b1ef37d7 100644
+--- a/testing/test_junitxml.py
++++ b/testing/test_junitxml.py
+@@ -1,4 +1,6 @@
++import datetime
+ import os
++import socket
+ from xml.dom import minidom
+ 
+ import py
+@@ -1118,6 +1120,32 @@ def test_root_testsuites_tag(testdir):
+     assert suite_node.tag == "testsuite"
+ 
+ 
++@pytest.mark.parametrize("num_tests", [0, 1, 2])
++def test_testsuite_hostname_and_timestamp(testdir, num_tests):
++    source = "\n".join("def test_{}(): pass".format(i) for i in range(num_tests))
++    testdir.makepyfile(source)
++    start = datetime.datetime.now()
++    _, dom = runandparse(testdir)
++    end = datetime.datetime.now()
++
++    suite_node = dom.find_first_by_tag("testsuite")
++    suite_node.assert_attr(hostname=socket.gethostname())
++
++    timestamp = suite_node["timestamp"]
++    assert timestamp is not None
++    try:
++        parsed_timestamp = datetime.datetime.strptime(
++            timestamp, "%Y-%m-%dT%H:%M:%S.%f"
++        )
++    except ValueError:
++        parsed_timestamp = datetime.datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%S")
++
++    # The timestamp should record when this test run started, in local time.
++    # Allow for implementations which only include second-level precision.
++    tolerance = datetime.timedelta(seconds=1)
++    assert start - tolerance <= parsed_timestamp <= end + tolerance
++
++
+ def test_runs_twice(testdir):
+     f = testdir.makepyfile(
+         """
+2026-11-20 12:14:17,045 - INFO - Git diff changed after running eval script
+2026-11-20 12:14:17,046 - INFO - Attempting to stop container exec.eval.x86_64.bbbc4277fd8f648e693b98.a47a8ec20488ec34a274d3.139575350037632...
+2026-11-20 12:14:32,717 - INFO - Attempting to remove container exec.eval.x86_64.bbbc4277fd8f648e693b98.a47a8ec20488ec34a274d3.139575350037632...
+2026-11-20 12:14:32,797 - INFO - Container exec.eval.x86_64.bbbc4277fd8f648e693b98.a47a8ec20488ec34a274d3.139575350037632 removed.
+2026-11-20 12:14:32,798 - WARNING - End of eval at 1795198472.7986753

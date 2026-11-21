@@ -1,0 +1,490 @@
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z '' ']'
++++ export CONDA_SHLVL=0
++++ CONDA_SHLVL=0
++++ '[' -n '' ']'
++++++ dirname /opt/miniconda3/bin/conda
+++++ dirname /opt/miniconda3/bin
++++ PATH=/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -z '' ']'
++++ PS1=
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1=
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ cd /testbed
++ git diff HEAD 78ad4b4b0201003792bfdbf1a7781cbc9ee03539
++ sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen
++ locale-gen
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+Generation complete.
++ export LANG=en_US.UTF-8
++ LANG=en_US.UTF-8
++ export LANGUAGE=en_US:en
++ LANGUAGE=en_US:en
++ export LC_ALL=en_US.UTF-8
++ LC_ALL=en_US.UTF-8
++ git config --global --add safe.directory /testbed
++ cd /testbed
++ git status
+On branch main
+nothing to commit, working tree clean
++ git show
+commit 78ad4b4b0201003792bfdbf1a7781cbc9ee03539
+Author: Mariusz Felisiak <felisiak.mariusz@gmail.com>
+Date:   Mon Jun 8 07:21:54 2020 +0200
+
+    Fixed #31660 -- Fixed queryset crash when grouping by m2o relation.
+    
+    Regression in 3a941230c85b2702a5e1cd97e17251ce21057efa.
+    
+    Thanks Tomasz Szymański for the report.
+
+diff --git a/django/db/models/expressions.py b/django/db/models/expressions.py
+index 6bd1471692..76f8fded41 100644
+--- a/django/db/models/expressions.py
++++ b/django/db/models/expressions.py
+@@ -383,7 +383,9 @@ class BaseExpression:
+         Custom format for select clauses. For example, EXISTS expressions need
+         to be wrapped in CASE WHEN on Oracle.
+         """
+-        return self.output_field.select_format(compiler, sql, params)
++        if hasattr(self.output_field, 'select_format'):
++            return self.output_field.select_format(compiler, sql, params)
++        return sql, params
+ 
+     @cached_property
+     def identity(self):
+diff --git a/docs/releases/3.0.8.txt b/docs/releases/3.0.8.txt
+index e355f0a0ff..d21eac37c8 100644
+--- a/docs/releases/3.0.8.txt
++++ b/docs/releases/3.0.8.txt
+@@ -11,3 +11,6 @@ Bugfixes
+ 
+ * Fixed messages of ``InvalidCacheKey`` exceptions and ``CacheKeyWarning``
+   warnings raised by cache key validation (:ticket:`31654`).
++
++* Fixed a regression in Django 3.0.7 that caused a queryset crash when grouping
++  by a many-to-one relationship (:ticket:`31660`).
+diff --git a/tests/annotations/tests.py b/tests/annotations/tests.py
+index 142c23ead6..c1ac0516ac 100644
+--- a/tests/annotations/tests.py
++++ b/tests/annotations/tests.py
+@@ -1,11 +1,13 @@
+ import datetime
+ from decimal import Decimal
++from unittest import skipIf
+ 
+ from django.core.exceptions import FieldDoesNotExist, FieldError
++from django.db import connection
+ from django.db.models import (
+-    BooleanField, CharField, Count, DateTimeField, Exists, ExpressionWrapper,
+-    F, Func, IntegerField, Max, NullBooleanField, OuterRef, Q, Subquery, Sum,
+-    Value,
++    BooleanField, Case, CharField, Count, DateTimeField, Exists,
++    ExpressionWrapper, F, Func, IntegerField, Max, NullBooleanField, OuterRef,
++    Q, Subquery, Sum, Value, When,
+ )
+ from django.db.models.expressions import RawSQL
+ from django.db.models.functions import Length, Lower
+@@ -632,3 +634,22 @@ class NonAggregateAnnotationTestCase(TestCase):
+             datetime.date(2008, 6, 23),
+             datetime.date(2008, 11, 3),
+         ])
++
++    @skipIf(
++        connection.vendor == 'mysql' and 'ONLY_FULL_GROUP_BY' in connection.sql_mode,
++        'GROUP BY optimization does not work properly when ONLY_FULL_GROUP_BY '
++        'mode is enabled on MySQL, see #31331.',
++    )
++    def test_annotation_aggregate_with_m2o(self):
++        qs = Author.objects.filter(age__lt=30).annotate(
++            max_pages=Case(
++                When(book_contact_set__isnull=True, then=Value(0)),
++                default=Max(F('book__pages')),
++                output_field=IntegerField(),
++            ),
++        ).values('name', 'max_pages')
++        self.assertCountEqual(qs, [
++            {'name': 'James Bennett', 'max_pages': 300},
++            {'name': 'Paul Bissex', 'max_pages': 0},
++            {'name': 'Wesley J. Chun', 'max_pages': 0},
++        ])
++ git diff 78ad4b4b0201003792bfdbf1a7781cbc9ee03539
++ source /opt/miniconda3/bin/activate
+++ _CONDA_ROOT=/opt/miniconda3
+++ . /opt/miniconda3/etc/profile.d/conda.sh
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
+++ conda activate
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(testbed) '
++++ __conda_exe shell.posix activate
++++ /opt/miniconda3/bin/conda shell.posix activate
+++ ask_conda='PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3'\''
+export CONDA_SHLVL='\''3'\''
+export CONDA_DEFAULT_ENV='\''base'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_PREFIX_2='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export CONDA_PREFIX=/opt/miniconda3
++++ CONDA_PREFIX=/opt/miniconda3
++++ export CONDA_SHLVL=3
++++ CONDA_SHLVL=3
++++ export CONDA_DEFAULT_ENV=base
++++ CONDA_DEFAULT_ENV=base
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ CONDA_PREFIX_2=/opt/miniconda3/envs/testbed
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ conda activate testbed
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate testbed
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate testbed
+++ /opt/miniconda3/bin/conda shell.posix activate testbed
++ ask_conda='PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'PS1='\''(testbed) '\''
+export PATH='\''/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'\''
+export CONDA_PREFIX='\''/opt/miniconda3/envs/testbed'\''
+export CONDA_SHLVL='\''4'\''
+export CONDA_DEFAULT_ENV='\''testbed'\''
+export CONDA_PROMPT_MODIFIER='\''(testbed) '\''
+export CONDA_PREFIX_3='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ PS1='(testbed) '
+++ export PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/opt/miniconda3/envs/testbed/bin:/opt/miniconda3/condabin:/opt/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ CONDA_PREFIX=/opt/miniconda3/envs/testbed
+++ export CONDA_SHLVL=4
+++ CONDA_SHLVL=4
+++ export CONDA_DEFAULT_ENV=testbed
+++ CONDA_DEFAULT_ENV=testbed
+++ export 'CONDA_PROMPT_MODIFIER=(testbed) '
+++ CONDA_PROMPT_MODIFIER='(testbed) '
+++ export CONDA_PREFIX_3=/opt/miniconda3
+++ CONDA_PREFIX_3=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ python -m pip install -e .
+Obtaining file:///testbed
+Requirement already satisfied: asgiref>=3.2 in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from Django==3.2) (3.4.1)
+Requirement already satisfied: pytz in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from Django==3.2) (2026.6)
+Requirement already satisfied: sqlparse>=0.2.2 in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from Django==3.2) (0.4.4)
+Requirement already satisfied: typing-extensions in /opt/miniconda3/envs/testbed/lib/python3.6/site-packages (from asgiref>=3.2->Django==3.2) (4.1.1)
+Installing collected packages: Django
+  Attempting uninstall: Django
+    Found existing installation: Django 3.2
+    Uninstalling Django-3.2:
+      Successfully uninstalled Django-3.2
+  Running setup.py develop for Django
+Successfully installed Django-3.2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
++ git apply -v -
+Checking patch django/db/models/sql/query.py...
+Applied patch django/db/models/sql/query.py cleanly.
++ git apply -v -
+Checking patch tests/lookup/models.py...
+warning: tests/lookup/models.py has type 100644, expected 100755
+Checking patch tests/lookup/tests.py...
+warning: tests/lookup/tests.py has type 100644, expected 100755
+Applied patch tests/lookup/models.py cleanly.
+Applied patch tests/lookup/tests.py cleanly.
++ python3 /root/trace.py --count -C coverage.cover --include-pattern '/testbed/(django/db/models/sql/query\.py)' ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 lookup.models lookup.tests
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+test_chain_date_time_lookups (lookup.tests.LookupTests) ... ok
+test_count (lookup.tests.LookupTests) ... ok
+test_custom_field_none_rhs (lookup.tests.LookupTests) ... ok
+test_custom_lookup_none_rhs (lookup.tests.LookupTests)
+Lookup.can_use_none_as_rhs=True allows None as a lookup value. ... ok
+test_error_messages (lookup.tests.LookupTests) ... ok
+test_escaping (lookup.tests.LookupTests) ... ok
+test_exact_exists (lookup.tests.LookupTests) ... ok
+test_exact_none_transform (lookup.tests.LookupTests)
+Transforms are used for __exact=None. ... ok
+test_exact_query_rhs_with_selected_columns (lookup.tests.LookupTests) ... ok
+test_exact_sliced_queryset_limit_one (lookup.tests.LookupTests) ... ok
+test_exact_sliced_queryset_limit_one_offset (lookup.tests.LookupTests) ... ok
+test_exact_sliced_queryset_not_limited_to_one (lookup.tests.LookupTests) ... ok
+test_exclude (lookup.tests.LookupTests) ... ok
+test_exists (lookup.tests.LookupTests) ... ok
+test_filter_by_model_instance_with_filterable_field (lookup.tests.LookupTests) ... ok
+test_get_next_previous_by (lookup.tests.LookupTests) ... ok
+test_in (lookup.tests.LookupTests) ... ok
+test_in_bulk (lookup.tests.LookupTests) ... ok
+test_in_bulk_lots_of_ids (lookup.tests.LookupTests) ... ok
+test_in_bulk_meta_constraint (lookup.tests.LookupTests) ... ok
+test_in_bulk_non_unique_field (lookup.tests.LookupTests) ... ok
+test_in_bulk_non_unique_meta_constaint (lookup.tests.LookupTests) ... ok
+test_in_bulk_with_field (lookup.tests.LookupTests) ... ok
+test_in_different_database (lookup.tests.LookupTests) ... ok
+test_in_keeps_value_ordering (lookup.tests.LookupTests) ... ok
+test_isnull_non_boolean_value (lookup.tests.LookupTests) ... ok
+test_iterator (lookup.tests.LookupTests) ... ok
+test_lookup_collision (lookup.tests.LookupTests) ... ok
+test_lookup_date_as_str (lookup.tests.LookupTests) ... ok
+test_lookup_int_as_str (lookup.tests.LookupTests) ... ok
+test_nested_outerref_lhs (lookup.tests.LookupTests) ... ok
+test_none (lookup.tests.LookupTests) ... ok
+test_nonfield_lookups (lookup.tests.LookupTests) ... ok
+test_pattern_lookups_with_substr (lookup.tests.LookupTests) ... ok
+test_regex (lookup.tests.LookupTests) ... ok
+test_regex_backreferencing (lookup.tests.LookupTests) ... ok
+test_regex_non_ascii (lookup.tests.LookupTests) ... ok
+test_regex_non_string (lookup.tests.LookupTests) ... ok
+test_regex_null (lookup.tests.LookupTests) ... ok
+test_relation_nested_lookup_error (lookup.tests.LookupTests) ... ok
+test_unsupported_lookups (lookup.tests.LookupTests) ... ok
+test_values (lookup.tests.LookupTests) ... ok
+test_values_list (lookup.tests.LookupTests) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.562s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+['--count', '-C', 'coverage.cover', '--include-pattern', '/testbed/(django/db/models/sql/query\\.py)']
+Testing against Django installed in '/testbed/django'
+Importing application lookup
+Skipping setup of unused database(s): other.
+Operations to perform:
+  Synchronize unmigrated apps: auth, contenttypes, lookup, messages, sessions, staticfiles
+  Apply all migrations: admin, sites
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table django_content_type
+    Creating table auth_permission
+    Creating table auth_group
+    Creating table auth_user
+    Creating table django_session
+    Creating table lookup_alarm
+    Creating table lookup_author
+    Creating table lookup_article
+    Creating table lookup_tag
+    Creating table lookup_season
+    Creating table lookup_game
+    Creating table lookup_player
+    Creating table lookup_product
+    Creating table lookup_stock
+    Creating table lookup_freebie
+    Creating table lookup_productmetadatatype
+    Creating table lookup_productmetadata
+    Running deferred SQL...
+Running migrations:
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sites.0001_initial... OK
+  Applying sites.0002_alter_domain_unique... OK
+System check identified no issues (0 silenced).
++ cat coverage.cover
+{"/testbed/django/db/models/sql/query.py": {"9": 1, "10": 1, "11": 1, "12": 1, "13": 1, "14": 1, "15": 1, "16": 1, "17": 1, "18": 1, "20": 1, "23": 1, "24": 1, "25": 1, "26": 1, "27": 1, "28": 1, "29": 1, "30": 1, "33": 1, "34": 1, "37": 1, "40": 1, "41": 1, "42": 1, "44": 1, "47": 1, "54": 1, "62": 1, "63": 1, "64": 1, "68": 2, "136": 2, "2302": 1, "2316": 1, "2327": 1, "2335": 2, "48": 4, "49": 32, "50": 28, "55": 0, "56": 0, "57": 0, "59": 0, "71": 1, "83": 1, "86": 1, "89": 1, "96": 1, "108": 1, "111": 1, "115": 1, "118": 1, "72": 0, "73": 0, "74": 0, "75": 0, "79": 0, "80": 0, "81": 0, "84": 0, "87": 0, "90": 0, "91": 0, "92": 0, "93": 0, "94": 0, "99": 0, "100": 0, "103": 0, "105": 0, "106": 0, "109": 0, "113": 0, "116": 0, "119": 0, "123": 0, "124": 0, "125": 0, "126": 0, "127": 0, "128": 0, "130": 0, "132": 0, "133": 0, "139": 1, "140": 1, "142": 1, "144": 1, "232": 1, "240": 1, "244": 1, "249": 1, "260": 1, "267": 1, "273": 1, "280": 1, "288": 1, "338": 1, "353": 1, "358": 1, "363": 1, "415": 1, "510": 1, "521": 1, "524": 1, "538": 1, "546": 1, "647": 1, "733": 1, "758": 1, "762": 1, "766": 1, "800": 1, "819": 1, "828": 1, "867": 1, "916": 1, "928": 1, "936": 1, "984": 1, "1017": 1, "1024": 1, "1049": 1, "1056": 1, "1062": 1, "1076": 1, "1094": 1, "1105": 1, "1125": 1, "1139": 1, "1184": 1, "1206": 1, "1344": 1, "1347": 1, "1364": 1, "1369": 1, "1389": 1, "1411": 1, "1424": 1, "1521": 1, "1622": 1, "1650": 1, "1658": 1, "1662": 1, "1698": 1, "1771": 1, "1774": 1, "1777": 1, "1800": 1, "1804": 1, "1808": 1, "1811": 1, "1819": 1, "1827": 1, "1836": 1, "1840": 1, "1844": 1, "1851": 1, "1889": 1, "1935": 1, "1945": 1, "1986": 1, "2002": 1, "2034": 1, "2038": 1, "2058": 1, "2082": 1, "2101": 1, "2105": 1, "2113": 1, "2117": 1, "2128": 1, "2175": 1, "2194": 1, "2209": 1, "2283": 1, "145": 481, "146": 481, "152": 481, "154": 481, "159": 481, "160": 481, "161": 481, "162": 481, "163": 481, "164": 481, "165": 481, "166": 481, "174": 481, "175": 481, "176": 481, "183": 481, "184": 481, "185": 481, "186": 481, "187": 481, "188": 481, "189": 481, "190": 481, "191": 481, "192": 481, "194": 481, "196": 481, "200": 481, "203": 481, "204": 481, "205": 481, "208": 481, "209": 481, "210": 481, "214": 481, "215": 481, "216": 481, "218": 481, "219": 481, "224": 481, "226": 481, "228": 481, "229": 481, "230": 481, "234": 0, "235": 0, "236": 0, "237": 0, "238": 0, "242": 7, "246": 258, "247": 258, "257": 1, "258": 1, "265": 1, "269": 0, "270": 0, "271": 0, "274": 343, "275": 0, "276": 343, "277": 331, "278": 343, "286": 1838, "293": 576, "294": 576, "296": 576, "298": 576, "299": 576, "300": 576, "301": 576, "302": 576, "303": 576, "304": 576, "305": 567, "307": 9, "313": 576, "314": 576, "315": 576, "316": 567, "318": 9, "319": 576, "320": 576, "322": 0, "323": 576, "326": 0, "327": 576, "328": 30, "329": 576, "330": 576, "332": 576, "333": 576, "334": 536, "335": 536, "336": 576, "343": 468, "344": 468, "345": 2, "346": 468, "347": 464, "348": 468, "349": 468, "350": 2, "351": 468, "354": 2, "355": 2, "356": 2, "359": 276, "360": 0, "361": 276, "375": 32, "376": 32, "377": 48, "381": 16, "384": 0, "385": 16, "389": 0, "390": 0, "393": 32, "394": 16, "395": 0, "396": 0, "399": 16, "402": 0, "403": 0, "404": 0, "405": 0, "406": 0, "410": 16, "411": 16, "412": 32, "413": 32, "419": 37, "420": 0, "422": 111, "423": 37, "437": 37, "438": 34, "439": 16, "440": 16, "441": 16, "442": 16, "443": 16, "444": 16, "445": 16, "449": 13, "450": 16, "456": 3, "457": 6, "460": 3, "461": 0, "462": 3, "464": 84, "465": 16, "468": 16, "469": 32, "470": 16, "471": 16, "472": 16, "473": 16, "474": 16, "475": 16, "477": 16, "478": 16, "482": 3, "483": 16, "484": 16, "485": 0, "486": 0, "488": 0, "491": 21, "492": 21, "493": 21, "494": 21, "496": 37, "497": 37, "498": 37, "499": 37, "500": 37, "501": 37, "502": 37, "503": 1, "505": 37, "506": 37, "508": 37, "424": 37, "458": 0, "514": 37, "515": 37, "516": 37, "517": 37, "518": 0, "519": 37, "522": 0, "525": 7, "526": 7, "527": 7, "528": 0, "531": 0, "532": 7, "533": 7, "534": 7, "535": 7, "536": 7, "539": 0, "540": 0, "541": 0, "542": 0, "543": 0, "544": 0, "555": 0, "556": 0, "557": 0, "558": 0, "559": 0, "560": 0, "561": 0, "562": 0, "565": 0, "566": 0, "580": 0, "583": 0, "584": 0, "585": 0, "586": 0, "587": 0, "590": 0, "591": 0, "592": 0, "595": 0, "596": 0, "597": 0, "598": 0, "602": 0, "603": 0, "604": 0, "605": 0, "610": 0, "611": 0, "612": 0, "616": 0, "617": 0, "618": 0, "621": 0, "622": 0, "624": 0, "626": 0, "630": 0, "631": 0, "632": 0, "633": 0, "634": 0, "635": 0, "636": 0, "637": 0, "638": 0, "639": 0, "640": 0, "644": 0, "645": 0, "661": 157, "662": 157, "663": 157, "664": 0, "665": 0, "666": 0, "667": 0, "668": 0, "669": 0, "670": 0, "671": 0, "672": 0, "673": 0, "674": 0, "675": 0, "676": 0, "677": 0, "679": 0, "680": 0, "684": 0, "685": 0, "686": 0, "687": 0, "688": 0, "689": 0, "690": 0, "691": 0, "692": 0, "693": 0, "694": 0, "696": 0, "701": 0, "702": 0, "703": 0, "704": 0, "705": 0, "706": 0, "707": 0, "712": 0, "713": 0, "714": 0, "715": 0, "717": 0, "718": 0, "719": 0, "724": 0, "728": 0, "729": 0, "730": 0, "731": 0, "741": 368, "742": 368, "743": 0, "744": 0, "745": 0, "748": 368, "749": 0, "750": 0, "753": 368, "754": 368, "755": 368, "756": 368, "760": 485, "764": 353, "777": 268, "778": 268, "779": 0, "780": 0, "784": 0, "786": 0, "787": 0, "788": 0, "789": 0, "790": 0, "791": 0, "792": 0, "795": 0, "796": 0, "797": 0, "810": 494, "811": 867, "812": 373, "813": 373, "814": 53, "815": 53, "816": 53, "817": 17, "824": 526, "825": 307, "826": 307, "834": 12, "838": 12, "839": 12, "840": 3, "841": 24, "842": 16, "843": 4, "847": 16, "848": 4, "849": 0, "850": 4, "851": 4, "852": 4, "853": 4, "854": 4, "856": 4, "857": 5, "858": 4, "859": 3, "860": 3, "861": 24, "864": 12, "874": 18, "892": 18, "894": 8, "900": 10, "901": 12, "902": 12, "903": 10, "904": 10, "905": 2, "906": 0, "907": 0, "909": 10, "910": 10, "911": 24, "913": 14, "883": 10, "884": 10, "885": 10, "886": 1, "887": 1, "888": 2, "889": 2, "890": 0, "921": 713, "922": 456, "923": 456, "925": 257, "926": 713, "934": 6, "952": 397, "954": 0, "959": 1029, "962": 397, "963": 29, "964": 0, "968": 29, "969": 29, "970": 29, "973": 368, "974": 368, "975": 111, "976": 65, "978": 46, "979": 111, "980": 368, "981": 368, "982": 368, "955": 0, "960": 235, "993": 629, "994": 629, "995": 0, "996": 0, "997": 0, "998": 0, "999": 0, "1000": 0, "1001": 0, "1002": 0, "1003": 0, "1008": 0, "1009": 0, "1010": 0, "1011": 0, "1012": 0, "1013": 0, "1014": 0, "1015": 0, "1019": 41, "1020": 41, "1021": 41, "1022": 41, "1025": 18, "1027": 18, "1028": 18, "1031": 18, "1032": 13, "1033": 13, "1034": 13, "1035": 18, "1036": 21, "1037": 3, "1038": 3, "1039": 2, "1040": 3, "1042": 29, "1044": 11, "1045": 11, "1047": 18, "1050": 0, "1052": 0, "1053": 0, "1057": 12, "1058": 12, "1059": 12, "1060": 12, "1063": 2326, "1064": 15, "1065": 15, "1067": 2311, "1070": 49, "1071": 2154, "1072": 2105, "1074": 2277, "1080": 272, "1081": 272, "1082": 3, "1083": 3, "1084": 3, "1085": 269, "1086": 267, "1087": 267, "1088": 0, "1089": 0, "1090": 0, "1092": 267, "1099": 48, "1100": 40, "1101": 0, "1102": 0, "1103": 0, "1107": 267, "1113": 36, "1114": 4, "1115": 0, "1116": 0, "1117": 0, "1119": 36, "1120": 7, "1121": 29, "1122": 63, "1123": 41, "1128": 562, "1129": 40, "1131": 0, "1132": 0, "1135": 562, "1136": 60, "1137": 22, "1149": 270, "1150": 276, "1151": 7, "1154": 269, "1155": 269, "1156": 6, "1157": 1, "1160": 5, "1161": 1, "1162": 1, "1163": 1, "1164": 0, "1166": 264, "1169": 264, "1170": 3, "1171": 0, "1172": 3, "1178": 261, "1179": 0, "1180": 0, "1182": 261, "1189": 12, "1190": 12, "1191": 7, "1193": 5, "1194": 5, "1195": 5, "1196": 2, "1198": 3, "1199": 5, "1200": 5, "1201": 5, "1235": 314, "1236": 0, "1237": 314, "1238": 42, "1239": 42, "1240": 42, "1241": 42, "1242": 42, "1243": 42, "1244": 42, "1245": 42, "1247": 272, "1248": 0, "1249": 0, "1250": 0, "1251": 0, "1253": 0, "1254": 0, "1255": 0, "1256": 272, "1257": 272, "1258": 0, "1259": 272, "1261": 270, "1262": 270, "1264": 270, "1265": 0, "1267": 270, "1268": 270, "1269": 602, "1271": 270, "1272": 270, "1274": 270, "1275": 270, "1276": 3, "1277": 3, "1278": 3, "1280": 267, "1281": 267, "1282": 267, "1284": 267, "1285": 267, "1286": 267, "1287": 267, "1291": 267, "1292": 0, "1293": 267, "1297": 267, "1298": 0, "1299": 0, "1303": 267, "1304": 267, "1305": 267, "1306": 267, "1308": 267, "1310": 36, "1311": 36, "1312": 1, "1313": 35, "1314": 34, "1316": 1, "1318": 231, "1320": 266, "1321": 260, "1322": 260, "1324": 260, "1325": 260, "1326": 4, "1327": 4, "1328": 4, "1329": 4, "1339": 0, "1340": 0, "1341": 0, "1342": 260, "1345": 0, "1358": 475, "1359": 235, "1360": 226, "1361": 212, "1362": 226, "1365": 0, "1371": 277, "1372": 277, "1373": 277, "1374": 277, "1375": 277, "1376": 277, "1377": 582, "1378": 314, "1379": 314, "1380": 314, "1381": 314, "1383": 305, "1384": 305, "1385": 305, "1386": 268, "1387": 268, "1391": 0, "1392": 0, "1393": 0, "1394": 0, "1395": 0, "1396": 0, "1397": 0, "1398": 0, "1399": 0, "1402": 0, "1403": 0, "1404": 0, "1405": 0, "1406": 0, "1408": 0, "1409": 0, "1412": 0, "1413": 0, "1414": 0, "1415": 0, "1416": 0, "1417": 0, "1418": 0, "1419": 0, "1420": 0, "1422": 0, "1439": 831, "1440": 1040, "1441": 986, "1442": 986, "1443": 93, "1445": 986, "1446": 986, "1447": 986, "1448": 986, "1449": 28, "1450": 28, "1451": 0, "1452": 28, "1453": 0, "1454": 0, "1455": 986, "1459": 958, "1460": 0, "1461": 0, "1464": 0, "1466": 958, "1467": 958, "1468": 0, "1471": 0, "1475": 28, "1476": 28, "1477": 3, "1478": 3, "1479": 3, "1480": 3, "1482": 3, "1483": 3, "1484": 25, "1488": 958, "1489": 0, "1490": 0, "1491": 0, "1492": 0, "1493": 0, "1494": 958, "1495": 209, "1496": 209, "1497": 0, "1498": 0, "1499": 0, "1500": 0, "1501": 0, "1502": 209, "1503": 209, "1504": 209, "1505": 209, "1506": 209, "1507": 209, "1508": 209, "1511": 749, "1512": 749, "1513": 749, "1514": 0, "1515": 0, "1516": 0, "1517": 749, "1518": 828, "1552": 519, "1558": 519, "1563": 519, "1564": 519, "1565": 519, "1566": 519, "1567": 519, "1569": 1, "1570": 1, "1573": 1, "1575": 0, "1579": 518, "1580": 518, "1581": 518, "1582": 0, "1592": 0, "1596": 658, "1597": 140, "1598": 0, "1599": 0, "1601": 140, "1602": 140, "1603": 140, "1604": 140, "1605": 107, "1607": 33, "1608": 140, "1609": 140, "1610": 140, "1612": 140, "1613": 140, "1614": 140, "1615": 140, "1617": 140, "1618": 140, "1619": 0, "1620": 518, "1559": 251, "1583": 0, "1584": 0, "1585": 0, "1586": 0, "1588": 0, "1589": 0, "1591": 0, "1635": 518, "1636": 564, "1637": 106, "1638": 12, "1639": 94, "1640": 0, "1641": 283, "1642": 283, "1643": 94, "1644": 48, "1645": 139, "1646": 139, "1647": 46, "1648": 518, "1652": 0, "1653": 0, "1654": 0, "1656": 0, "1660": 0, "1663": 11, "1664": 0, "1665": 11, "1666": 11, "1667": 0, "1668": 0, "1669": 0, "1670": 0, "1671": 0, "1674": 0, "1679": 0, "1681": 0, "1683": 11, "1684": 11, "1685": 11, "1686": 11, "1687": 0, "1688": 11, "1689": 0, "1693": 11, "1694": 11, "1695": 7, "1696": 11, "1717": 0, "1718": 0, "1719": 0, "1720": 0, "1721": 0, "1723": 0, "1724": 0, "1725": 0, "1726": 0, "1729": 0, "1735": 0, "1736": 0, "1737": 0, "1738": 0, "1739": 0, "1740": 0, "1741": 0, "1742": 0, "1743": 0, "1746": 0, "1747": 0, "1750": 0, "1751": 0, "1752": 0, "1753": 0, "1755": 0, "1756": 0, "1757": 0, "1758": 0, "1759": 0, "1760": 0, "1761": 0, "1762": 0, "1769": 0, "1772": 6, "1775": 128, "1786": 51, "1787": 50, "1788": 0, "1790": 50, "1791": 51, "1792": 18, "1793": 17, "1795": 1, "1797": 51, "1798": 0, "1802": 37, "1806": 382, "1809": 5, "1817": 22, "1821": 9, "1822": 9, "1823": 9, "1824": 9, "1825": 9, "1833": 31, "1834": 31, "1837": 0, "1838": 0, "1841": 30, "1842": 30, "1848": 13, "1849": 13, "1856": 33, "1857": 33, "1859": 33, "1860": 33, "1861": 82, "1864": 50, "1865": 49, "1866": 49, "1867": 49, "1868": 49, "1870": 98, "1871": 49, "1872": 32, "1873": 30, "1874": 1, "1875": 0, "1876": 1, "1877": 1, "1880": 0, "1882": 1, "1883": 1, "1884": 1, "1886": 1, "1887": 1, "1898": 63, "1899": 106, "1900": 43, "1901": 43, "1902": 0, "1903": 0, "1905": 0, "1906": 0, "1907": 0, "1909": 0, "1910": 43, "1911": 0, "1912": 43, "1913": 12, "1914": 43, "1915": 0, "1916": 43, "1917": 0, "1920": 43, "1921": 0, "1922": 0, "1923": 43, "1924": 0, "1925": 0, "1926": 0, "1928": 63, "1929": 0, "1930": 63, "1931": 24, "1933": 39, "1940": 133, "1941": 133, "1942": 133, "1943": 70, "1955": 1, "1956": 1, "1957": 1, "1958": 1, "1959": 0, "1960": 0, "1961": 0, "1963": 0, "1965": 0, "1967": 1, "1968": 1, "1969": 2, "1970": 1, "1971": 1, "1972": 0, "1974": 0, "1976": 0, "1977": 0, "1978": 0, "1980": 1, "1981": 0, "1982": 1, "1983": 1, "1984": 1, "1992": 0, "1993": 0, "1995": 0, "1996": 0, "1997": 0, "1998": 0, "1999": 0, "2000": 0, "2007": 13, "2012": 13, "2013": 13, "2014": 0, "2016": 13, "2017": 33, "2018": 20, "2019": 20, "2020": 20, "2021": 20, "2022": 0, "2023": 0, "2024": 0, "2025": 20, "2026": 13, "2027": 13, "2028": 0, "2029": 13, "2030": 0, "2031": 13, "2032": 0, "2036": 31, "2050": 0, "2051": 0, "2053": 0, "2056": 0, "2068": 0, "2069": 0, "2070": 0, "2071": 0, "2072": 0, "2074": 0, "2077": 0, "2080": 0, "2093": 0, "2094": 0, "2095": 0, "2096": 0, "2097": 0, "2098": 0, "2099": 0, "2103": 0, "2107": 72, "2108": 0, "2110": 72, "2111": 72, "2114": 41, "2115": 1, "2122": 46, "2123": 0, "2125": 46, "2126": 46, "2129": 31, "2130": 31, "2131": 31, "2133": 31, "2134": 30, "2135": 30, "2136": 30, "2137": 30, "2140": 23, "2142": 7, "2143": 25, "2144": 18, "2145": 11, "2146": 7, "2147": 1, "2149": 6, "2150": 30, "2151": 30, "2153": 7, "2156": 31, "2157": 0, "2160": 0, "2161": 0, "2162": 31, "2165": 1, "2166": 2, "2167": 1, "2168": 0, "2169": 1, "2170": 1, "2172": 31, "2173": 31, "2181": 677, "2182": 18, "2183": 659, "2184": 455, "2185": 204, "2186": 57, "2187": 38, "2190": 19, "2192": 185, "2188": 19, "2196": 1379, "2197": 31, "2198": 1348, "2199": 1319, "2200": 29, "2201": 43, "2202": 31, "2205": 12, "2207": 17, "2203": 19, "2222": 0, "2223": 0, "2224": 0, "2225": 0, "2230": 0, "2233": 0, "2234": 0, "2235": 0, "2236": 0, "2237": 0, "2238": 0, "2239": 0, "2241": 0, "2243": 0, "2244": 0, "2245": 0, "2246": 0, "2247": 0, "2248": 0, "2249": 0, "2250": 0, "2251": 0, "2252": 0, "2259": 0, "2260": 0, "2261": 0, "2262": 0, "2263": 0, "2264": 0, "2265": 0, "2266": 0, "2267": 0, "2272": 0, "2273": 0, "2276": 0, "2277": 0, "2278": 0, "2279": 0, "2280": 0, "2281": 0, "2231": 0, "2297": 111, "2298": 0, "2299": 111, "2310": 382, "2311": 382, "2312": 144, "2313": 238, "2321": 0, "2322": 0, "2324": 0, "2332": 0, "2341": 1, "2356": 1, "2363": 1, "2342": 277, "2343": 277, "2344": 277, "2345": 4, "2346": 4, "2348": 0, "2350": 273, "2351": 277, "2354": 277, "2361": 305, "2370": 268, "2371": 268, "2374": 624, "2385": 356, "2386": 0, "2397": 356, "2398": 14, "2399": 356, "2415": 268, "2416": 268, "2417": 268}}
++ git checkout 78ad4b4b0201003792bfdbf1a7781cbc9ee03539
+M	django/db/models/sql/query.py
+M	tests/lookup/models.py
+M	tests/lookup/tests.py
+Note: switching to '78ad4b4b0201003792bfdbf1a7781cbc9ee03539'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 78ad4b4b02 Fixed #31660 -- Fixed queryset crash when grouping by m2o relation.
++ git apply /root/pre_state.patch
+error: unrecognized input

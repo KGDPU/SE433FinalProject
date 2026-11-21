@@ -1,0 +1,16 @@
+diff --git a/sympy/tensor/array/tests/test_ndim_array.py b/sympy/tensor/array/tests/test_ndim_array.py
+index f0732fd7c7..9768bb84b5 100755
+--- a/sympy/tensor/array/tests/test_ndim_array.py
++++ b/sympy/tensor/array/tests/test_ndim_array.py
+@@ -50,3 +50,11 @@ def test_issue_20222():
+     A = Array([[1, 2], [3, 4]])
+     B = Matrix([[1,2],[3,4]])
+     raises(TypeError, lambda: A - B)
++
++
++def test_issue_17851():
++    for array_type in array_types:
++        A = array_type([])
++        assert isinstance(A, array_type)
++        assert A.shape == (0,)
++        assert list(A) == []
