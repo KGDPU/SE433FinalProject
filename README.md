@@ -2,211 +2,221 @@
 
 ## Project Overview
 
-This project investigates whether providing an LLM-based software testing agent with examples of common software defect patterns improves its ability to generate effective and efficient regression tests.
+This project investigates whether providing an LLM-based software testing agent with instructions and examples of common software defect patterns improves its ability to generate effective regression tests.
 
 The experiment uses mini-SWE-agent with the DeepSeek-Flash language model and evaluates generated regression tests using SWT-Bench.
 
-The complete experiment consists of two configurations evaluated against the same 24 software defect instances.
+The experiment compares two configurations across the same 25 selected SWE-bench Lite instances:
+
+- **Baseline:** mini-SWE-agent using the original prompt configuration.
+- **Enhanced:** The same agent and language model, with additional instructions concerning common software defect patterns and guidance for generating regression tests that exercise potentially overlooked behaviors.
+
+The experimental treatment modifies the prompt context rather than the underlying agent execution workflow.
 
 ## Research Question
 
-Does providing an LLM with instructions and examples of common software development defect patterns improve its ability to generate regression tests effectively and efficiently?
+Does providing an LLM with instructions and examples of common software development defect patterns improve generated test coverage compared with an unchanged DeepSeek baseline under the same experimental conditions?
 
 ## Experimental Design
 
 Two configurations were evaluated:
 
-- **Baseline:** mini-SWE-agent using the baseline prompt configuration.
-- **Experimental:** The same agent and language model, with an additional prompt section containing ten common software defect patterns, accompanying code examples, and instructions on considering these patterns during test generation.
-
-The experimental treatment modified the prompt context rather than the underlying agent execution workflow.
+- **Baseline:** The original mini-SWE-agent prompt configuration.
+- **Enhanced:** The baseline configuration with additional defect-pattern instructions covering common sources of software defects, including boundary conditions, unexpected inputs, state mutation, nested objects, ordering, and silent incorrect behavior.
 
 Both configurations used:
 
-- DeepSeek-Flash through LiteLLM
-- The same 24 SWT-Bench instances
-- The SWE-bench Lite test split
-- One generation worker
-- The same SWT-Bench evaluation procedure
-- One evaluation worker
+- DeepSeek-Flash through LiteLLM (`deepseek/deepseek-flash`).
+- The same 25 SWT-Bench instances.
+- The SWE-bench Lite test split.
+- One generation worker.
+- The same SWT-Bench evaluation procedure.
+- One evaluation worker.
 
-The agent was tasked with generating regression tests that reproduce reported defects, not modifying application code to fix them.
+The 25 instances were selected randomly from 276 eligible SWE-bench Lite test instances using random seed 443.
+
+The agent was tasked with generating regression tests that reproduce reported defects, rather than modifying application code to fix them.
 
 ## Results Summary
 
-| Metric | Baseline | Experimental |
+| Metric | Baseline | Enhanced |
 |---|---:|---:|
-| Instances evaluated | 24 | 24 |
-| Successfully reproduced | 10 | 10 |
-| Reproduction success rate | 41.67% | 41.67% |
-| Mean coverage | 80.73% | 77.95% |
-| Mean coverage delta | 0.6349 | 0.6210 |
-| Recorded LLM inference cost | $0.28046 | $0.26036 |
-| LLM API calls | 508 | 509 |
-| Generation-run execution time | 35m 30s | 32m 12s |
+| Assigned instances | 25 | 25 |
+| Instances evaluated | 21 | 21 |
+| Successfully reproduced | 20 | 18 |
+| Reproduction success rate (25 assigned) | 80.00% | 72.00% |
+| Mean coverage | 80.92% | 86.03% |
+| Mean coverage delta | 0.5146 | 0.6446 |
+| LLM inference cost | $0.24 | $0.24 |
+| LLM API calls | Not yet established | Not yet established |
+| Generation wall-clock time | 43m 34s | 45m 20s |
 
-The experimental configuration achieved the same overall issue reproduction success rate as the baseline, while reducing recorded LLM cost by approximately 7.17% and generation-run execution time by approximately 9.31%.
+The enhanced configuration increased mean code coverage by approximately 5.11 percentage points and mean coverage delta by approximately 0.1300.
 
-The successful instances differed between configurations:
+However, issue reproduction success decreased from 80.00% to 72.00%. The enhanced configuration also required approximately 4.1% more generation time, while recorded LLM inference costs remained identical.
 
-- Eight instances were successfully reproduced by both configurations.
-- Twelve instances remained unresolved in both configurations.
-- Two instances were resolved only by the experimental configuration: `pytest-dev__pytest-11143` and `sympy__sympy-11897`.
-- Two instances were resolved only by the baseline configuration: `pytest-dev__pytest-5103` and `pytest-dev__pytest-6116`.
+The reproduction outcomes differed between configurations:
 
-These findings do not establish a consistent improvement in test-generation effectiveness, although the experimental run showed lower computational cost and execution time.
+- Eighteen instances were successfully reproduced by both configurations.
+- One evaluated instance remained unresolved in both configurations: `sympy__sympy-15308`.
+- Two instances were resolved only by the baseline: `django__django-13933` and `sympy__sympy-16281`.
+- No instances were resolved only by the enhanced configuration.
+- Four instances experienced generation failures in both configurations and could not be evaluated.
+
+These findings indicate that the additional defect-pattern instructions increased measured code coverage but did not improve overall issue reproduction success.
 
 ## Repository Structure
 
-The relevant project directories and files are:
+The research artifacts are organized under `research_artifacts/`.
 
 ```text
 SE433FinalProject/
 ├── mini-swe-agent/
-│   ├── src/minisweagent/
-│   │   ├── config/benchmarks/
-│   │   │   ├── swtbench_baseline.yaml
-│   │   │   └── swtbench_context.yaml
-│   │   └── run/benchmarks/
-│   └── results/
-│       ├── deepseek_flash_test_baseline/
-│       │   └── preds.jsonl
-│       └── deepseek_flash_test_context/
-│           └── preds.jsonl
-├── SWTBench/
-│   └── swt-bench/
-│       ├── dataset/
-│       │   └── filter_cases_lite.txt
-│       └── src/
+│   └── ...                         # Agent source and configuration
+├── swt-bench/
+│   └── ...                         # Benchmark source and evaluation tools
+├── research_artifacts/
+│   ├── configs/
+│   │   └── pilot25_ids.txt
+│   ├── generation/
+│   │   ├── baseline25/
+│   │   └── enhanced25/
+│   ├── predictions/
+│   │   ├── baseline25.swtbench.jsonl
+│   │   ├── enhanced25.swtbench.jsonl
+│   │   ├── baseline25.submitted_ids.txt
+│   │   └── enhanced25.submitted_ids.txt
+│   ├── evaluation/
+│   │   ├── deepseek__deepseek-flash.baseline25.json
+│   │   └── deepseek__deepseek-flash.enhanced25.json
+│   ├── instance_logs/
+│   │   ├── baseline25/
+│   │   └── enhanced25/
+│   ├── analysis/
+│   │   ├── create_comparison.py
+│   │   ├── results_comparison.csv
+│   │   └── instance_outcomes.csv
+│   └── case_studies/
+│       ├── django__django-13933/
+│       ├── sympy__sympy-16281/
+│       ├── sympy__sympy-15308/
+│       ├── django__django-10924/
+│       ├── django__django-13028/
+│       └── django__django-13447/
 └── README.md
 ```
 
-The directory tree highlights the principal experiment files and is not an exhaustive listing.
+The directory tree highlights the principal research artifacts and is not an exhaustive listing. The original mini-SWE-agent and SWT-Bench source directories should retain their respective project files.
 
 ## Reproducing the Experiment
 
-The experiment consists of two stages:
+The experiment consists of two primary stages:
 
 1. Generate regression test patches using mini-SWE-agent and DeepSeek-Flash.
 2. Evaluate the generated patches using SWT-Bench.
 
-Commands below are written for a Linux or WSL shell. All relative paths assume the repository directory structure shown above.
+Commands below assume a Linux or WSL environment. Relative paths should be adjusted if the repository is organized differently.
 
 ### Prerequisites
 
 The experiment requires:
 
-- Python and the dependencies required by the included mini-SWE-agent and SWT-Bench projects
-- A configured Python virtual environment for mini-SWE-agent
-- Docker and the dependencies required by SWT-Bench evaluation
-- Access to the DeepSeek-Flash model through LiteLLM
-- Appropriate model API credentials
+- Python and the dependencies required by mini-SWE-agent and SWT-Bench.
+- A configured Python environment.
+- Docker Desktop with WSL2 integration or a compatible Docker environment.
+- Access to DeepSeek-Flash through LiteLLM.
+- Appropriate model API credentials.
 
-Install and configure each project's dependencies according to its included setup instructions.
+API credentials must be configured locally and must not be committed to the repository.
+
+Install each project's dependencies according to its included setup instructions.
 
 ### Step 1: Select the SWT-Bench Instances
 
-The 24 instances used in the experiment are identified in:
+The experiment uses 25 instances selected from the SWE-bench Lite test split.
 
-`SWTBench/swt-bench/dataset/filter_cases_lite.txt`
+The selected instance identifiers are preserved in the experiment configuration artifacts.
 
-From the repository root, enter the mini-SWE-agent directory:
+The same instance selection must be used for both baseline and enhanced configurations to maintain a controlled comparison.
 
-```bash
-cd mini-swe-agent
-```
-
-Initialize the `FILTER` variable:
-
-```bash
-FILTER=$(paste -sd '|' ../SWTBench/swt-bench/dataset/filter_cases_lite.txt)
-```
-
-This command reads the instance identifiers and joins them with `|` characters, creating the regular expression used by mini-SWE-agent's `--filter` argument.
-
-To display the selected instances:
-
-```bash
-echo "$FILTER" | tr '|' '\n'
-```
-
-The same filter must be used for both configurations.
+The random selection used seed 443.
 
 ### Step 2: Generate Baseline Regression Tests
 
-From the `mini-swe-agent/` directory, execute:
+Run mini-SWE-agent using the baseline prompt configuration and the selected 25 instances.
+
+The generation outputs are preserved under:
+
+`research_artifacts/generation/baseline25/`
+
+The resulting predictions are stored in:
+
+`research_artifacts/predictions/baseline25.swtbench.jsonl`
+
+### Step 3: Generate Enhanced Regression Tests
+
+Run mini-SWE-agent using the enhanced prompt configuration.
+
+The enhanced configuration includes additional defect-pattern instructions while keeping the model and agent execution workflow unchanged.
+
+The generation outputs are preserved under:
+
+`research_artifacts/generation/enhanced25/`
+
+The resulting predictions are stored in:
+
+`research_artifacts/predictions/enhanced25.swtbench.jsonl`
+
+### Step 4: Evaluate Baseline Predictions
+
+From the SWT-Bench project directory, execute:
 
 ```bash
-.venv/bin/mini-extra swebench \
-    --subset lite \
-    --split test \
-    --filter "^($FILTER)$" \
-    --workers 1 \
-    --output results/deepseek_flash_test_baseline \
-    --config src/minisweagent/config/benchmarks/swtbench_baseline.yaml \
-    --model-class litellm \
-    --model deepseek/deepseek-flash
+uv run python -m src.main \
+  --dataset_name princeton-nlp/SWE-bench_Lite \
+  --predictions_path research_artifacts/predictions/baseline25.swtbench.jsonl \
+  --max_workers 1 \
+  --run_id baseline25
 ```
 
-The generated prediction file is expected at:
+Adjust the prediction path to the correct relative path from the SWT-Bench working directory.
 
-`mini-swe-agent/results/deepseek_flash_test_baseline/preds.jsonl`
+The aggregate evaluation result is preserved as:
 
-### Step 3: Generate Experimental Regression Tests
+`research_artifacts/evaluation/deepseek__deepseek-flash.baseline25.json`
 
-Using the same working directory and instance filter, execute:
+### Step 5: Evaluate Enhanced Predictions
+
+Using the same evaluation environment and worker count, execute:
 
 ```bash
-.venv/bin/mini-extra swebench \
-    --subset lite \
-    --split test \
-    --filter "^($FILTER)$" \
-    --workers 1 \
-    --output results/deepseek_flash_test_context \
-    --config src/minisweagent/config/benchmarks/swtbench_context.yaml \
-    --model-class litellm \
-    --model deepseek/deepseek-flash
+uv run python -m src.main \
+  --dataset_name princeton-nlp/SWE-bench_Lite \
+  --predictions_path research_artifacts/predictions/enhanced25.swtbench.jsonl \
+  --max_workers 1 \
+  --run_id enhanced25
 ```
 
-The generated prediction file is expected at:
+The aggregate evaluation result is preserved as:
 
-`mini-swe-agent/results/deepseek_flash_test_context/preds.jsonl`
+`research_artifacts/evaluation/deepseek__deepseek-flash.enhanced25.json`
 
-The only intended differences between the generation configurations are the prompt configuration and the output directory.
+Both configurations use the same benchmark dataset and evaluation procedure. Only the prediction file and run identifier differ.
 
-### Step 4: Evaluate the Baseline Predictions
+### Step 6: Generate the Comparison Results
 
-From the repository root, enter the SWT-Bench directory:
+From the SWT-Bench project directory, execute:
 
 ```bash
-cd ../SWTBench/swt-bench
+python3 research_artifacts/analysis/create_comparison.py
 ```
 
-Execute:
+This produces:
 
-```bash
-python -m src.main \
-    --dataset_name princeton-nlp/SWE-bench_Lite \
-    --predictions_path ../../mini-swe-agent/results/deepseek_flash_test_baseline/preds.jsonl \
-    --max_workers 1 \
-    --run_id deepseek_flash_test_baseline
-```
+- `research_artifacts/analysis/results_comparison.csv`
+- `research_artifacts/analysis/instance_outcomes.csv`
 
-### Step 5: Evaluate the Experimental Predictions
-
-From the same `SWTBench/swt-bench/` directory, execute:
-
-```bash
-python -m src.main \
-    --dataset_name princeton-nlp/SWE-bench_Lite \
-    --predictions_path ../../mini-swe-agent/results/deepseek_flash_test_context/preds.jsonl \
-    --max_workers 1 \
-    --run_id deepseek_flash_test_context
-```
-
-Both evaluation commands use the same dataset and worker count. The prediction file and run identifier differ.
-
-The relative paths are resolved from the `SWTBench/swt-bench/` working directory.
+These files provide the per-instance comparison and aggregate results used in the analysis.
 
 ## Evaluation Metrics
 
@@ -214,81 +224,91 @@ The following measurements were used to compare the two configurations.
 
 ### Issue Reproduction Success Rate
 
-The percentage of evaluated instances classified as successfully reproduced by SWT-Bench.
+The percentage of assigned instances successfully classified as resolved by SWT-Bench.
 
-A successful reproduction requires generated tests to demonstrate the reported defect against the defective version and pass after the reference fix, subject to the benchmark's validation criteria.
+The denominator includes all 25 assigned instances. Instances that failed during generation are counted as unsuccessful for this overall rate, but are distinguished from evaluated unresolved instances.
 
 ### Code Coverage
 
-Mean code coverage and mean coverage delta were obtained from the SWT-Bench evaluation results.
+Mean code coverage and mean coverage delta were obtained from SWT-Bench evaluation results.
+
+Mean coverage measures the average reported coverage across instances with available coverage measurements.
+
+Mean coverage delta represents the average proportion of executable lines covered by the generated tests relative to the evaluator's coverage-delta calculation.
 
 ### Computational Cost
 
-Recorded LLM inference costs and API call counts were obtained from the generation results.
+Recorded LLM inference costs were compared between configurations.
 
-### Execution Time
+Both configurations incurred $0.24 in recorded inference costs.
 
-Generation-run execution time was measured for each configuration. These measurements include generation execution overhead but exclude initial dataset loading and subsequent SWT-Bench evaluation.
+### LLM API Calls
 
+LLM API call counts are a planned comparison metric. The exact totals for the two 25-instance runs have not yet been established and are therefore not reported.
+
+### Generation Wall-Clock Time
+
+Generation wall-clock time measures the total elapsed generation time for each configuration, including time associated with unsuccessful generation attempts.
+
+The baseline completed in 43 minutes and 34 seconds, while the enhanced configuration completed in 45 minutes and 20 seconds.
+
+These measurements exclude subsequent SWT-Bench evaluation time.
 
 ## Generated Artifacts
 
-The repository includes the baseline and experimental configurations, generated test patches, prediction files, generation logs, SWT-Bench evaluation results, and supporting computational cost records.
+The repository preserves the experiment's configurations, predictions, evaluation summaries, analysis scripts, and selected case studies.
 
 ### Test Generation Results
 
-The generation outputs are located under `mini-swe-agent/results/`.
+Generation artifacts are located under:
 
-| Artifact | Location |
-|---|---|
-| Baseline generation archive | `mini-swe-agent/results/baseline_generation.zip` |
-| Experimental generation archive | `mini-swe-agent/results/experiment_generation.zip` |
-| Baseline predictions | `mini-swe-agent/results/deepseek_flash_test_baseline/preds.jsonl` |
-| Experimental predictions | `mini-swe-agent/results/deepseek_flash_test_context/preds.jsonl` |
+- `research_artifacts/generation/baseline25/`
+- `research_artifacts/generation/enhanced25/`
+
+Prediction files are located under:
+
+- `research_artifacts/predictions/baseline25.swtbench.jsonl`
+- `research_artifacts/predictions/enhanced25.swtbench.jsonl`
 
 ### SWT-Bench Evaluation Results
 
-Evaluation artifacts are located under `SWTBench/swt-bench/run_instance_swt_logs/`.
+Aggregate evaluation artifacts are located under:
 
-The `deepseek_flash_test_baseline/` and `deepseek_flash_test_context/` directories contain the corresponding evaluation results, including aggregate JSON summaries and per-instance execution reports.
+`research_artifacts/evaluation/`
 
-These records support the reported issue reproduction success rates, code coverage measurements, and coverage deltas.
+Per-instance execution reports are located under:
 
-### Computational Cost and Execution Time
+`research_artifacts/instance_logs/`
 
-Recorded LLM inference costs and generation execution times were obtained from the mini-SWE-agent generation outputs.
+These records support the reported issue reproduction outcomes and code coverage measurements.
 
-The aggregate measurements and comparison are presented in the Results Summary section of this README.
+### Case Studies
 
-### Per-Instance Results
+Selected baseline and enhanced patches and their test outputs are preserved under:
 
-Individual SWT-Bench evaluation reports are preserved for both configurations. These allow the reproduction outcome of each of the 24 instances to be inspected independently.
+`research_artifacts/case_studies/`
 
-## Reproducibility Notes
+The six selected instances allow individual differences in generated tests and reproduction outcomes to be examined.
 
-The experiment used one full baseline run and one full experimental run, each evaluating the same 24 instances.
+### Analysis Results
 
-Because LLM-generated outputs may vary between executions, rerunning the commands may not produce identical test patches, reproduction outcomes, costs, or execution times.
+The comparison scripts and generated CSV files are located under:
 
-The baseline and experimental configuration files preserve the prompt configurations used for comparison.
+`research_artifacts/analysis/`
 
-### Stop conditions of the experiment
+These files support the reported aggregate measurements and per-instance outcome comparisons.
 
-The conditions that will cause the experiment pre-maturly:
-1. 250 step limit for agent is exceeded
-2. $3.00 spend limit for agent is exceeded
-3. 60 second timeout threshold on command line exceutions is exceeded
+## Test Quality Analysis
 
-### Dependency Management
+The enhanced configuration generated different patches from the baseline in all 21 instances evaluated by SWT-Bench.
 
-The repository includes dependency manifests for both major project components:
+However, differences in generated tests did not consistently translate into improved issue reproduction.
 
-- `mini-swe-agent/pyproject.toml` — mini-SWE-agent project dependencies and package configuration.
-- `SWTBench/swt-bench/pyproject.toml` — SWT-Bench project dependencies and package configuration.
-- `SWTBench/swt-bench/uv.lock` — locked dependency resolution for SWT-Bench.
-- `SWTBench/swt-bench/src/auxillary_src/requirements_extraction.txt` — auxiliary extraction requirements.
+Three instances resolved by both configurations, two resolved only by the baseline, and one unresolved by both were selected for closer examination.
 
-These files provide dependency information for reproducing the experiment. However, the mini-SWE-agent environment does not have a confirmed tracked lockfile, so exact dependency-version reproducibility has not been fully established.
+The case studies indicate that the enhanced prompt sometimes encouraged broader test scenarios, but these additional scenarios did not necessarily satisfy the precise reproduction requirements of the benchmark.
+
+The results therefore suggest that increased code coverage should not be interpreted as equivalent to improved defect detection.
 
 ## Threats to Validity
 
@@ -296,16 +316,19 @@ The experiment has several limitations.
 
 First, SWT-Bench's resolved/unresolved classification does not fully capture differences in the number, breadth, or quality of generated regression tests.
 
-Second, the sample contains only 24 instances, limiting the generalizability of the findings.
+Second, the sample contains only 25 selected instances, limiting the generalizability of the findings to other software projects and defect types.
 
-Third, the nondeterministic nature of LLM outputs introduces possible run-to-run variation. Since each configuration was evaluated in one full run, the observed efficiency differences cannot be attributed conclusively to the prompt modification.
+Third, four instances experienced generation failures in both configurations and could not be evaluated. Their potential reproduction outcomes remain unknown.
 
-Finally, all ten defect-pattern examples were introduced together. The experiment therefore cannot isolate the effects of individual examples.
+Fourth, the nondeterministic nature of LLM-generated outputs introduces possible run-to-run variation. Since each configuration was evaluated in one full run, repeated trials would be necessary to establish whether the observed differences are consistent.
+
+Finally, all additional defect-pattern instructions were introduced together. The experiment therefore cannot isolate the contribution of individual defect patterns.
+
+The experiment also did not independently measure silent-failure detection or false-positive rates. Consequently, conclusions about improvements in detecting subtle or silent software defects remain limited.
 
 ## Contributions
 
-M. Kottal - Initial experiment design, experiment execution, evaluation analysis, and report writing.
-K. Gacek - Initial experiment design, experiment execution, evaluation analysis, and report writing.
+K. Gacek - Experiment design, instance selection, baseline and enhanced experiment execution, evaluation analysis, case-study analysis, and report writing.
 
 ## References
 
