@@ -328,7 +328,7 @@ The experiment also did not independently measure silent-failure detection or fa
 
 ## Contributions
 
-K. Gacek - Experiment design, instance selection, baseline and enhanced experiment execution, evaluation analysis, case-study analysis, and report writing.
+M. Kottal - Initial experiment design, experiment execution, evaluation analysis, and report writing. K. Gacek - Initial experiment design, experiment execution, evaluation analysis, and report writing.
 
 ## References
 
